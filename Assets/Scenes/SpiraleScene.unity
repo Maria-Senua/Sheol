@@ -299,6 +299,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   centerPoint: {fileID: 516507228}
   trackedTransform: {fileID: 1716847457}
+  subscenes:
+  - {fileID: 1744636051}
+  - {fileID: 123429769}
+  - {fileID: 265765181}
+  moveSpeed: 2
 --- !u!1 &90615743
 GameObject:
   m_ObjectHideFlags: 0
@@ -12407,7 +12412,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &1484321416
 MeshCollider:
   m_ObjectHideFlags: 0

@@ -4,8 +4,12 @@ public class CircularMovementDetector : MonoBehaviour
 {
 
     public Transform centerPoint;   
-    private Vector3 lastPosition;
     public Transform trackedTransform;
+    public GameObject[] subscenes;
+    public float moveSpeed = 0.5f;
+
+    private Vector3 lastPosition;
+    private int direction = 0;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -18,6 +22,7 @@ public class CircularMovementDetector : MonoBehaviour
     void Update()
     {
         Vector3 currentPosition = trackedTransform.position;
+        float playerSpeed = Vector3.Distance(currentPosition, lastPosition) / Time.deltaTime;
 
         Vector3 toLast = lastPosition - centerPoint.position;
         Vector3 toCurrent = currentPosition - centerPoint.position;
@@ -30,13 +35,34 @@ public class CircularMovementDetector : MonoBehaviour
         Debug.DrawLine(centerPoint.position, trackedTransform.position, Color.green);
 
 
-        if (Mathf.Abs(cross) > 0.001f) 
+        if (Mathf.Abs(cross) > 0.001f)
         {
             if (cross > 0)
+            {
+                direction = -1; 
                 Debug.Log("Counterclockwise");
+            }
             else
+            {
+                direction = 1; 
                 Debug.Log("Clockwise");
+            }
         }
+        else
+        {
+            direction = 0; 
+        }
+
+        if (direction != 0)
+        {
+            float deltaY = direction * playerSpeed * Time.deltaTime;
+
+            foreach (GameObject subscene in subscenes)
+            {
+                subscene.transform.position += new Vector3(0, deltaY, 0);
+            }
+        }
+
 
         lastPosition = currentPosition;
     }
