@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class CircularMovementDetector : MonoBehaviour
 {
@@ -6,10 +7,11 @@ public class CircularMovementDetector : MonoBehaviour
     public Transform centerPoint;   
     public Transform trackedTransform;
     public GameObject[] subscenes;
-    public float moveSpeed = 0.5f;
 
     private Vector3 lastPosition;
     private int direction = 0;
+
+    public UnityEvent onSpiralConnectorEnter;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -65,5 +67,14 @@ public class CircularMovementDetector : MonoBehaviour
 
 
         lastPosition = currentPosition;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Loader"))
+        {
+            Debug.Log("CrossLoader");
+            onSpiralConnectorEnter.Invoke();
+        }
     }
 }
