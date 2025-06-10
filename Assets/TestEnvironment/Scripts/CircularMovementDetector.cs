@@ -7,6 +7,7 @@ public class CircularMovementDetector : MonoBehaviour
     public Transform centerPoint;   
     public Transform trackedTransform;
     public GameObject[] subscenes;
+    public float speedMultiplier = 0.3f;
 
     private Vector3 lastPosition;
     private int direction = 0;
@@ -63,7 +64,7 @@ public class CircularMovementDetector : MonoBehaviour
 
         if (direction != 0)
         {
-            float deltaY = direction * playerSpeed * 0.3f * Time.deltaTime;
+            float deltaY = direction * playerSpeed * speedMultiplier * Time.deltaTime;
 
             foreach (GameObject subscene in subscenes)
             {
