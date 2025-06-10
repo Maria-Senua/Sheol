@@ -10,6 +10,7 @@ public class CircularMovementDetector : MonoBehaviour
 
     private Vector3 lastPosition;
     private int direction = 0;
+    private bool isInDiorama = false;
 
     public UnityEvent onSpiralConnectorEnter;
 
@@ -22,6 +23,11 @@ public class CircularMovementDetector : MonoBehaviour
 
     // Update is called once per frame
     void Update()
+    {
+        if (!isInDiorama) MoveSpiral();
+    }
+
+    private void MoveSpiral()
     {
         Vector3 currentPosition = trackedTransform.position;
         float playerSpeed = Vector3.Distance(currentPosition, lastPosition) / Time.deltaTime;
@@ -41,23 +47,23 @@ public class CircularMovementDetector : MonoBehaviour
         {
             if (cross > 0)
             {
-                direction = -1; 
+                direction = -1;
                 Debug.Log("Counterclockwise");
             }
             else
             {
-                direction = 1; 
+                direction = 1;
                 Debug.Log("Clockwise");
             }
         }
         else
         {
-            direction = 0; 
+            direction = 0;
         }
 
         if (direction != 0)
         {
-            float deltaY = direction * playerSpeed * Time.deltaTime;
+            float deltaY = direction * playerSpeed * 0.3f * Time.deltaTime;
 
             foreach (GameObject subscene in subscenes)
             {
@@ -75,6 +81,14 @@ public class CircularMovementDetector : MonoBehaviour
         {
             Debug.Log("CrossLoader");
             onSpiralConnectorEnter.Invoke();
+        }
+
+        if (other.CompareTag("Entrance"))
+        {
+            Debug.Log("Entered Diorama");
+           
+            isInDiorama = !isInDiorama;
+            
         }
     }
 }
