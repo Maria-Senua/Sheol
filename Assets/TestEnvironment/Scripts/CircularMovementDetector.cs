@@ -7,13 +7,17 @@ public class CircularMovementDetector : MonoBehaviour
     public Transform centerPoint;   
     public Transform trackedTransform;
     public GameObject[] subscenes;
+    public GameObject[] dioramas;
     public float speedMultiplier = 0.3f;
+    public float distance;
 
     private Vector3 lastPosition;
     private int direction = 0;
     private bool isInDiorama = false;
+    //private bool isNearDiorama = false;
 
-    public UnityEvent onSpiralConnectorEnter;
+    //public UnityEvent onSpiralConnectorEnter;
+    //public UnityEvent onSpiralConnectorExit;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -26,6 +30,8 @@ public class CircularMovementDetector : MonoBehaviour
     void Update()
     {
         if (!isInDiorama) MoveSpiral();
+
+        ManageDiorama();
     }
 
     private void MoveSpiral()
@@ -76,12 +82,38 @@ public class CircularMovementDetector : MonoBehaviour
         lastPosition = currentPosition;
     }
 
+    private void ManageDiorama()
+    {
+        foreach (GameObject diorama in dioramas)
+        {
+            if (Vector3.Distance(diorama.transform.position, trackedTransform.position) < distance)
+            {
+                diorama.SetActive(true);
+            } else
+            {
+                diorama.SetActive(false);
+            }
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Loader"))
         {
-            Debug.Log("CrossLoader");
-            onSpiralConnectorEnter.Invoke();
+
+            //isNearDiorama = !isNearDiorama;
+            //diorama.SetActive(isNearDiorama ? true : false);
+            //Debug.Log("IsNearDiorama " + isNearDiorama);
+
+            //if (isNearDiorama)
+            //{
+            //    Debug.Log("IsNearDiorama NEAR");
+            //    onSpiralConnectorEnter.Invoke();
+            //} else
+            //{
+            //    Debug.Log("IsNearDiorama AWAY");
+            //    onSpiralConnectorExit.Invoke();
+            //}
         }
 
         if (other.CompareTag("Entrance"))
