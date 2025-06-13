@@ -15,7 +15,10 @@ public class MusicController : MonoBehaviour
 
     private AudioSource track2Source;
     private Dictionary<int, AudioSource> trackSources = new Dictionary<int, AudioSource>();
-    private HashSet<int> activeTracks = new HashSet<int>();
+
+    private Dictionary<int, float> trackTargetVolumes = new Dictionary<int, float>();
+    private float fadeSpeed = 1f; 
+
 
     private void Awake()
     {
@@ -33,6 +36,13 @@ public class MusicController : MonoBehaviour
         trackSources[1] = CreateLoopingSource(musicList[1]);
         trackSources[3] = CreateLoopingSource(musicList[3]);
         trackSources[4] = CreateLoopingSource(musicList[4]);
+
+        foreach (var kvp in trackSources)
+        {
+            kvp.Value.volume = 0f;
+            trackTargetVolumes[kvp.Key] = 0f;
+        }
+
 
     }
 
@@ -63,52 +73,60 @@ public class MusicController : MonoBehaviour
         float relativeY = topY - centerY;
         float ratio = relativeY / spiraleDistance;
 
-        HashSet<int> tracksToPlay = new HashSet<int>();
 
-        if (ratio <= 1f / 6f)
+        var keys = new List<int>(trackTargetVolumes.Keys);
+        foreach (int key in keys)
         {
-            Debug.Log("AddTrack 1/6");
-            tracksToPlay.Add(0);
-            tracksToPlay.Add(1);
-        }
-        else if (ratio <= 2f / 6f)
-        {
-            Debug.Log("AddTrack 2/6");
-            tracksToPlay.Add(1);
-        }
-        else if (ratio >= 5f / 6f)
-        {
-            Debug.Log("AddTrack 5/6");
-            tracksToPlay.Add(3);
-            tracksToPlay.Add(4);
-        }
-        else if (ratio >= 4f / 6f)
-        {
-            Debug.Log("AddTrack 4/6");
-            tracksToPlay.Add(3);
+            trackTargetVolumes[key] = 0f;
         }
 
-        UpdateTrackPlayback(tracksToPlay);
+
+        if (ratio >= 0f && ratio <= 1f / 6f)
+        {
+            float t = Mathf.InverseLerp(1f / 6f, 0f, ratio);  
+            trackTargetVolumes[0] = t;
+            Debug.Log("TargetVolume 1/6 " + trackTargetVolumes[0]);
+        }
+
+        if (ratio >= 0f && ratio <= 2f / 6f)
+        {
+            float t = Mathf.InverseLerp(2f / 6f, 0f, ratio); 
+            trackTargetVolumes[1] = t;
+            Debug.Log("TargetVolume 2/6 " + trackTargetVolumes[1]);
+        }
+
+        if (ratio >= 4f / 6f && ratio <= 1f)
+        {
+            float t = Mathf.InverseLerp(4f / 6f, 1f, ratio); 
+            trackTargetVolumes[3] = t;
+        }
+
+        if (ratio >= 5f / 6f && ratio <= 1f)
+        {
+            float t = Mathf.InverseLerp(5f / 6f, 1f, ratio);
+            trackTargetVolumes[4] = t;
+        }
+
+        UpdateTrackPlayback();
 
     }
 
-    private void UpdateTrackPlayback(HashSet<int> desiredTracks)
+    private void UpdateTrackPlayback()
     {
-        foreach (int trackIndex in activeTracks)
+        foreach (var kvp in trackSources)
         {
-            if (!desiredTracks.Contains(trackIndex))
-            {
-                if (trackSources[trackIndex].isPlaying)
-                    trackSources[trackIndex].Stop();
-            }
-        }
+            int index = kvp.Key;
+            AudioSource source = kvp.Value;
+            float targetVolume = trackTargetVolumes[index];
 
-        foreach (int trackIndex in desiredTracks)
-        {
-            if (!trackSources[trackIndex].isPlaying)
-                trackSources[trackIndex].Play();
-        }
+            if (!source.isPlaying && targetVolume > 0f)
+                source.Play();
 
-        activeTracks = desiredTracks;
+            source.volume = Mathf.MoveTowards(source.volume, targetVolume, fadeSpeed * Time.deltaTime);
+
+            if (source.isPlaying && source.volume <= 0.001f && targetVolume == 0f)
+                source.Stop();
+        }
     }
+
 }
