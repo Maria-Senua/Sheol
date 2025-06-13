@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class TimeManipulation : MonoBehaviour
+public class TimeManipulationHandler : MonoBehaviour
 {
     [Header("Read comments in the code please")]
     //The script goes on the gameobject which has Animator component.
@@ -9,11 +9,12 @@ public class TimeManipulation : MonoBehaviour
     //Now click on the animation node and check "multiplyer" paramerer below "Speed" and set it to "reverser" parameter.
     //"debugString" Textbox in the inspector would tell what is happening right now
     //Feel free to message me if it doesnt work I probably did not wrote correct steps :)
+    
+    [SerializeField, TextArea] private string debugString;
 
     [Header("Setup")]
     [SerializeField] private GameObject player;
-    
-    [SerializeField, TextArea] private string debugString;
+    [SerializeField] private bool canManipulateTime = false;
     private Animator animation;
     private float previousY;
 
@@ -30,6 +31,13 @@ public class TimeManipulation : MonoBehaviour
 
     private void Update()
     {
+        ManipulateTime();
+    }
+
+    private void ManipulateTime()
+    {
+        if (!canManipulateTime) return;
+        
         float currentY = player.transform.position.y;
         
         // debugString = $"Current Y: {currentY}, Previous Y: {previousY}, Animation Speed: {animation.speed}";
