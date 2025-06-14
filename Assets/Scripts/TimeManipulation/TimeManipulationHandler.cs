@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 public class TimeManipulationHandler : MonoBehaviour
 {
@@ -18,10 +19,15 @@ public class TimeManipulationHandler : MonoBehaviour
     private Animator animation;
     private float previousY;
 
+    [Header("References")]
+    private XRGrabInteractable xrGrabInteractable;
+    
     private void Awake()
     {
         animation = GetComponent<Animator>();
         previousY = player.transform.position.y;
+        xrGrabInteractable = GetComponent<XRGrabInteractable>();
+        canManipulateTime = false;
     }
     
     private void Start()
@@ -36,6 +42,15 @@ public class TimeManipulationHandler : MonoBehaviour
 
     private void ManipulateTime()
     {
+        if (xrGrabInteractable.isSelected) //For Future bool use
+        {
+            canManipulateTime = true;
+        }
+        else
+        {
+            canManipulateTime = false;
+        }
+        
         if (!canManipulateTime) return;
         
         float currentY = player.transform.position.y;
