@@ -7,6 +7,7 @@ public class TalkToyBehaviour : MonoBehaviour
     private float previousDistance;
     public float checkInterval = 5f; 
     private float timer;
+    private bool isCarried = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -18,12 +19,15 @@ public class TalkToyBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer -= Time.deltaTime;
-
-        if (timer <= 0f)
+        if (isCarried)
         {
-            ManageVoice(); 
-            timer = checkInterval; 
+            timer -= Time.deltaTime;
+
+            if (timer <= 0f)
+            {
+                ManageVoice();
+                timer = checkInterval;
+            }
         }
     }
 
@@ -48,5 +52,15 @@ public class TalkToyBehaviour : MonoBehaviour
         }
 
         previousDistance = currentDistance;
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        isCarried = false;
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        isCarried = true;
     }
 }
