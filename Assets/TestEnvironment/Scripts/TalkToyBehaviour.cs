@@ -4,6 +4,7 @@ public class TalkToyBehaviour : MonoBehaviour
 {
     public GameObject hiddenObject;
     public float distance;
+    public float hotDistance;
     private float previousDistance;
     public float checkInterval = 5f; 
     private float timer;
@@ -44,6 +45,10 @@ public class TalkToyBehaviour : MonoBehaviour
             if (currentDistance < previousDistance)
             {
                 Debug.Log("DistanceCheck WARM");
+                if (currentDistance < hotDistance)
+                {
+                    Debug.Log("DistanceCheck HOT");
+                }
             }
             else if (currentDistance > previousDistance)
             {
