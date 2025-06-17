@@ -29,7 +29,7 @@ public class Dial : MonoBehaviour
         if (currentIndex >= 4) currentIndex = 0;
 
         LeanTween.cancel(gameObject);
-        LeanTween.rotateAroundLocal(gameObject, Vector3.right, -90, animationDuration).setOnComplete(RotationCompleteCallback);
+        LeanTween.rotateAroundLocal(gameObject, Vector3.back, -90, animationDuration).setOnComplete(RotationCompleteCallback);
 
     }
 
