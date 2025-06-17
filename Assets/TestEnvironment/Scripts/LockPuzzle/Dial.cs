@@ -15,7 +15,7 @@ public class Dial : MonoBehaviour
     void Start()
     {
         currentIndex = Random.Range(0, 4);
-        transform.localRotation = Quaternion.Euler(currentIndex * -90, 0, 0);
+        transform.localRotation = Quaternion.Euler(currentIndex * 0, 0, -90);
     }
 
     public void Rotate()
