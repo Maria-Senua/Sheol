@@ -1,8 +1,11 @@
+using System;
 using UnityEngine;
 
 public class TalkToyBehaviour : MonoBehaviour
 {
     public GameObject hiddenObject;
+    private AudioSource audioSource;
+    public AudioClip[] voiceLines;
     public float distance;
     public float hotDistance;
     private float previousDistance;
@@ -15,6 +18,7 @@ public class TalkToyBehaviour : MonoBehaviour
     {
         previousDistance = Vector3.Distance(hiddenObject.transform.position, gameObject.transform.position);
         timer = checkInterval;
+        audioSource = gameObject.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -39,20 +43,24 @@ public class TalkToyBehaviour : MonoBehaviour
         if (currentDistance > distance)
         {
             Debug.Log("DistanceCheck FREEZING");
+            audioSource.PlayOneShot(voiceLines[0]);
         }
         else
         {
             if (currentDistance < previousDistance)
             {
                 Debug.Log("DistanceCheck WARM");
+                audioSource.PlayOneShot(voiceLines[2]);
                 if (currentDistance < hotDistance)
                 {
                     Debug.Log("DistanceCheck HOT");
+                    audioSource.PlayOneShot(voiceLines[3]);
                 }
             }
             else if (currentDistance > previousDistance)
             {
                 Debug.Log("DistanceCheck COLD");
+                audioSource.PlayOneShot(voiceLines[1]);
             }
         }
 
