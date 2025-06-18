@@ -20,6 +20,8 @@ public class CombinationLock : MonoBehaviour
         {
             int combinationNumber = int.Parse(combination[i].ToString());
 
+            Debug.Log("CheckCombination " + dials[i].GetNumber());
+
             if (combinationNumber != dials[i].GetNumber())
             {
                 dial.Unlock();

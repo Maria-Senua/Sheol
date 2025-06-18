@@ -5165,8 +5165,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f231d8a6e066340079953e0eb56fcd04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controllerTransform: {fileID: 1703655680}
-  rayDistance: 25
+  controllerTransform: {fileID: 2779669268269126898}
+  rayDistance: 5
 --- !u!4 &568990856
 Transform:
   m_ObjectHideFlags: 0
@@ -15301,11 +15301,6 @@ Transform:
   - {fileID: 423529121}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1703655680 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7277802326798953675, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
-  m_PrefabInstance: {fileID: 2779669268269126897}
-  m_PrefabAsset: {fileID: 0}
 --- !u!224 &1714251360 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1035790433963668018, guid: 085ce58b196caa446a8545c9dd388793, type: 3}
@@ -20714,6 +20709,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 84460596}
   m_SourcePrefab: {fileID: 100100000, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
+--- !u!4 &2779669268269126898 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7277802327528778794, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
+  m_PrefabInstance: {fileID: 2779669268269126897}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3257631069116033653
 PrefabInstance:
   m_ObjectHideFlags: 0
