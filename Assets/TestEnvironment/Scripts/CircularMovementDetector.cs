@@ -98,30 +98,24 @@ public class CircularMovementDetector : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Loader"))
-        {
-
-            //isNearDiorama = !isNearDiorama;
-            //diorama.SetActive(isNearDiorama ? true : false);
-            //Debug.Log("IsNearDiorama " + isNearDiorama);
-
-            //if (isNearDiorama)
-            //{
-            //    Debug.Log("IsNearDiorama NEAR");
-            //    onSpiralConnectorEnter.Invoke();
-            //} else
-            //{
-            //    Debug.Log("IsNearDiorama AWAY");
-            //    onSpiralConnectorExit.Invoke();
-            //}
-        }
 
         if (other.CompareTag("Entrance"))
         {
             Debug.Log("Entered Diorama");
            
-            isInDiorama = !isInDiorama;
+            isInDiorama = true;
             
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Entrance"))
+        {
+            Debug.Log("Exited Diorama");
+
+            isInDiorama = false;
+
         }
     }
 }
