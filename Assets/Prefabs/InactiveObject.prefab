@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 5431182845856763323}
   - component: {fileID: 2480334186822873284}
   m_Layer: 0
-  m_Name: InactiveItem
+  m_Name: InactiveObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 299153bf3beb2eb479fb1ab299c9d75c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  subtitles: I wish this works in VR
+  subtitles: 
   subtitleTMP: {fileID: 0}
 --- !u!82 &5431182845856763323
 AudioSource:
