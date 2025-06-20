@@ -72,6 +72,16 @@ public class TalkToyBehaviour : MonoBehaviour
         isCarried = false;
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        isCarried = false;
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        isCarried = true;
+    }
+
     private void OnCollisionExit(Collision collision)
     {
         isCarried = true;
