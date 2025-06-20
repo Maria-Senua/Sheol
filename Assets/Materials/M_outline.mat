@@ -21,9 +21,9 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: M_outline
-  m_Shader: {fileID: -6465566751694194690, guid: 9e632500f764eaf4ebaa5acf9a196296, type: 3}
-  m_Parent: {fileID: 0}
-  m_ModifiedSerializedProperties: 0
+  m_Shader: {fileID: -6465566751694194690, guid: 7416c842888077a488f658190003bc7d, type: 3}
+  m_Parent: {fileID: 2100000, guid: 1978853865fbc454a9c0ee107950cd0c, type: 2}
+  m_ModifiedSerializedProperties: 16
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -37,24 +37,31 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - unity_Lightmaps:
+    - _Anothertexture:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - unity_LightmapsInd:
-        m_Texture: {fileID: 0}
+    - _Main_Texture:
+        m_Texture: {fileID: 2800000, guid: 1ebf6c1e237793546b469dfb34809502, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - unity_ShadowMasks:
-        m_Texture: {fileID: 0}
+    - _Terrain_Color:
+        m_Texture: {fileID: 2800000, guid: 0353fc2c3756bde45b9955f1653ce4ce, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _QueueControl: 0
-    - _QueueOffset: 0
-    - _Scale: 1.01
+    - _AlphaClip_Threshold: 0.5
+    - _HeightBlend: 1
+    - _Smoothness: 0.5
+    - _Terrain_Offset: 0
+    - _Terrain_Size: 50
     m_Colors:
     - _Color: {r: 1, g: 0.9473457, b: 0, a: 1}
+    - _FarColor: {r: 0.27297157, g: 0.8427672, b: 0.28041837, a: 1}
+    - _Grass_Bottom_Color: {r: 0.8930817, g: 0.8307446, b: 0.030892663, a: 1}
+    - _NearColor: {r: 0.21508226, g: 0.9119496, b: 0.7073541, a: 1}
+    - _NearFarRange: {r: 0, g: 0, b: 0, a: 0}
+    - _ShadowColor: {r: 0.19728246, g: 0.29711118, b: 0.6603774, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
