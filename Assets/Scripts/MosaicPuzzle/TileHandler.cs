@@ -6,12 +6,14 @@ public class TileHandler : MonoBehaviour
 {
     [Header("Neighbors")]
     public Vector2Int GridPosition { get; set; }
+    [SerializeField] private float moveSpeed = 5f;
     [SerializeField] private List<TileHandler> neighbors = new List<TileHandler>();
     public bool hasPuzzlePiece = true;
 
     private TileHandler movedToTile;
     
-    private void Start()
+    
+    private void Awake()
     {
         if(this.transform.GetChild(0).gameObject.activeSelf)
         {
@@ -34,16 +36,34 @@ public class TileHandler : MonoBehaviour
         {
             if (!neighbor.hasPuzzlePiece)
             {
-                Transform puzzlePiece = this.transform.GetChild(0); 
-                puzzlePiece.SetParent(neighbor.transform);
-                puzzlePiece.localPosition = Vector3.zero;
-
+                Transform puzzlePiece = this.transform.GetChild(0);
+                
                 neighbor.hasPuzzlePiece = true;
-                hasPuzzlePiece = false; 
-
+                hasPuzzlePiece = false;
+                
+                StartCoroutine(SmoothMove(puzzlePiece, neighbor.transform));
+                
                 break;
             }
         }
+    }
+
+    private System.Collections.IEnumerator SmoothMove(Transform puzzlePiece, Transform targetTransform)
+    {
+        Vector3 startPosition = puzzlePiece.position;
+        Vector3 endPosition = targetTransform.position;
+        float elapsedTime = 0f;
+
+        while (elapsedTime < 1f)
+        {
+            puzzlePiece.position = Vector3.Lerp(startPosition, endPosition, elapsedTime);
+            elapsedTime += Time.deltaTime * moveSpeed;
+            yield return null;
+        }
+
+        puzzlePiece.position = endPosition;
+        puzzlePiece.SetParent(targetTransform);
+        hasPuzzlePiece = false;
     }
     
     public void VerifyPuzzlePieceState()
