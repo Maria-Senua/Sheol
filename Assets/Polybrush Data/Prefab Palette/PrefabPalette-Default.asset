@@ -13,19 +13,67 @@ MonoBehaviour:
   m_Name: PrefabPalette-Default
   m_EditorClassIdentifier: 
   prefabs:
-  - gameObject: {fileID: 113140435033156703, guid: 60ad67a8ed80a4f439dbe7d8b2e96b52, type: 3}
+  - gameObject: {fileID: 7031441013008620971, guid: 9e8c6c1e327390f4baee762ea1506dae, type: 3}
     settings:
-      m_Strength: 100
+      m_Strength: 30
+      m_RotationRangeMin: {x: 0, y: 0, z: 0}
+      m_RotationRangeMax: {x: 0, y: 0, z: 0}
+      m_ScaleRangeMin: {x: 0.5, y: 0.4, z: 0.5}
+      m_ScaleRangeMax: {x: 0.5, y: 0.6, z: 0.5}
+      m_UniformScale: {x: 0.5, y: 1}
+      m_UniformBool: 1
+      m_XRotationBool: 0
+      m_YRotationBool: 0
+      m_ZRotationBool: 0
+      m_XScaleBool: 1
+      m_YScaleBool: 1
+      m_ZScaleBool: 1
+    name: grassprefab
+  - gameObject: {fileID: 8334097544584029755, guid: b826b569d4d0d4b4bb5e07bc683bd360, type: 3}
+    settings:
+      m_Strength: 69.6
       m_RotationRangeMin: {x: 0, y: 0, z: 0}
       m_RotationRangeMax: {x: 0, y: 0, z: 0}
       m_ScaleRangeMin: {x: 1, y: 1, z: 1}
-      m_ScaleRangeMax: {x: 1, y: 1.7305928, z: 1}
-      m_UniformScale: {x: 2, y: 2}
-      m_UniformBool: 0
+      m_ScaleRangeMax: {x: 1, y: 1, z: 1}
+      m_UniformScale: {x: 1, y: 1}
+      m_UniformBool: 1
       m_XRotationBool: 0
       m_YRotationBool: 0
       m_ZRotationBool: 0
       m_XScaleBool: 0
       m_YScaleBool: 0
       m_ZScaleBool: 0
-    name: grass1 (1)
+    name: grassprefab2
+  - gameObject: {fileID: 7546183365861441026, guid: 6294bd02d73987a448ca5f0c018c4ff7, type: 3}
+    settings:
+      m_Strength: 66.4
+      m_RotationRangeMin: {x: 0, y: 0, z: 0}
+      m_RotationRangeMax: {x: 0, y: 0, z: 0}
+      m_ScaleRangeMin: {x: 1, y: 1, z: 1}
+      m_ScaleRangeMax: {x: 1, y: 1, z: 1}
+      m_UniformScale: {x: 1, y: 1}
+      m_UniformBool: 1
+      m_XRotationBool: 0
+      m_YRotationBool: 0
+      m_ZRotationBool: 0
+      m_XScaleBool: 0
+      m_YScaleBool: 0
+      m_ZScaleBool: 0
+    name: grassprefab3
+  - gameObject: {fileID: 6857872531138870547, guid: d49ce9459fe30ac4a9de298e19c3b567, type: 3}
+    settings:
+      m_Strength: 95.324356
+      m_RotationRangeMin: {x: 0, y: 0, z: 0}
+      m_RotationRangeMax: {x: 0, y: 0, z: 0}
+      m_ScaleRangeMin: {x: 1, y: 1, z: 1}
+      m_ScaleRangeMax: {x: 1, y: 1, z: 1}
+      m_UniformScale: {x: 1, y: 1}
+      m_UniformBool: 1
+      m_XRotationBool: 0
+      m_YRotationBool: 0
+      m_ZRotationBool: 0
+      m_XScaleBool: 0
+      m_YScaleBool: 0
+      m_ZScaleBool: 0
+    name: grassprefab4
