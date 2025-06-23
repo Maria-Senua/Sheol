@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class GridManager : MonoBehaviour
 {
@@ -39,7 +40,7 @@ public class GridManager : MonoBehaviour
         
         
         Destroy(tileObject.transform.GetChild(0).gameObject);
-
+        tileObject.GetComponent<TileHandler>().hasPuzzlePiece = false;
     }
 
     private void AssignNeighbors()
