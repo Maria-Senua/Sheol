@@ -12,6 +12,7 @@ public class TalkToyBehaviour : MonoBehaviour
     public float checkInterval = 5f; 
     private float timer;
     private bool isCarried = false;
+    private Rigidbody rb;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -19,6 +20,9 @@ public class TalkToyBehaviour : MonoBehaviour
         previousDistance = Vector3.Distance(hiddenObject.transform.position, gameObject.transform.position);
         timer = checkInterval;
         audioSource = gameObject.GetComponent<AudioSource>();
+        rb = gameObject.GetComponent<Rigidbody>();
+        rb.useGravity = false;
+        rb.isKinematic = true;
     }
 
     // Update is called once per frame
@@ -67,23 +71,36 @@ public class TalkToyBehaviour : MonoBehaviour
         previousDistance = currentDistance;
     }
 
+    public void DetectCarry()
+    {
+        isCarried = true;
+        rb.useGravity = true;
+        rb.isKinematic = false;
+    }
+    
+    public void StopCarry()
+    {
+        isCarried = false;
+        rb.useGravity = true;
+        rb.isKinematic = false;
+    }
     private void OnCollisionEnter(Collision collision)
     {
-        isCarried = false;
-    }
+        
+     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        isCarried = false;
-    }
+    // private void OnTriggerEnter(Collider other)
+    // {
+    //     isCarried = false;
+    // }
+    //
+    // private void OnTriggerExit(Collider other)
+    // {
+    //     isCarried = true;
+    // }
 
-    private void OnTriggerExit(Collider other)
-    {
-        isCarried = true;
-    }
-
-    private void OnCollisionExit(Collision collision)
-    {
-        isCarried = true;
-    }
+    // private void OnCollisionExit(Collision collision)
+    // {
+    //     isCarried = true;
+    // }
 }
