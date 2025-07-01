@@ -49,6 +49,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: 0353fc2c3756bde45b9955f1653ce4ce, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Texture:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _Texture2DAsset_8b49aabcbef946ac9f23a28f3cb77171_Out_0_Texture2D:
         m_Texture: {fileID: 2800000, guid: c11030a5e1579b24c84c5419a38c16ff, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -68,8 +72,8 @@ Material:
     m_Ints: []
     m_Floats:
     - _AlphaClip_Threshold: 0.196
-    - _Alpha_Value: 0.243
-    - _Emission_Strenght: 6.94
+    - _Alpha_Value: 0.33
+    - _Emission_Strenght: 0.48
     - _FALLOFFAMOUNT: -0.28
     - _Gradient_slider: 0.63
     - _HeightBlend: 2.92
@@ -77,12 +81,12 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Smoothness: 0.366
-    - _Speedfloat1: 0.5
-    - _Speedfloat1_1: 0.058
+    - _Speedfloat1: 0.3
+    - _Speedfloat1_1: 0.045
     - _Terrain_Offset: 0
     - _Terrain_Size: 50
     - _USE_TERRAIN_COLOR: 0
-    - _WindHeight: 5
+    - _WindHeight: 4.33
     - _Wind_Intensity: 1
     - _Wind_Speed: 0.508
     - _control_fall_of_intensity: 0.13

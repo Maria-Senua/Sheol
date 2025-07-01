@@ -38,6 +38,9 @@
         },
         {
             "m_Id": "73bb9637ee844aaeb9e18c6a4be1f709"
+        },
+        {
+            "m_Id": "5a63f81b86d0469f9e70d8e4f4e821f2"
         }
     ],
     "m_Keywords": [],
@@ -1879,8 +1882,8 @@
     "m_ObjectId": "15ce124992c14cb080c5eb718b7eaf87",
     "m_Title": "SSS fake",
     "m_Position": {
-        "x": -1947.3336181640625,
-        "y": -1106.6668701171875
+        "x": -1947.333251953125,
+        "y": -1106.666748046875
     }
 }
 
@@ -2836,7 +2839,7 @@
     "m_Title": "FALL OF BASED ON DISTANCE",
     "m_Position": {
         "x": -2273.999755859375,
-        "y": 1120.0001220703125
+        "y": 1120.0
     }
 }
 
@@ -3859,6 +3862,37 @@
 
 {
     "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Internal.Texture2DShaderProperty",
+    "m_ObjectId": "5a63f81b86d0469f9e70d8e4f4e821f2",
+    "m_Guid": {
+        "m_GuidSerialized": "375f4fa6-0ae1-4edb-b59b-cd7358632322"
+    },
+    "m_Name": "Texture",
+    "m_DefaultRefNameVersion": 1,
+    "m_RefNameGeneratedByDisplayName": "Texture",
+    "m_DefaultReferenceName": "_Texture",
+    "m_OverrideReferenceName": "",
+    "m_GeneratePropertyBlock": true,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
+    "m_DismissedVersion": 0,
+    "m_Precision": 0,
+    "overrideHLSLDeclaration": false,
+    "hlslDeclarationOverride": 0,
+    "m_Hidden": false,
+    "m_Value": {
+        "m_SerializedTexture": "",
+        "m_Guid": ""
+    },
+    "isMainTexture": false,
+    "useTilingAndOffset": false,
+    "useTexelSize": true,
+    "m_Modifiable": true,
+    "m_DefaultType": 0
+}
+
+{
+    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.DynamicVectorMaterialSlot",
     "m_ObjectId": "5a7b466aece04c81b03908c0a3ad8400",
     "m_Id": 1,
@@ -3902,7 +3936,7 @@
     "m_ObjectId": "5e5edfa340224a8d98e0adc4842963d9",
     "m_Title": "CALCULATE LIGHT DIRECTION",
     "m_Position": {
-        "x": -1791.3336181640625,
+        "x": -1791.333251953125,
         "y": 633.3333129882813
     }
 }
@@ -5312,10 +5346,10 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": 1899.8731689453125,
-            "y": 827.161865234375,
-            "width": 155.33349609375,
-            "height": 36.0
+            "x": 1899.3330078125,
+            "y": 833.3333129882813,
+            "width": 144.666748046875,
+            "height": 109.33331298828125
         }
     },
     "m_Slots": [
@@ -6112,7 +6146,7 @@
     "m_ObjectId": "a568398f98634284911d7ab5d152af3c",
     "m_Title": "BACKFACE LIGHTING",
     "m_Position": {
-        "x": -961.3334350585938,
+        "x": -961.3333740234375,
         "y": 386.0
     }
 }
@@ -6971,7 +7005,7 @@
     "m_Title": "EMISSION",
     "m_Position": {
         "x": 876.0001831054688,
-        "y": 2062.667236328125
+        "y": 2062.6669921875
     }
 }
 
@@ -7895,8 +7929,8 @@
     "m_ObjectId": "e416c9b1f0eb498d83915dd0ee18ec2c",
     "m_Title": "gradient",
     "m_Position": {
-        "x": -986.6668701171875,
-        "y": 1294.0001220703125
+        "x": -986.66650390625,
+        "y": 1294.0
     }
 }
 
@@ -8170,6 +8204,9 @@
         },
         {
             "m_Id": "73bb9637ee844aaeb9e18c6a4be1f709"
+        },
+        {
+            "m_Id": "5a63f81b86d0469f9e70d8e4f4e821f2"
         }
     ]
 }
