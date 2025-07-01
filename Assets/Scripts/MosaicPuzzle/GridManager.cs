@@ -3,7 +3,10 @@ using UnityEngine.Tilemaps;
 
 public class GridManager : MonoBehaviour
 {
-    [Header("Grid Settings")]
+
+    [SerializeField] private TileHandler[] tileMap;
+    
+    [Header("Grid Settings(Depricated)")]
     [SerializeField] private int width = 3;
     [SerializeField] private int height = 3;
     [SerializeField] private float offset = 1;
@@ -14,7 +17,7 @@ public class GridManager : MonoBehaviour
     
     private void Start()
     {
-        GenerateGrid();
+        // GenerateGrid();
         AssignNeighbors();
     }
 
@@ -45,17 +48,18 @@ public class GridManager : MonoBehaviour
 
     private void AssignNeighbors()
     {
-        for (int z = 0; z < width; z++)
-        {
-            for (int y = 0; y < height; y++)
-            {
-                TileHandler currentTile = tileGrid[z, y];
+        int gridSize = Mathf.RoundToInt(Mathf.Sqrt(tileMap.Length));
 
-                if (z > 0) currentTile.AddNeighbor(tileGrid[z - 1, y]);
-                if (z < width - 1) currentTile.AddNeighbor(tileGrid[z + 1, y]);
-                if (y > 0) currentTile.AddNeighbor(tileGrid[z, y - 1]);
-                if (y < height - 1) currentTile.AddNeighbor(tileGrid[z, y + 1]);
-            }
+        for (int i = 0; i < tileMap.Length; i++)
+        {
+            TileHandler currentTile = tileMap[i];
+            int x = i % gridSize;
+            int y = i / gridSize;
+
+            if (x > 0) currentTile.AddNeighbor(tileMap[i - 1]); 
+            if (x < gridSize - 1) currentTile.AddNeighbor(tileMap[i + 1]);
+            if (y > 0) currentTile.AddNeighbor(tileMap[i - gridSize]);
+            if (y < gridSize - 1) currentTile.AddNeighbor(tileMap[i + gridSize]);
         }
     }
 }
