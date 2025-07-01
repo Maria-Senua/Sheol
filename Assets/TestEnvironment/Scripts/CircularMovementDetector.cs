@@ -1,9 +1,9 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
 public class CircularMovementDetector : MonoBehaviour
 {
-
     public Transform centerPoint;   
     public Transform trackedTransform;
     public GameObject[] subscenes;
@@ -14,6 +14,24 @@ public class CircularMovementDetector : MonoBehaviour
     private Vector3 lastPosition;
     private int direction = 0;
     private bool isInDiorama = false;
+    private float playerSpeed;
+
+    private Vector3 previousTrackedPosition;
+    private float movementCheckInterval = 0.1f;
+    private float movementThreshold = 0.01f;
+    private bool isMoving = false;
+    private float movementCheckTimer = 0f;
+    private List<string> currentSurfaces = new List<string>();
+    private string lastSurface = "";
+
+    [SerializeField] private AudioSource stepAudioSource;
+    [SerializeField] private AudioClip grassStep;
+    [SerializeField] private AudioClip sandStep;
+    [SerializeField] private AudioClip floorStep;
+    [SerializeField] private AudioClip stoneStep;
+
+   
+
     //private bool isNearDiorama = false;
 
     //public UnityEvent onSpiralConnectorEnter;
@@ -24,15 +42,97 @@ public class CircularMovementDetector : MonoBehaviour
     {
         if (trackedTransform == null) trackedTransform = Camera.main.transform; ;
         lastPosition = trackedTransform.position;
+        previousTrackedPosition = trackedTransform.position;
+
+        currentSurfaces.Clear();
+        isMoving = false;
+        movementCheckTimer = 0f;
     }
 
     // Update is called once per frame
     void Update()
     {
+        UpdateMovementStatus();
+
         if (!isInDiorama) MoveSpiral();
 
         ManageDiorama();
+
+        if (isMoving)
+        {
+            string currentSurface = GetCurrentSurface();
+
+            if (lastSurface != currentSurface)
+            {
+                stepAudioSource.clip = GetClipBySurface(currentSurface);
+                lastSurface = currentSurface;
+                stepAudioSource.Play();
+            }
+            else if (!stepAudioSource.isPlaying)
+            {
+                stepAudioSource.Play();
+            }
+        }
+        else
+        {
+            if (stepAudioSource.isPlaying)
+                stepAudioSource.Stop();
+
+            lastSurface = "";
+        }
+
+
     }
+
+    private AudioClip GetClipBySurface(string surface)
+    {
+        switch (surface)
+        {
+            case "Grass": return grassStep;
+            case "Sand": return sandStep;
+            case "Floor": return floorStep;
+            case "Stone":
+            default: return stoneStep;
+        }
+    }
+
+    string GetCurrentSurface()
+    {
+        if (currentSurfaces.Contains("Grass"))
+            return "Grass";
+        if (currentSurfaces.Contains("Sand"))
+            return "Sand";
+        if (currentSurfaces.Contains("Floor"))
+            return "Floor";
+
+        return "Stone";
+    }
+
+    private void UpdateMovementStatus()
+    {
+        movementCheckTimer -= Time.deltaTime;
+        if (movementCheckTimer <= 0f)
+        {
+            float distanceMoved = Vector3.Distance(trackedTransform.position, previousTrackedPosition);
+
+            if (distanceMoved > movementThreshold)
+            {
+                
+                isMoving = true;
+            }
+            else
+            {
+                isMoving = false;
+            }
+
+            previousTrackedPosition = trackedTransform.position;
+            movementCheckTimer = movementCheckInterval;
+        }
+    }
+
+ 
+
+
 
     private void MoveSpiral()
     {
@@ -106,7 +206,16 @@ public class CircularMovementDetector : MonoBehaviour
             isInDiorama = true;
             
         }
+
+        if (other.CompareTag("Grass") || other.CompareTag("Sand") || other.CompareTag("Floor"))
+        {
+            if (!currentSurfaces.Contains(other.tag))
+                currentSurfaces.Add(other.tag);
+        }
+
     }
+
+ 
 
     private void OnTriggerExit(Collider other)
     {
@@ -116,6 +225,10 @@ public class CircularMovementDetector : MonoBehaviour
 
             isInDiorama = false;
 
+        }
+        if (currentSurfaces.Contains(other.tag))
+        {
+            currentSurfaces.Remove(other.tag);
         }
     }
 }
