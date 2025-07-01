@@ -47,6 +47,14 @@ public class Raycaster : MonoBehaviour
             {
                 Debug.Log("LeftTriggerCheck dialrotate");
                 dial.Rotate();
+                return;
+            }
+
+            Drawer drawer = hit.collider.GetComponent<Drawer>();
+            if (drawer != null)
+            {
+                drawer.PullDrawer();
+                return;
             }
         }
     }
