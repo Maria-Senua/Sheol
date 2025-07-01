@@ -12,6 +12,7 @@ Material:
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
+  - _ALPHAPREMULTIPLY_ON
   - _RECEIVE_SHADOWS_OFF
   - _SURFACE_TYPE_TRANSPARENT
   m_InvalidKeywords: []
@@ -52,14 +53,14 @@ Material:
     m_Ints: []
     m_Floats:
     - _AO: 1
-    - _Alpha: 0.72
+    - _Alpha: 0.78
     - _AlphaClip: 0
     - _AlphaToMask: 0
     - _Blend: 0
-    - _BlendModePreserveSpecular: 0
+    - _BlendModePreserveSpecular: 1
     - _CastShadows: 0
     - _Cull: 2
-    - _Depth: 2.19
+    - _Depth: 0.04
     - _DstBlend: 10
     - _FoamDistance: 3.78
     - _NomralStrength1: -0.18
@@ -69,15 +70,15 @@ Material:
     - _QueueOffset: 0
     - _ReceiveShadows: 0
     - _Specularity: 1
-    - _SrcBlend: 5
+    - _SrcBlend: 1
     - _Surface: 1
     - _WorkflowMode: 1
     - _ZTest: 4
     - _ZWrite: 0
     - _ZWriteControl: 0
     m_Colors:
-    - _Color1: {r: 0.32776788, g: 0.54086983, b: 0.6226415, a: 0.8509804}
-    - _Color2: {r: 0, g: 0.12814622, b: 0.23018861, a: 1}
+    - _Color1: {r: 0.025097877, g: 0.1347255, b: 0.17735851, a: 1}
+    - _Color2: {r: 0, g: 0.08231524, b: 0.14716971, a: 1}
     - _EmissionColor: {r: 0, g: 0.5628746, b: 0.6075471, a: 1}
     - _NormalTiling2: {r: 0.68, g: 2, b: 0, a: 0}
     - _NormalTiling2_1: {r: 0.7, g: 0.44, b: 0, a: 0}
