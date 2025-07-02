@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
@@ -18,6 +19,10 @@ public class TimeManipulationHandler : MonoBehaviour
     [SerializeField] private bool canManipulateTime = false;
     private Animator animation;
     private float previousY;
+    
+     [Header("Subtitles")]
+     [SerializeField, TextArea] private string subtitles;
+     [SerializeField] private TextMeshProUGUI subtitleTMP;
 
     [Header("References")]
     private XRGrabInteractable xrGrabInteractable;
@@ -77,5 +82,7 @@ public class TimeManipulationHandler : MonoBehaviour
         }
 
         previousY = currentY;
+        
+        subtitleTMP.text = subtitles;
     }
 }
