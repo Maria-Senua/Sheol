@@ -15,7 +15,7 @@ public class TileHandler : MonoBehaviour
     
     private void Awake()
     {
-        if(this.transform.GetChild(0).gameObject.activeSelf)
+        if(this.transform.childCount > 0 && this.transform.GetChild(0).gameObject.activeSelf)
         {
             hasPuzzlePiece = true;
         }
