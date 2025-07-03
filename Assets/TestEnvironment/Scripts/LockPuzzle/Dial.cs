@@ -15,7 +15,10 @@ public class Dial : MonoBehaviour
     void Start()
     {
         currentIndex = Random.Range(0, 4);
-        transform.localRotation = Quaternion.Euler(currentIndex * 0, 0, -90);
+        //currentIndex = 0;
+        transform.localRotation = Quaternion.Euler(0, 0, -currentIndex * 90f - 25f);
+        Debug.Log("start rotation " + transform.localRotation + " of cube " + gameObject.name);
+        //Debug.Log("start index " + currentIndex + " of cube " + gameObject.name);
     }
 
     public void Rotate()
