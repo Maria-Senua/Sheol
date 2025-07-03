@@ -3,6 +3,8 @@ using UnityEngine.Events;
 
 public class Dial : MonoBehaviour
 {
+    [TextArea]public string debugString;
+    
     [Header("Settings")]
     [SerializeField] private float animationDuration;
     private bool isRotating = false;
@@ -34,6 +36,7 @@ public class Dial : MonoBehaviour
         LeanTween.cancel(gameObject);
         LeanTween.rotateAroundLocal(gameObject, Vector3.back, -90, animationDuration).setOnComplete(RotationCompleteCallback);
 
+        debugString = "Rotating dial to index: " + currentIndex;
     }
 
     private void RotationCompleteCallback()
