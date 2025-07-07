@@ -25,12 +25,13 @@ public class CircularMovementDetector : MonoBehaviour
     private string lastSurface = "";
 
     [SerializeField] private AudioSource stepAudioSource;
-    [SerializeField] private AudioClip grassStep;
-    [SerializeField] private AudioClip sandStep;
-    [SerializeField] private AudioClip floorStep;
-    [SerializeField] private AudioClip stoneStep;
+    [SerializeField] private AudioClip[] grassStep;
+    [SerializeField] private AudioClip[] sandStep;
+    [SerializeField] private AudioClip[] floorStep;
+    [SerializeField] private AudioClip[] stoneStep;
+    [SerializeField] private AudioClip[] boatStep;
 
-   
+
 
     //private bool isNearDiorama = false;
 
@@ -88,12 +89,19 @@ public class CircularMovementDetector : MonoBehaviour
     {
         switch (surface)
         {
-            case "Grass": return grassStep;
-            case "Sand": return sandStep;
-            case "Floor": return floorStep;
+            case "Grass": return GetRandomClip(grassStep);
+            case "Sand": return GetRandomClip(sandStep);
+            case "Floor": return GetRandomClip(floorStep);
+            case "Boat": return GetRandomClip(boatStep);
             case "Stone":
-            default: return stoneStep;
+            default: return GetRandomClip(stoneStep);
         }
+    }
+
+    private AudioClip GetRandomClip(AudioClip[] clips)
+    {
+        if (clips == null || clips.Length == 0) return null;
+        return clips[Random.Range(0, clips.Length)];
     }
 
     string GetCurrentSurface()
