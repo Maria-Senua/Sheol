@@ -13,12 +13,14 @@ public class TimeManipulationHandler : MonoBehaviour
     //Feel free to message me if it doesnt work I probably did not wrote correct steps :)
     
     [SerializeField, TextArea] private string debugString;
-
-    [Header("Setup")]
+    
+    [Header("Setup")] 
+    [SerializeField] private GameObject bottomLimit;
     [SerializeField] private GameObject player;
     [SerializeField] private bool canManipulateTime = false;
     private Animator animation;
     private float previousY;
+    private float distance;
     
      [Header("Subtitles")]
      [SerializeField, TextArea] private string subtitles;
@@ -30,8 +32,9 @@ public class TimeManipulationHandler : MonoBehaviour
     private void Awake()
     {
         animation = GetComponent<Animator>();
-        previousY = player.transform.position.y;
+        previousY = Vector3.Distance(bottomLimit.transform.position, player.transform.position);
         xrGrabInteractable = GetComponent<XRGrabInteractable>();
+        subtitleTMP = GetComponentInChildren<TextMeshProUGUI>();
         canManipulateTime = false;
     }
     
@@ -43,7 +46,9 @@ public class TimeManipulationHandler : MonoBehaviour
     private void Update()
     {
         ManipulateTime();
+        distance = Vector3.Distance(bottomLimit.transform.position, player.transform.position);
     }
+    
 
     private void ManipulateTime()
     {
@@ -58,17 +63,13 @@ public class TimeManipulationHandler : MonoBehaviour
         
         if (!canManipulateTime) return;
         
-        float currentY = player.transform.position.y;
-        
-        // debugString = $"Current Y: {currentY}, Previous Y: {previousY}, Animation Speed: {animation.speed}";
-        
-        if (currentY > previousY)
+        if (distance > previousY)
         {
             animation.SetFloat("reverser", -1);
             animation.speed = 1f;
             debugString = "Reversing";
         }
-        else if (currentY < previousY) 
+        else if (distance < previousY) 
         {
             animation.SetFloat("reverser", 1);
             animation.speed = 1f;
@@ -81,7 +82,7 @@ public class TimeManipulationHandler : MonoBehaviour
             debugString = "Paused";
         }
 
-        previousY = currentY;
+        previousY = distance;
         
         subtitleTMP.text = subtitles;
     }
