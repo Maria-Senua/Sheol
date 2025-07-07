@@ -580,10 +580,51 @@ MonoBehaviour:
   speedMultiplier: 0.4
   distance: 15
   stepAudioSource: {fileID: 84460603}
-  grassStep: {fileID: 8300000, guid: b92e35a15f1504044ba4fda46159f1a3, type: 3}
-  sandStep: {fileID: 8300000, guid: 64f33a36f94be4794920d276f114772d, type: 3}
-  floorStep: {fileID: 8300000, guid: 40d06eeb775ba4a82824050dbc67fe61, type: 3}
-  stoneStep: {fileID: 8300000, guid: c3fa3d1c32cf8421a91434c2ef8c136e, type: 3}
+  grassStep:
+  - {fileID: 8300000, guid: bd88d340ae613432b972c1029a03d953, type: 3}
+  - {fileID: 8300000, guid: 0359b5b54c58b463d9590fa2cd8c7597, type: 3}
+  - {fileID: 8300000, guid: 217cc6ad88aa14b9682282427d28b2b0, type: 3}
+  - {fileID: 8300000, guid: 5255fb5571bae42a1b04cf69f727fc80, type: 3}
+  - {fileID: 8300000, guid: 7b4c74a751f3a4fbba8189036409849d, type: 3}
+  - {fileID: 8300000, guid: eba6ffc9e2c3244c6b0cedaa8f2ca804, type: 3}
+  - {fileID: 8300000, guid: 1d3548df2594b49c8812d0e9e387560d, type: 3}
+  - {fileID: 8300000, guid: 1548c1c41dd3f477388e193148808841, type: 3}
+  sandStep:
+  - {fileID: 8300000, guid: 08d893b7bcfa14911b22123a22fb396e, type: 3}
+  - {fileID: 8300000, guid: 204cfe10890cc408ba11306bdbf54f56, type: 3}
+  - {fileID: 8300000, guid: 3b8079a1763104ab5a4b65feafa7f69a, type: 3}
+  - {fileID: 8300000, guid: 388a9bcb267164ed5b16c3a559ea17fc, type: 3}
+  - {fileID: 8300000, guid: 3eb658c6527e846e5b156a10164c834d, type: 3}
+  - {fileID: 8300000, guid: a1d4a42b0574d47a0bf5eb47821c02e6, type: 3}
+  - {fileID: 8300000, guid: 483ccd022a8234eb8af5bf23394a9e66, type: 3}
+  - {fileID: 8300000, guid: 6d7d76abcbe8d4bd9b8be213edf02d05, type: 3}
+  floorStep:
+  - {fileID: 8300000, guid: 26fa278ce97274b95a3775721258d113, type: 3}
+  - {fileID: 8300000, guid: bf7232b7cce304d858a1e4b2706bfe10, type: 3}
+  - {fileID: 8300000, guid: e36a4a0a5069a423bbe26303b2e2c507, type: 3}
+  - {fileID: 8300000, guid: 64328b213cb2843a09d7b171876a81f7, type: 3}
+  - {fileID: 8300000, guid: f740ed99636694c2bbba015c5476620f, type: 3}
+  - {fileID: 8300000, guid: 96842ba87d2b34223b12dd11cefc863d, type: 3}
+  - {fileID: 8300000, guid: 141727fc6927a440cbf1717775ddb237, type: 3}
+  - {fileID: 8300000, guid: 2264df53c8c9441bfb13d1333ee44ce1, type: 3}
+  stoneStep:
+  - {fileID: 8300000, guid: 532dfc7f87bd34a34b3b2e906ca15284, type: 3}
+  - {fileID: 8300000, guid: 67a2d7e1952d94ae7ac02e0df98e406e, type: 3}
+  - {fileID: 8300000, guid: 091387c2047904a279f9d65cc91a5c84, type: 3}
+  - {fileID: 8300000, guid: 4e88b875c8e5e429696fadc468d6c5ea, type: 3}
+  - {fileID: 8300000, guid: 14413cfc6a78b4ec9a74c58305f64442, type: 3}
+  - {fileID: 8300000, guid: 9c136af4af90040bdbc9f366c0c8585a, type: 3}
+  - {fileID: 8300000, guid: b32a52968106d4ef09925e45295b7edf, type: 3}
+  - {fileID: 8300000, guid: a8ff98fe040604229aa224558c74df19, type: 3}
+  boatStep:
+  - {fileID: 8300000, guid: 0f9935dacc7e14054baec6a793052edb, type: 3}
+  - {fileID: 8300000, guid: 965f7ff0ad42046869609fbed5a792d5, type: 3}
+  - {fileID: 8300000, guid: d655c673631fa43bd85df9134455d9f6, type: 3}
+  - {fileID: 8300000, guid: ed595c1300dfb4d348b386b6ff43d25a, type: 3}
+  - {fileID: 8300000, guid: b9977b002b3d24ba68e0b5e5d22a5b48, type: 3}
+  - {fileID: 8300000, guid: 0242b07bb00fc46cdbf273179d5cfc7f, type: 3}
+  - {fileID: 8300000, guid: af30a8f187df34e81b2a4253a23add67, type: 3}
+  - {fileID: 8300000, guid: 9794774c3ca87435089e6b1797d0e1e3, type: 3}
 --- !u!82 &84460603
 AudioSource:
   m_ObjectHideFlags: 0
@@ -933,6 +974,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: toy
       objectReference: {fileID: 0}
+    - target: {fileID: 337348784536699399, guid: c1f27cc78c3bb0f4584ca3be82da6aae, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4027767496921368746, guid: c1f27cc78c3bb0f4584ca3be82da6aae, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.13479528
@@ -985,9 +1030,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7453821994460460300, guid: c1f27cc78c3bb0f4584ca3be82da6aae, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7901588144825462555, guid: c1f27cc78c3bb0f4584ca3be82da6aae, type: 3}
       propertyPath: subtitles
       value: toy
+      objectReference: {fileID: 0}
+    - target: {fileID: 8924757955631479911, guid: c1f27cc78c3bb0f4584ca3be82da6aae, type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -21775,11 +21828,11 @@ MeshCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: -3391208832908799067, guid: 0ceeddf55b48045018333a35e2bbad00, type: 3}
+  m_Mesh: {fileID: 5650792058104024716, guid: 11c99890164d6ca49bb85ad05a55198d, type: 3}
 --- !u!1001 &1333222764
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -51215,7 +51268,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8223320966106813802, guid: e73a2271ef72adf48b35681734aff3bd, type: 3}
       propertyPath: m_TagString
-      value: Entrance
+      value: Grass
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -51250,7 +51303,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
