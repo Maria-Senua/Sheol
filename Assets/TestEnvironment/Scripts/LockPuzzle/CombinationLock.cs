@@ -21,21 +21,22 @@ public class CombinationLock : MonoBehaviour
             int combinationNumber = int.Parse(combination[i].ToString());
 
             Debug.Log("CheckCombination " + dials[i].GetNumber());
-
-            if (combinationNumber != dials[i].GetNumber())
-            {
-                dial.Unlock();
-                return;
-            }
+            CorrectCombination();
+            //if (combinationNumber != dials[i].GetNumber())
+           // {
+             //  dial.Unlock();
+               // return;
+           // }
         }
 
-        CorrectCombination();
+        
     }
 
     private void CorrectCombination()
     {
-        for (int i = 0; i < dials.Length; i++) dials[i].Lock();
+       for (int i = 0; i < dials.Length; i++) dials[i].Lock();
 
         onCorrectCombinationFound?.Invoke();
+        for (int i = 0; i < dials.Length; i++) dials[i].Unlock();
     }
 }

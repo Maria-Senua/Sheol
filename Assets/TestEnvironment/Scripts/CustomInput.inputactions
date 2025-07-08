@@ -1,0 +1,34 @@
+{
+    "name": "CustomInput",
+    "maps": [
+        {
+            "name": "Menu",
+            "id": "fd2d1062-5592-404d-8e9d-308ce725ce29",
+            "actions": [
+                {
+                    "name": "MenuPressed",
+                    "type": "Button",
+                    "id": "bba341b6-b65a-47e4-9c70-6e482d88f621",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "fc7eab11-b73a-4fd0-97fe-366edeca2aaa",
+                    "path": "<QuestTouchPlusController>/menu",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MenuPressed",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

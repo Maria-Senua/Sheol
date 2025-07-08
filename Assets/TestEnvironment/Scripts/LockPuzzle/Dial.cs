@@ -3,6 +3,8 @@ using UnityEngine.Events;
 
 public class Dial : MonoBehaviour
 {
+    [TextArea]public string debugString;
+    
     [Header("Settings")]
     [SerializeField] private float animationDuration;
     private bool isRotating = false;
@@ -15,7 +17,10 @@ public class Dial : MonoBehaviour
     void Start()
     {
         currentIndex = Random.Range(0, 4);
-        transform.localRotation = Quaternion.Euler(currentIndex * 0, 0, -90);
+        //currentIndex = 0;
+        transform.localRotation = Quaternion.Euler(0, 0, -currentIndex * 90f - 25f);
+        Debug.Log("start rotation " + transform.localRotation + " of cube " + gameObject.name);
+        //Debug.Log("start index " + currentIndex + " of cube " + gameObject.name);
     }
 
     public void Rotate()
@@ -31,6 +36,7 @@ public class Dial : MonoBehaviour
         LeanTween.cancel(gameObject);
         LeanTween.rotateAroundLocal(gameObject, Vector3.back, -90, animationDuration).setOnComplete(RotationCompleteCallback);
 
+        debugString = "Rotating dial to index: " + currentIndex;
     }
 
     private void RotationCompleteCallback()
