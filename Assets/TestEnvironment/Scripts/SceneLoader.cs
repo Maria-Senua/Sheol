@@ -1,10 +1,11 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.InputSystem;
 
 public class SceneLoader : MonoBehaviour
 {
-    [SerializeField] GameObject pauseScreen;
-    public bool isPaused = false;
+    [SerializeField] GameObject wristUI;
+    public bool activeWristUI = false;
 
     public float startVideoTime = 5f;
     public float finalVideoTime = 7f;
@@ -64,22 +65,31 @@ public class SceneLoader : MonoBehaviour
     public void ReturnToMenu()
     {
         SceneManager.LoadScene("MainMenuScene");
+        DisplayWristUI();
     }
 
-    public void Pause()
+    public void PauseButtonPressed(InputAction.CallbackContext context)
     {
-        pauseScreen.SetActive(true);
-        Time.timeScale = 0f;
-        isPaused = true;
-
-        Cursor.lockState = CursorLockMode.None;
+        if (context.performed) DisplayWristUI();
     }
 
-    public void Resume()
+    public void DisplayWristUI()
     {
-        pauseScreen.SetActive(false);
-        Time.timeScale = 1f;
-        isPaused = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        if (activeWristUI)
+        {
+            wristUI.SetActive(false);
+            activeWristUI = false;
+            Time.timeScale = 1;
+        } else
+        {
+            wristUI.SetActive(true);
+            activeWristUI = true;
+            Time.timeScale = 0;
+        }
+    }
+
+    public void ResumeGame()
+    {
+        DisplayWristUI();
     }
 }
