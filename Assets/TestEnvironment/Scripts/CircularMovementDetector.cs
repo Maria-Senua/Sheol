@@ -1,6 +1,8 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using Random = UnityEngine.Random;
 
 public class CircularMovementDetector : MonoBehaviour
 {
@@ -223,7 +225,17 @@ public class CircularMovementDetector : MonoBehaviour
 
     }
 
- 
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.CompareTag("Entrance"))
+        {
+            Debug.Log("Entered Diorama");
+           
+            isInDiorama = true;
+            
+        }
+    }
+
 
     private void OnTriggerExit(Collider other)
     {
