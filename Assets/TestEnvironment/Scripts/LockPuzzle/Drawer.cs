@@ -17,6 +17,10 @@ public class Drawer : MonoBehaviour
     [SerializeField] private float jiggleZ = 0.009f;
     [SerializeField] private float jiggleDuration = 0.05f;
 
+    [Header("Sounds")]
+    public AudioClip[] sounds;
+    private AudioSource audioSource;
+
     private Vector3 closedPos;
     private Vector3 openPos;
 
@@ -29,8 +33,8 @@ public class Drawer : MonoBehaviour
         currentState = DrawerStates.LOCKED;
         closedPos = transform.localPosition;
         openPos = closedPos + new Vector3(0, 0, openZ);
+        audioSource = gameObject.GetComponent<AudioSource>();
 
-       
         //animator = gameObject.GetComponent<Animator>();
     }
 
@@ -42,6 +46,7 @@ public class Drawer : MonoBehaviour
     private void TryToOpenDrawer()
     {
         Vector3 jigglePos = closedPos + new Vector3(0, 0, jiggleZ);
+        audioSource.PlayOneShot(sounds[0]);
 
         LeanTween.moveLocal(gameObject, jigglePos, jiggleDuration)
             .setEase(LeanTweenType.easeOutQuad)
@@ -54,12 +59,14 @@ public class Drawer : MonoBehaviour
 
     private void OpenDrawer()
     {
+        audioSource.PlayOneShot(sounds[1]);
         LeanTween.moveLocal(gameObject, openPos, moveDuration)
             .setEase(LeanTweenType.easeOutCubic);
     }
 
     private void CloseDrawer()
     {
+        audioSource.PlayOneShot(sounds[2]);
         LeanTween.moveLocal(gameObject, closedPos, moveDuration)
             .setEase(LeanTweenType.easeInCubic);
     }
