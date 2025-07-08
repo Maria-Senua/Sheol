@@ -5,8 +5,7 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour
 {
     public static SoundManager instance;
-    private bool hasTyped = false;
-    private bool hasPlayedAudio = false;
+
     
     private void Awake()
     {
@@ -21,15 +20,12 @@ public class SoundManager : MonoBehaviour
         }
     }
     
-    public IEnumerator TypeString(string text, AudioClip audioClip, TextMeshProUGUI TMP)
+    public IEnumerator TypeString(string text, AudioClip audioClip, TextMeshProUGUI TMP, AudioSource audioSource)
     {
-        if (hasTyped) yield break;
         TMP.text = "";
-        if (!hasPlayedAudio)
-        {
-            AudioSource.PlayClipAtPoint(audioClip, transform.position);
-            hasPlayedAudio = true;
-        }        
+
+            audioSource.clip = audioClip;
+            audioSource.Play();
         
         float typingSpeed = audioClip.length / text.Length; 
 
@@ -39,6 +35,5 @@ public class SoundManager : MonoBehaviour
             yield return new WaitForSeconds(typingSpeed);
         }
         
-        hasTyped = true;
     }
 }

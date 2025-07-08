@@ -26,6 +26,7 @@ public class TimeManipulationHandler : MonoBehaviour
      [SerializeField, TextArea] private string subtitles;
      [SerializeField] private TextMeshProUGUI subtitleTMP;
      [SerializeField] private AudioClip audioClip;
+     private AudioSource audioSource;
     
     [Header("References")]
     private XRGrabInteractable xrGrabInteractable;
@@ -41,6 +42,7 @@ public class TimeManipulationHandler : MonoBehaviour
         previousY = Vector3.Distance(bottomLimit.transform.position, player.transform.position);
         xrGrabInteractable = GetComponent<XRGrabInteractable>();
         subtitleTMP = GetComponentInChildren<TextMeshProUGUI>();
+        audioSource = GetComponent<AudioSource>();
         canManipulateTime = false;
     }
     
@@ -53,6 +55,10 @@ public class TimeManipulationHandler : MonoBehaviour
     {
         ManipulateTime();
         distance = Vector3.Distance(bottomLimit.transform.position, player.transform.position);
+        
+        Vector3 direction = player.transform.position - transform.position;
+        Quaternion rotation = Quaternion.LookRotation(direction);
+        transform.rotation = rotation;
     }
     
 
@@ -89,6 +95,10 @@ public class TimeManipulationHandler : MonoBehaviour
         }
 
         previousY = distance;
-        SoundManager.instance.StartCoroutine(SoundManager.instance.TypeString(subtitles, audioClip, subtitleTMP));
+    }
+
+    public void SubtitleCall()
+    {
+        SoundManager.instance.StartCoroutine(SoundManager.instance.TypeString(subtitles, audioClip, subtitleTMP, audioSource));
     }
 }
