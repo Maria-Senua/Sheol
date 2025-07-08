@@ -11,18 +11,64 @@ public class Drawer : MonoBehaviour
 
     private DrawerStates currentState = DrawerStates.LOCKED;
 
-    private Animator animator;
+    [Header("Movement Settings")]
+    [SerializeField] private float openZ = 0.3f;
+    [SerializeField] private float moveDuration = 0.5f;
+    [SerializeField] private float jiggleZ = 0.009f;
+    [SerializeField] private float jiggleDuration = 0.05f;
+
+    [Header("Sounds")]
+    public AudioClip[] sounds;
+    private AudioSource audioSource;
+
+    private Vector3 closedPos;
+    private Vector3 openPos;
+
+
+    //private Animator animator;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         currentState = DrawerStates.LOCKED;
-        animator = gameObject.GetComponent<Animator>();
+        closedPos = transform.localPosition;
+        openPos = closedPos + new Vector3(0, 0, openZ);
+        audioSource = gameObject.GetComponent<AudioSource>();
+
+        //animator = gameObject.GetComponent<Animator>();
     }
 
     public void UnlockDrawer()
     {
         currentState = DrawerStates.CLOSED;
+    }
+
+    private void TryToOpenDrawer()
+    {
+        Vector3 jigglePos = closedPos + new Vector3(0, 0, jiggleZ);
+        audioSource.PlayOneShot(sounds[0]);
+
+        LeanTween.moveLocal(gameObject, jigglePos, jiggleDuration)
+            .setEase(LeanTweenType.easeOutQuad)
+            .setOnComplete(() =>
+            {
+                LeanTween.moveLocal(gameObject, closedPos, jiggleDuration)
+                    .setEase(LeanTweenType.easeInQuad);
+            });
+    }
+
+    private void OpenDrawer()
+    {
+        audioSource.PlayOneShot(sounds[1]);
+        LeanTween.moveLocal(gameObject, openPos, moveDuration)
+            .setEase(LeanTweenType.easeOutCubic);
+    }
+
+    private void CloseDrawer()
+    {
+        audioSource.PlayOneShot(sounds[2]);
+        LeanTween.moveLocal(gameObject, closedPos, moveDuration)
+            .setEase(LeanTweenType.easeInCubic);
     }
 
     public void PullDrawer()
@@ -31,16 +77,19 @@ public class Drawer : MonoBehaviour
         {
             case DrawerStates.LOCKED:
                 Debug.Log("Drawer is locked");
-                animator.SetTrigger("Attempt");
+                //animator.SetTrigger("Attempt");
+                TryToOpenDrawer();
                 break;
             case DrawerStates.CLOSED:
                 Debug.Log("Drawer is closed");
-                animator.SetTrigger("Open");
+                //animator.SetTrigger("Open");
+                OpenDrawer();
                 currentState = DrawerStates.OPEN;
                 break;
             case DrawerStates.OPEN:
                 Debug.Log("Drawer is open");
-                animator.SetTrigger("Close");
+                //animator.SetTrigger("Close");
+                CloseDrawer();
                 currentState = DrawerStates.CLOSED;
                 break;
         }
