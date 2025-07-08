@@ -22,16 +22,22 @@ public class TimeManipulationHandler : MonoBehaviour
     private float previousY;
     private float distance;
     
-     [Header("Subtitles")]
+     [Header("Subtitles & Audio")]
      [SerializeField, TextArea] private string subtitles;
      [SerializeField] private TextMeshProUGUI subtitleTMP;
-
+     [SerializeField] private AudioClip audioClip;
+    
     [Header("References")]
     private XRGrabInteractable xrGrabInteractable;
     
     private void Awake()
     {
         animation = GetComponent<Animator>();
+        if(animation == null)
+        {
+            animation = GetComponentInChildren<Animator>();
+        }
+        
         previousY = Vector3.Distance(bottomLimit.transform.position, player.transform.position);
         xrGrabInteractable = GetComponent<XRGrabInteractable>();
         subtitleTMP = GetComponentInChildren<TextMeshProUGUI>();
@@ -83,7 +89,6 @@ public class TimeManipulationHandler : MonoBehaviour
         }
 
         previousY = distance;
-        
-        subtitleTMP.text = subtitles;
+        SoundManager.instance.StartCoroutine(SoundManager.instance.TypeString(subtitles, audioClip, subtitleTMP));
     }
 }

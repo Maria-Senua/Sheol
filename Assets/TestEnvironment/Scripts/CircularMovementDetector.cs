@@ -8,7 +8,7 @@ public class CircularMovementDetector : MonoBehaviour
 {
     public Transform centerPoint;   
     public Transform trackedTransform;
-    public GameObject[] subscenes;
+    public GameObject subscenes;
     public GameObject[] dioramas;
     public float speedMultiplier = 0.3f;
     public float distance;
@@ -182,10 +182,9 @@ public class CircularMovementDetector : MonoBehaviour
         {
             float deltaY = direction * playerSpeed * speedMultiplier * Time.deltaTime;
 
-            foreach (GameObject subscene in subscenes)
-            {
-                subscene.transform.position += new Vector3(0, deltaY, 0);
-            }
+          
+                subscenes.transform.position += new Vector3(0, deltaY, 0);
+            
         }
 
 
@@ -229,8 +228,6 @@ public class CircularMovementDetector : MonoBehaviour
     {
         if (other.CompareTag("Entrance"))
         {
-            Debug.Log("Entered Diorama");
-           
             isInDiorama = true;
             
         }
