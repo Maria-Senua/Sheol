@@ -27,14 +27,19 @@ public class DoorController : MonoBehaviour
 
     public void TouchDoor()
     {
-        if (currentState == DoorStates.CLOSED)
+        switch (currentState)
         {
-            currentState = DoorStates.OPEN;
-            //add anim
-        } else if (currentState == DoorStates.OPEN)
-        {
-            currentState = DoorStates.CLOSED;
-            //add anim
+            case DoorStates.LOCKED:
+                Debug.Log("Doorstate locked");
+                break;
+            case DoorStates.CLOSED:
+                currentState = DoorStates.OPEN;
+                Debug.Log("Doorstate closed");
+                break;
+            case DoorStates.OPEN:
+                currentState = DoorStates.CLOSED;
+                Debug.Log("Doorstate open");
+                break;
         }
     }
 

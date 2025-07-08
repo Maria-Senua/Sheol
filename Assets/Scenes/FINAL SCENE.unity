@@ -11678,11 +11678,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -7146521406498821007, guid: 80388df8a2cca5b46acc5bf90044fce5, type: 3}
       propertyPath: m_Layer
-      value: 7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -7146521406498821007, guid: 80388df8a2cca5b46acc5bf90044fce5, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -7146521406498821007, guid: 80388df8a2cca5b46acc5bf90044fce5, type: 3}
+      propertyPath: m_TagString
+      value: Obstacles
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 80388df8a2cca5b46acc5bf90044fce5, type: 3}
       propertyPath: m_Name
@@ -34767,9 +34771,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _detectionDelay: 0.05
   _detectionDistance: 0.2
-  _detectionLayers:
-    serializedVersion: 2
-    m_Bits: 128
+  detectableTags:
+  - Obstacles
 --- !u!1 &1947124832
 GameObject:
   m_ObjectHideFlags: 0
@@ -37983,15 +37986,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8298045291338814965, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.126
+      value: -3.52
       objectReference: {fileID: 0}
     - target: {fileID: 8298045291338814965, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.916
+      value: -2.476
       objectReference: {fileID: 0}
     - target: {fileID: 8298045291338814965, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 22.277
+      value: 24.61
       objectReference: {fileID: 0}
     - target: {fileID: 8298045291338814965, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
       propertyPath: m_LocalRotation.w
