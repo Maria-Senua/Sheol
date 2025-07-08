@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-17801788332573956
+--- !u!114 &-6869612930747035486
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,13 +20,13 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_outline_2ndmateriall
-  m_Shader: {fileID: -6465566751694194690, guid: 9e632500f764eaf4ebaa5acf9a196296, type: 3}
+  m_Name: room2
+  m_Shader: {fileID: -6465566751694194690, guid: 0f99fa29274821d488e3d7d4daf5fc74, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
-  m_LightmapFlags: 4
+  m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -53,8 +53,13 @@ Material:
     m_Floats:
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Scale: 1.03
+    - _Speed_of_wobble: 0.06
+    - _cutoff_height: 5.73
+    - _glow_thickness: 0
+    - _noise_scale: 20.68
+    - _noise_strenght: 3.06
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Base_color: {r: 0.836478, g: 0.07102159, b: 0.07102159, a: 1}
+    - _glow_color: {r: 0, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
