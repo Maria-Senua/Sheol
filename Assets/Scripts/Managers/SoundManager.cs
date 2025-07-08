@@ -24,8 +24,8 @@ public class SoundManager : MonoBehaviour
     {
         TMP.text = "";
 
-            audioSource.clip = audioClip;
-            audioSource.Play();
+        audioSource.clip = audioClip;
+        audioSource.Play();
         
         float typingSpeed = audioClip.length / text.Length; 
 
