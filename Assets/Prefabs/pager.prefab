@@ -80,6 +80,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: e3e8b3f55454fbf4faf12ecd86bb61e8, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: e3e8b3f55454fbf4faf12ecd86bb61e8, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: -3522955778539423533, guid: e3e8b3f55454fbf4faf12ecd86bb61e8, type: 3}
+    - target: {fileID: -7511558181221131132, guid: e3e8b3f55454fbf4faf12ecd86bb61e8, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: e2b440db96b205c428372d8157e0d149, type: 2}
+    - target: {fileID: -7511558181221131132, guid: e3e8b3f55454fbf4faf12ecd86bb61e8, type: 3}
+      propertyPath: 'm_Materials.Array.data[2]'
+      value: 
+      objectReference: {fileID: -8274133419916619345, guid: e3e8b3f55454fbf4faf12ecd86bb61e8, type: 3}
     - target: {fileID: 919132149155446097, guid: e3e8b3f55454fbf4faf12ecd86bb61e8, type: 3}
       propertyPath: m_Name
       value: pager

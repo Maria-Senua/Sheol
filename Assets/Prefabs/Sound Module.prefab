@@ -80,10 +80,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 49e732ee2eb1dc6418282685fbca7441, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 49e732ee2eb1dc6418282685fbca7441, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: e2b440db96b205c428372d8157e0d149, type: 2}
     - target: {fileID: 919132149155446097, guid: 49e732ee2eb1dc6418282685fbca7441, type: 3}
       propertyPath: m_Name
       value: soundmodule
       objectReference: {fileID: 0}
+    - target: {fileID: 8169339662721269133, guid: 49e732ee2eb1dc6418282685fbca7441, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8169339662721269133, guid: 49e732ee2eb1dc6418282685fbca7441, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: e2b440db96b205c428372d8157e0d149, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
