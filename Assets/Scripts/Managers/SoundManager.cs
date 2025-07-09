@@ -36,6 +36,7 @@ public class SoundManager : MonoBehaviour
             {
                 TMP.text = "";
                 audioSource.Stop();
+                audioSource.clip = null;
                 yield break;
             }
             
