@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 91af160f83ecc8048b02352c47edf7ed
+guid: f7ef43ce7fe517f4d8a38a351ea70a95
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,8 +7,28 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: dirt
+    second: {fileID: 2100000, guid: 6fb285f2be8e9c44bbc033279aeaf354, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: flower_shd
-    second: {fileID: 2100000, guid: 917b769ab47f5de45ada2653a0df7d67, type: 2}
+    second: {fileID: 2100000, guid: 01aea4bb5002b8947a6a3a63dc444b7d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: leave
+    second: {fileID: 2100000, guid: d7fb383fa62ebba45a0fc4eac563eeaf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pot
+    second: {fileID: 2100000, guid: 1dd9949b87ffaf147a83baa46e42840c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stem
+    second: {fileID: 2100000, guid: f169beea2cbaf6c41948fe67b3944769, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -36,11 +56,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Dryinganimation
+      name: Blominganiamation
       takeName: Scene
       internalID: -623603649343465320
       firstFrame: 1
-      lastFrame: 180
+      lastFrame: 50
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
