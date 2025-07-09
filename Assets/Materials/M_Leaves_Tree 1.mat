@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_Leaves_Tree
+  m_Name: M_Leaves_Tree 1
   m_Shader: {fileID: -6465566751694194690, guid: 10d40f49d7f07b54b93c73b88b7d5927, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -72,10 +72,10 @@ Material:
     m_Ints: []
     m_Floats:
     - _AlphaClip_Threshold: 0.196
-    - _Alpha_Value: 0.33
-    - _Emission_Strenght: 0.48
+    - _Alpha_Value: 0.312
+    - _Emission_Strenght: 1.33
     - _FALLOFFAMOUNT: -0.28
-    - _Gradient_slider: 0.63
+    - _Gradient_slider: 1
     - _HeightBlend: 2.92
     - _IDK: 9.1
     - _QueueControl: 0
@@ -89,16 +89,16 @@ Material:
     - _WindHeight: 4.33
     - _Wind_Intensity: 1
     - _Wind_Speed: 0.508
-    - _control_fall_of_intensity: 0.13
+    - _control_fall_of_intensity: 0.29
     m_Colors:
-    - _Anothercolor: {r: 0.6974568, g: 0.6942866, b: 0, a: 0}
-    - _Basecolor: {r: 0.35430676, g: 1, b: 0.90583646, a: 0}
+    - _Anothercolor: {r: 0.9258408, g: 0.9258408, b: 0.35719678, a: 0}
+    - _Basecolor: {r: 1, g: 0.94019204, b: 0.40155864, a: 0}
     - _FarColor: {r: 1, g: 0.8939894, b: 0.22327036, a: 1}
     - _Grass_Bottom_Color: {r: 0.4041176, g: 0.8742138, b: 0.75236505, a: 1}
     - _LightPositionWS: {r: 0, g: 0, b: 0, a: 0}
     - _NearColor: {r: 0.781792, g: 0.8867924, b: 0.13106672, a: 1}
     - _NearFarRange: {r: 0, g: 0, b: 0, a: 0}
     - _ShadowColor: {r: 0.11920003, g: 0.26338658, b: 0.7735849, a: 1}
-    - _SurfaceColor: {r: 0.38987112, g: 0.5176471, b: 0.11372548, a: 0}
+    - _SurfaceColor: {r: 0.79607844, g: 0.89411765, b: 0.43529412, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
