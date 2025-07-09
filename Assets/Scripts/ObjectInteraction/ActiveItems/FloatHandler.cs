@@ -45,28 +45,13 @@ public class FloatHandler : MonoBehaviour
 
     private void Floating()
     {
-        if (xrGrabInteractable.isSelected) //Might need in future 
+        if (xrGrabInteractable.isSelected) // Object is grabbed
         {
-            isFloating = false;
-            if (floatingCoroutine != null)
-            {
-                StopCoroutine(floatingCoroutine);
-                floatingCoroutine = null;
-            }
+            StopFloating();
         }
-        else
+        else if (!isInsideRoom) // Object is outside the room
         {
-            if (!isFloating)
-            {
-                initialPosition = transform.position;
-                isFloating = true;
-                targetPosition = initialPosition;
-            }
-
-            if (floatingCoroutine == null)
-            {
-                floatingCoroutine = StartCoroutine(FloatingRoutine());
-            }
+            StartFloating();
         }
     }
 
@@ -90,24 +75,49 @@ public class FloatHandler : MonoBehaviour
         }
     }
     
+    private void StartFloating()
+    {
+        if (!isFloating)
+        {
+            initialPosition = transform.position;
+            isFloating = true;
+            targetPosition = initialPosition;
+
+            if (floatingCoroutine == null)
+            {
+                floatingCoroutine = StartCoroutine(FloatingRoutine());
+            }
+        }
+    }
+
+    private void StopFloating()
+    {
+        isFloating = false;
+
+        if (floatingCoroutine != null)
+        {
+            StopCoroutine(floatingCoroutine);
+            floatingCoroutine = null;
+        }
+    }
+    
     private void CheckRoomType()
     {
         isInsideRoom = Physics.Raycast(transform.position, Vector3.down, distance, roomLayer);
-        isFloating = !isInsideRoom;
-
         rb.useGravity = isInsideRoom;
+
         debugString = $"Is Inside Room: {isInsideRoom}";
-        
+
         if (!isInsideRoom && rb.linearVelocity.magnitude > 0.1f)
         {
             rb.linearVelocity = Vector3.Lerp(rb.linearVelocity, Vector3.zero, 0.1f);
         }
     }
     
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-
-        Gizmos.DrawWireSphere(transform.position, radius);
-    }
+    // private void OnDrawGizmos()
+    // {
+    //     Gizmos.color = Color.red;
+    //
+    //     Gizmos.DrawWireSphere(transform.position, radius);
+    // }
 }

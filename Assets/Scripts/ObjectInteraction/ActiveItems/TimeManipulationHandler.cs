@@ -1,5 +1,7 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 public class TimeManipulationHandler : MonoBehaviour
@@ -22,31 +24,50 @@ public class TimeManipulationHandler : MonoBehaviour
     private float previousY;
     private float distance;
     
-     [Header("Subtitles")]
+     [Header("Subtitles & Audio")]
      [SerializeField, TextArea] private string subtitles;
      [SerializeField] private TextMeshProUGUI subtitleTMP;
-
+     [SerializeField] private AudioClip audioClip;
+     private AudioSource audioSource;
+     private bool isHovered = false;
+    
     [Header("References")]
     private XRGrabInteractable xrGrabInteractable;
+    
+        [Header("Input Actions")]
+        [SerializeField] private InputActionReference leftActivateAction;
+        [SerializeField] private InputActionReference rightActivateAction;
     
     private void Awake()
     {
         animation = GetComponent<Animator>();
+        if(animation == null)
+        {
+            animation = GetComponentInChildren<Animator>();
+        }
+        
         previousY = Vector3.Distance(bottomLimit.transform.position, player.transform.position);
         xrGrabInteractable = GetComponent<XRGrabInteractable>();
         subtitleTMP = GetComponentInChildren<TextMeshProUGUI>();
+        audioSource = GetComponent<AudioSource>();
         canManipulateTime = false;
+        
     }
+    
     
     private void Start()
     {
         animation.speed = 0f;
     }
-
+    
     private void Update()
     {
         ManipulateTime();
         distance = Vector3.Distance(bottomLimit.transform.position, player.transform.position);
+        
+        Vector3 direction = player.transform.position - transform.position;
+        Quaternion rotation = Quaternion.LookRotation(direction);
+        transform.rotation = rotation;
     }
     
 
@@ -83,7 +104,27 @@ public class TimeManipulationHandler : MonoBehaviour
         }
 
         previousY = distance;
-        
-        subtitleTMP.text = subtitles;
+    }
+
+    public void SubtitleCall(InputAction.CallbackContext context)
+    {
+        SoundManager.instance.StartCoroutine(SoundManager.instance.TypeString(subtitles, audioClip, subtitleTMP, audioSource, xrGrabInteractable));
+    }
+    
+    
+    private void OnEnable()
+    {
+        leftActivateAction.action.Enable();
+        rightActivateAction.action.Enable();
+        rightActivateAction.action.performed += SubtitleCall;
+        leftActivateAction.action.performed += SubtitleCall;
+    }
+    
+    private void OnDisable()
+    {
+        leftActivateAction.action.Disable();
+        rightActivateAction.action.Disable();
+        rightActivateAction.action.performed -= SubtitleCall;
+        leftActivateAction.action.performed -= SubtitleCall;
     }
 }
