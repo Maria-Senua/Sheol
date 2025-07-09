@@ -36,13 +36,13 @@ public class TileHandler : MonoBehaviour
         {
             if (!neighbor.hasPuzzlePiece)
             {
-                Transform puzzlePiece = this.transform.GetChild(0);
-                
-                neighbor.hasPuzzlePiece = true;
-                hasPuzzlePiece = false;
-                
-                StartCoroutine(SmoothMove(puzzlePiece, neighbor.transform));
-                
+                GameObject puzzlePiece = transform.childCount > 0 ? transform.GetChild(0).gameObject : null;
+                if (puzzlePiece == null) return;
+            
+                neighbor.SetPuzzlePiece(puzzlePiece);
+                SetPuzzlePiece(null);
+            
+                StartCoroutine(SmoothMove(puzzlePiece.transform, neighbor.transform));
                 break;
             }
         }
@@ -64,6 +64,23 @@ public class TileHandler : MonoBehaviour
         puzzlePiece.position = endPosition;
         puzzlePiece.SetParent(targetTransform);
         hasPuzzlePiece = false;
+    }
+    
+    public void SetPuzzlePiece(GameObject piece)
+    {
+        if (piece != null)
+        {
+            piece.transform.SetParent(transform);
+            piece.transform.localPosition = Vector3.zero;
+            hasPuzzlePiece = true;
+        
+            GridManager.instance.UpdateAssignment(gameObject, piece);
+        }
+        else
+        {
+            hasPuzzlePiece = false;
+            GridManager.instance.UpdateAssignment(gameObject, null);
+        }
     }
     
     public void VerifyPuzzlePieceState()
