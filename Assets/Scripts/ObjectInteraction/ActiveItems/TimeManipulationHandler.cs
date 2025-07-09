@@ -20,6 +20,7 @@ public class TimeManipulationHandler : MonoBehaviour
     [SerializeField] private GameObject bottomLimit;
     [SerializeField] private GameObject player;
     [SerializeField] private bool canManipulateTime = false;
+    [SerializeField] private bool isLocked = false;
     private Animator animation;
     private float previousY;
     private float distance;
@@ -59,8 +60,10 @@ public class TimeManipulationHandler : MonoBehaviour
         
         xrGrabInteractable.hoverEntered.AddListener(OnHoverEntered);
         xrGrabInteractable.hoverExited.AddListener(OnHoverExited);
+
+        rightActivateAction.action.performed += Locking;
+        leftActivateAction.action.performed += Locking;
     }
-    
     
     private void Start()
     {
@@ -78,11 +81,11 @@ public class TimeManipulationHandler : MonoBehaviour
         transform.rotation = rotation;
         
     }
-
-   
-
+    
     private void ManipulateTime()
     {
+        if(isLocked) return;
+        
         if (xrGrabInteractable.isSelected) //For Future bool use
         {
             rb.useGravity = true;
@@ -122,6 +125,14 @@ public class TimeManipulationHandler : MonoBehaviour
     public void SubtitleCall(InputAction.CallbackContext context)
     {
         SoundManager.instance.StartCoroutine(SoundManager.instance.TypeString(subtitles, audioClip, subtitleTMP, audioSource, xrGrabInteractable));
+    }
+    
+    private void Locking(InputAction.CallbackContext context)
+    {
+        if (xrGrabInteractable.isSelected)
+        {
+            isLocked = !isLocked;
+        }
     }
     
     private void OnHoverEntered(HoverEnterEventArgs args)
