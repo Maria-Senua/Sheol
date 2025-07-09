@@ -1,7 +1,9 @@
+using System.Collections;
 using UnityEngine;
 
 public class DoorController : MonoBehaviour
 {
+    [SerializeField, TextArea] private string debugString;
     private enum DoorStates
     {
         LOCKED,
@@ -10,8 +12,8 @@ public class DoorController : MonoBehaviour
     }
 
     private DoorStates currentState = DoorStates.LOCKED;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private bool isPlayingAnimation = false;
+    
     void Start()
     {
         currentState = DoorStates.LOCKED;
@@ -22,6 +24,8 @@ public class DoorController : MonoBehaviour
         if (collision.gameObject.CompareTag("Key"))
         {
             currentState = DoorStates.CLOSED;
+            StartCoroutine(RotateDoor(new Vector3(0f, -90f, 0f), 3f));
+            debugString = "Door is now closed and unlocked.";
         }
     }
 
@@ -30,22 +34,32 @@ public class DoorController : MonoBehaviour
         switch (currentState)
         {
             case DoorStates.LOCKED:
-                Debug.Log("Doorstate locked");
+                debugString = "Door is locked. Find the key to unlock it.";
                 break;
             case DoorStates.CLOSED:
                 currentState = DoorStates.OPEN;
-                Debug.Log("Doorstate closed");
                 break;
             case DoorStates.OPEN:
                 currentState = DoorStates.CLOSED;
-                Debug.Log("Doorstate open");
                 break;
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    private IEnumerator RotateDoor(Vector3 targetEulerAngles, float duration)
     {
-        
+        isPlayingAnimation = true;
+        Quaternion startRotation = transform.rotation;
+        Quaternion targetRotation = Quaternion.Euler(targetEulerAngles);
+        float elapsedTime = 0f;
+
+        while (elapsedTime < duration)
+        {
+            transform.rotation = Quaternion.Lerp(startRotation, targetRotation, elapsedTime / duration);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        transform.rotation = targetRotation;
+        isPlayingAnimation = false;
     }
 }

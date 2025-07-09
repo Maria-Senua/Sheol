@@ -34,9 +34,9 @@ public class TimeManipulationHandler : MonoBehaviour
     [Header("References")]
     private XRGrabInteractable xrGrabInteractable;
     
-        [Header("Input Actions")]
-        [SerializeField] private InputActionReference leftActivateAction;
-        [SerializeField] private InputActionReference rightActivateAction;
+    [Header("Input Actions")]
+    [SerializeField] private InputActionReference leftActivateAction;
+    [SerializeField] private InputActionReference rightActivateAction;
     
     private void Awake()
     {
@@ -52,6 +52,8 @@ public class TimeManipulationHandler : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         canManipulateTime = false;
         
+        xrGrabInteractable.hoverEntered.AddListener(OnHoverEntered);
+        xrGrabInteractable.hoverExited.AddListener(OnHoverExited);
     }
     
     
@@ -62,12 +64,14 @@ public class TimeManipulationHandler : MonoBehaviour
     
     private void Update()
     {
-        ManipulateTime();
         distance = Vector3.Distance(bottomLimit.transform.position, player.transform.position);
+        
+        ManipulateTime();
         
         Vector3 direction = player.transform.position - transform.position;
         Quaternion rotation = Quaternion.LookRotation(direction);
         transform.rotation = rotation;
+        
     }
     
 
@@ -76,6 +80,7 @@ public class TimeManipulationHandler : MonoBehaviour
         if (xrGrabInteractable.isSelected) //For Future bool use
         {
             canManipulateTime = true;
+            subtitleTMP.text = "";
         }
         else
         {
@@ -89,12 +94,14 @@ public class TimeManipulationHandler : MonoBehaviour
             animation.SetFloat("reverser", -1);
             animation.speed = 1f;
             debugString = "Reversing";
+            previousY = distance;
         }
         else if (distance < previousY) 
         {
             animation.SetFloat("reverser", 1);
             animation.speed = 1f;
             debugString = "Forwarding";
+            previousY = distance;
         }
         else
         {
@@ -102,8 +109,6 @@ public class TimeManipulationHandler : MonoBehaviour
             animation.speed = 0f;
             debugString = "Paused";
         }
-
-        previousY = distance;
     }
 
     public void SubtitleCall(InputAction.CallbackContext context)
@@ -111,20 +116,27 @@ public class TimeManipulationHandler : MonoBehaviour
         SoundManager.instance.StartCoroutine(SoundManager.instance.TypeString(subtitles, audioClip, subtitleTMP, audioSource, xrGrabInteractable));
     }
     
+    private void OnHoverEntered(HoverEnterEventArgs args)
+    {
+        rightActivateAction.action.performed += SubtitleCall;
+        leftActivateAction.action.performed += SubtitleCall;
+    }
+
+    private void OnHoverExited(HoverExitEventArgs args)
+    {
+        rightActivateAction.action.performed -= SubtitleCall;
+        leftActivateAction.action.performed -= SubtitleCall;
+    }
     
     private void OnEnable()
     {
         leftActivateAction.action.Enable();
         rightActivateAction.action.Enable();
-        rightActivateAction.action.performed += SubtitleCall;
-        leftActivateAction.action.performed += SubtitleCall;
     }
     
     private void OnDisable()
     {
         leftActivateAction.action.Disable();
         rightActivateAction.action.Disable();
-        rightActivateAction.action.performed -= SubtitleCall;
-        leftActivateAction.action.performed -= SubtitleCall;
     }
 }
