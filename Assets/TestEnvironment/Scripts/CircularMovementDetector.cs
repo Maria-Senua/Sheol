@@ -25,6 +25,7 @@ public class CircularMovementDetector : MonoBehaviour
     private float movementCheckTimer = 0f;
     private List<string> currentSurfaces = new List<string>();
     private string lastSurface = "";
+    private List<string> currentDioramas = new();
 
     [SerializeField] private AudioSource stepAudioSource;
     [SerializeField] private AudioClip[] grassStep;
@@ -218,8 +219,15 @@ public class CircularMovementDetector : MonoBehaviour
 
         if (other.CompareTag("Grass") || other.CompareTag("Sand") || other.CompareTag("Floor"))
         {
-            if (!currentSurfaces.Contains(other.tag))
-                currentSurfaces.Add(other.tag);
+            if (!currentSurfaces.Contains(other.tag)) currentSurfaces.Add(other.tag);
+
+
+            if (!currentDioramas.Contains(other.tag))
+            {
+                currentDioramas.Add(other.tag);
+                PlayDioramaFromTag(other.tag);
+            }
+            Debug.Log("SOUND DIORAMA");
         }
 
     }
@@ -246,6 +254,25 @@ public class CircularMovementDetector : MonoBehaviour
         if (currentSurfaces.Contains(other.tag))
         {
             currentSurfaces.Remove(other.tag);
+            MusicController.instance.StopDioramaMusic();
+        }
+      
+    }
+
+    private void PlayDioramaFromTag(string tag)
+    {
+        switch (tag)
+        {
+            case "Floor":
+                MusicController.instance.PlayDioramaMusic(0);
+                break;
+            case "Sand":
+                MusicController.instance.PlayDioramaMusic(1);
+                break;
+            case "Grass":
+                MusicController.instance.PlayDioramaMusic(2);
+                break;
         }
     }
+
 }

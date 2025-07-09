@@ -3,7 +3,10 @@ using UnityEngine;
 
 public class MusicController : MonoBehaviour
 {
+    public static MusicController instance;
+
     public AudioClip[] musicList;
+    public AudioClip[] dioramasMusic;
 
     public GameObject topLimit;
     public GameObject bottomLimit;
@@ -17,11 +20,16 @@ public class MusicController : MonoBehaviour
     private Dictionary<int, AudioSource> trackSources = new Dictionary<int, AudioSource>();
 
     private Dictionary<int, float> trackTargetVolumes = new Dictionary<int, float>();
-    private float fadeSpeed = 1f; 
+    private float fadeSpeed = 1f;
+
+    private AudioSource dioramaSource;
+    private bool playingDioramaMusic = false;
 
 
     private void Awake()
     {
+        instance = this;
+
         initialEnvY = environmentRoot.position.y;
 
         float topY = topLimit.transform.position.y;
@@ -65,6 +73,8 @@ public class MusicController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (playingDioramaMusic) return;
+
         float topY = topLimit.transform.position.y;
         float bottomY = bottomLimit.transform.position.y;
         float centerY = environmentRoot.position.y; 
@@ -129,4 +139,34 @@ public class MusicController : MonoBehaviour
         }
     }
 
+    public void PlayDioramaMusic(int trackNum)
+    {
+        StopSpiralMusic();
+
+        if (dioramaSource == null)
+            dioramaSource = gameObject.AddComponent<AudioSource>();
+
+        dioramaSource.clip = dioramasMusic[trackNum];
+        dioramaSource.loop = true;
+        dioramaSource.volume = 1f;
+        dioramaSource.Play();
+        playingDioramaMusic = true;
+    }
+
+    public void StopDioramaMusic()
+    {
+        if (dioramaSource != null && dioramaSource.isPlaying)
+            dioramaSource.Stop();
+
+        playingDioramaMusic = false;
+    }
+
+    private void StopSpiralMusic()
+    {
+        foreach (var source in trackSources.Values)
+        {
+            source.Stop();
+            source.volume = 0f;
+        }
+    }
 }
