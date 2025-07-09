@@ -92,4 +92,9 @@ public class SceneLoader : MonoBehaviour
     {
         DisplayWristUI();
     }
+
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
 }

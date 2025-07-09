@@ -165,12 +165,12 @@ public class CircularMovementDetector : MonoBehaviour
             if (cross > 0)
             {
                 direction = -1;
-                Debug.Log("Counterclockwise");
+                // Debug.Log("Counterclockwise");
             }
             else
             {
                 direction = 1;
-                Debug.Log("Clockwise");
+                // Debug.Log("Clockwise");
             }
         }
         else

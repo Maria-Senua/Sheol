@@ -1,5 +1,7 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 public class TimeManipulationHandler : MonoBehaviour
@@ -21,15 +23,21 @@ public class TimeManipulationHandler : MonoBehaviour
     private Animator animation;
     private float previousY;
     private float distance;
-    
-     [Header("Subtitles & Audio")]
+    private Rigidbody rb;
+
+    [Header("Subtitles & Audio")]
      [SerializeField, TextArea] private string subtitles;
      [SerializeField] private TextMeshProUGUI subtitleTMP;
      [SerializeField] private AudioClip audioClip;
      private AudioSource audioSource;
+     private bool isHovered = false;
     
     [Header("References")]
     private XRGrabInteractable xrGrabInteractable;
+    
+    [Header("Input Actions")]
+    [SerializeField] private InputActionReference leftActivateAction;
+    [SerializeField] private InputActionReference rightActivateAction;
     
     private void Awake()
     {
@@ -38,35 +46,49 @@ public class TimeManipulationHandler : MonoBehaviour
         {
             animation = GetComponentInChildren<Animator>();
         }
-        
+
+        rb = gameObject.GetComponent<Rigidbody>();
+        rb.useGravity = false;
+        rb.isKinematic = true;
+
         previousY = Vector3.Distance(bottomLimit.transform.position, player.transform.position);
         xrGrabInteractable = GetComponent<XRGrabInteractable>();
         subtitleTMP = GetComponentInChildren<TextMeshProUGUI>();
         audioSource = GetComponent<AudioSource>();
         canManipulateTime = false;
+        
+        xrGrabInteractable.hoverEntered.AddListener(OnHoverEntered);
+        xrGrabInteractable.hoverExited.AddListener(OnHoverExited);
     }
+    
     
     private void Start()
     {
         animation.speed = 0f;
     }
-
+    
     private void Update()
     {
-        ManipulateTime();
         distance = Vector3.Distance(bottomLimit.transform.position, player.transform.position);
+        
+        ManipulateTime();
         
         Vector3 direction = player.transform.position - transform.position;
         Quaternion rotation = Quaternion.LookRotation(direction);
         transform.rotation = rotation;
+        
     }
-    
+
+   
 
     private void ManipulateTime()
     {
         if (xrGrabInteractable.isSelected) //For Future bool use
         {
+            rb.useGravity = true;
+            rb.isKinematic = false;
             canManipulateTime = true;
+            subtitleTMP.text = "";
         }
         else
         {
@@ -80,12 +102,14 @@ public class TimeManipulationHandler : MonoBehaviour
             animation.SetFloat("reverser", -1);
             animation.speed = 1f;
             debugString = "Reversing";
+            previousY = distance;
         }
         else if (distance < previousY) 
         {
             animation.SetFloat("reverser", 1);
             animation.speed = 1f;
             debugString = "Forwarding";
+            previousY = distance;
         }
         else
         {
@@ -93,12 +117,34 @@ public class TimeManipulationHandler : MonoBehaviour
             animation.speed = 0f;
             debugString = "Paused";
         }
-
-        previousY = distance;
     }
 
-    public void SubtitleCall()
+    public void SubtitleCall(InputAction.CallbackContext context)
     {
-        SoundManager.instance.StartCoroutine(SoundManager.instance.TypeString(subtitles, audioClip, subtitleTMP, audioSource));
+        SoundManager.instance.StartCoroutine(SoundManager.instance.TypeString(subtitles, audioClip, subtitleTMP, audioSource, xrGrabInteractable));
+    }
+    
+    private void OnHoverEntered(HoverEnterEventArgs args)
+    {
+        rightActivateAction.action.performed += SubtitleCall;
+        leftActivateAction.action.performed += SubtitleCall;
+    }
+
+    private void OnHoverExited(HoverExitEventArgs args)
+    {
+        rightActivateAction.action.performed -= SubtitleCall;
+        leftActivateAction.action.performed -= SubtitleCall;
+    }
+    
+    private void OnEnable()
+    {
+        leftActivateAction.action.Enable();
+        rightActivateAction.action.Enable();
+    }
+    
+    private void OnDisable()
+    {
+        leftActivateAction.action.Disable();
+        rightActivateAction.action.Disable();
     }
 }
