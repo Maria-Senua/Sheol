@@ -8,9 +8,13 @@ public class DrawningController : MonoBehaviour
     public GameObject lake;
     public GameObject eva;
     public float drawningTime = 7f;
+    public GameObject reflection;
+    public float realisingTime = 5f;
 
     private Animator boatAnimator;
     private Animator lakeAnimator;
+
+    public UnityEvent onRealisation;
 
     private void Awake()
     {
@@ -21,7 +25,7 @@ public class DrawningController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        reflection.SetActive(false);   
     }
 
     // Update is called once per frame
@@ -57,6 +61,11 @@ public class DrawningController : MonoBehaviour
         }
 
         eva.transform.position = targetPos;
+        reflection.SetActive(true);
+
+        yield return new WaitForSeconds(realisingTime);
+
+        onRealisation?.Invoke();
     }
 
 }
