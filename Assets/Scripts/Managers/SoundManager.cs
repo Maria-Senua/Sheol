@@ -1,6 +1,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 public class SoundManager : MonoBehaviour
 {
@@ -20,7 +21,7 @@ public class SoundManager : MonoBehaviour
         }
     }
     
-    public IEnumerator TypeString(string text, AudioClip audioClip, TextMeshProUGUI TMP, AudioSource audioSource)
+    public IEnumerator TypeString(string text, AudioClip audioClip, TextMeshProUGUI TMP, AudioSource audioSource, XRGrabInteractable xrGrabInteractable)
     {
         TMP.text = "";
 
@@ -31,6 +32,13 @@ public class SoundManager : MonoBehaviour
 
         foreach (char character in text)
         {
+            if (xrGrabInteractable.isSelected)
+            {
+                TMP.text = "";
+                audioSource.Stop();
+                yield break;
+            }
+            
             TMP.text += character;
             yield return new WaitForSeconds(typingSpeed);
         }
