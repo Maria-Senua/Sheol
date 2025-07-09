@@ -1,9 +1,34 @@
 fileFormatVersion: 2
-guid: 14c804d5bc2269b44a0d6af9e5c591bb
+guid: f7ef43ce7fe517f4d8a38a351ea70a95
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: dirt
+    second: {fileID: 2100000, guid: 6fb285f2be8e9c44bbc033279aeaf354, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: flower_shd
+    second: {fileID: 2100000, guid: 01aea4bb5002b8947a6a3a63dc444b7d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: leave
+    second: {fileID: 2100000, guid: d7fb383fa62ebba45a0fc4eac563eeaf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pot
+    second: {fileID: 2100000, guid: 1dd9949b87ffaf147a83baa46e42840c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stem
+    second: {fileID: 2100000, guid: f169beea2cbaf6c41948fe67b3944769, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -31,7 +56,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: FlowerBloomingAnimation
+      name: Blominganiamation
       takeName: Scene
       internalID: -623603649343465320
       firstFrame: 1
@@ -62,7 +87,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 3
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -117,7 +142,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1
+    globalScale: 0.03
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
