@@ -23,8 +23,9 @@ public class TimeManipulationHandler : MonoBehaviour
     private Animator animation;
     private float previousY;
     private float distance;
-    
-     [Header("Subtitles & Audio")]
+    private Rigidbody rb;
+
+    [Header("Subtitles & Audio")]
      [SerializeField, TextArea] private string subtitles;
      [SerializeField] private TextMeshProUGUI subtitleTMP;
      [SerializeField] private AudioClip audioClip;
@@ -45,7 +46,11 @@ public class TimeManipulationHandler : MonoBehaviour
         {
             animation = GetComponentInChildren<Animator>();
         }
-        
+
+        rb = gameObject.GetComponent<Rigidbody>();
+        rb.useGravity = false;
+        rb.isKinematic = true;
+
         previousY = Vector3.Distance(bottomLimit.transform.position, player.transform.position);
         xrGrabInteractable = GetComponent<XRGrabInteractable>();
         subtitleTMP = GetComponentInChildren<TextMeshProUGUI>();
@@ -73,12 +78,15 @@ public class TimeManipulationHandler : MonoBehaviour
         transform.rotation = rotation;
         
     }
-    
+
+   
 
     private void ManipulateTime()
     {
         if (xrGrabInteractable.isSelected) //For Future bool use
         {
+            rb.useGravity = true;
+            rb.isKinematic = false;
             canManipulateTime = true;
             subtitleTMP.text = "";
         }
