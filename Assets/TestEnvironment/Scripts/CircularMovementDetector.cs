@@ -25,7 +25,6 @@ public class CircularMovementDetector : MonoBehaviour
     private float movementCheckTimer = 0f;
     private List<string> currentSurfaces = new List<string>();
     private string lastSurface = "";
-    private List<string> currentDioramas = new();
 
     [SerializeField] private AudioSource stepAudioSource;
     [SerializeField] private AudioClip[] grassStep;
@@ -222,11 +221,9 @@ public class CircularMovementDetector : MonoBehaviour
             if (!currentSurfaces.Contains(other.tag)) currentSurfaces.Add(other.tag);
 
 
-            if (!currentDioramas.Contains(other.tag))
-            {
-                currentDioramas.Add(other.tag);
+            
                 PlayDioramaFromTag(other.tag);
-            }
+            
             Debug.Log("SOUND DIORAMA");
         }
 

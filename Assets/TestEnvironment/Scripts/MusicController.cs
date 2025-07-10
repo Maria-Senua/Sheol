@@ -157,8 +157,14 @@ public class MusicController : MonoBehaviour
     {
         if (dioramaSource != null && dioramaSource.isPlaying)
             dioramaSource.Stop();
-
+        
         playingDioramaMusic = false;
+        if (track2Source != null && !track2Source.isPlaying)
+        {
+            track2Source.volume = 1f;
+            track2Source.Play();
+            Debug.Log("track2Source resumed");
+        }
     }
 
     private void StopSpiralMusic()
@@ -167,6 +173,13 @@ public class MusicController : MonoBehaviour
         {
             source.Stop();
             source.volume = 0f;
+            Debug.Log("stopspiralmusic");
+        }
+        if (track2Source != null)
+        {
+            track2Source.Stop();
+            track2Source.volume = 0f;
+            Debug.Log("track2Source stopped");
         }
     }
 }
