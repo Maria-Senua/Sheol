@@ -4,6 +4,7 @@ using UnityEngine.Events;
 public class OrbFalling : MonoBehaviour
 {
     private Animator animator;
+    private AudioSource audioSource;
     public float startDelay = 5f;
 
     public UnityEvent onOrbAway;
@@ -11,19 +12,8 @@ public class OrbFalling : MonoBehaviour
     private void Awake()
     {
         animator = gameObject.GetComponent<Animator>();
+        audioSource = gameObject.GetComponent<AudioSource>();
         gameObject.SetActive(false);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        startDelay -= Time.deltaTime;
-
-        if (startDelay <= 0)
-        {
-           
-        }
-           
     }
 
     public void FallIntoWater()
@@ -46,6 +36,7 @@ public class OrbFalling : MonoBehaviour
         {
             //activate splash
             Debug.Log("SPLASH");
+            audioSource.Play();
             Invoke("RevealAfterSplash", 1f);
         }
     }
