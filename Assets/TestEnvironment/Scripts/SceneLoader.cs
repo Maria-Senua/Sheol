@@ -1,9 +1,12 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
+using System.Collections;
 
 public class SceneLoader : MonoBehaviour
 {
+    public FadeScreen fadeScreen;
+
     [SerializeField] GameObject wristUI;
     public bool activeWristUI = false;
 
@@ -19,49 +22,27 @@ public class SceneLoader : MonoBehaviour
         sceneName = currentScene.name;
     }
 
+    public void GoToScene(string name)
+    {
+        StartCoroutine(GoToSceneRoutine(name));
+    }
+
+    IEnumerator GoToSceneRoutine(string name)
+    {
+        fadeScreen.FadeOut();
+        yield return new WaitForSeconds(fadeScreen.fadeDuration);
+
+        SceneManager.LoadScene(name);
+    }
+
     private void Update()
     {
         if (sceneName == "StartCutScene")
         {
             startVideoTime -= Time.deltaTime;
 
-            if (startVideoTime <= 0) OpenSpiralScene();
+            if (startVideoTime <= 0) GoToScene("FINAL SCENE");
         }
-        //if (sceneName == "FinalCutScene")
-        //{
-        //    finalVideoTime -= Time.deltaTime;
-
-        //    if (finalVideoTime <= 0)
-        //    {
-        //        ShowCredits();
-        //    }
-        //}
-    }
-
-    public void OpenSpiralScene()
-    {
-        SceneManager.LoadScene("FINAL SCENE");
-    }
-
-    public void ShowStartCutScene()
-    {
-        SceneManager.LoadScene("StartCutScene");
-    }
-
-    public void ShowFinalCutScene()
-    {
-        SceneManager.LoadScene("FinalCutScene");
-    }
-
-    public void ShowCredits()
-    {
-        SceneManager.LoadScene("CreditsScene");
-    }
-
-    public void ReturnToMenu()
-    {
-        SceneManager.LoadScene("MainMenuScene");
-        DisplayWristUI();
     }
 
     public void PauseButtonPressed(InputAction.CallbackContext context)
