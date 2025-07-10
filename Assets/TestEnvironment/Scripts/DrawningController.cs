@@ -10,10 +10,12 @@ public class DrawningController : MonoBehaviour
     public float drawningTime = 7f;
     public GameObject reflection;
     public float realisingTime = 5f;
+    public float startDelay = 3f;
 
     private Animator boatAnimator;
     private Animator lakeAnimator;
 
+    public UnityEvent afterBending;
     public UnityEvent onRealisation;
 
     private void Awake()
@@ -25,19 +27,33 @@ public class DrawningController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        eva.SetActive(false);
         reflection.SetActive(false);   
     }
 
     // Update is called once per frame
     void Update()
     {
-       
+        startDelay -= Time.deltaTime;
+        if (startDelay <= 0) LookInWater();
     }
 
     public void LookInWater()
     {
         boatAnimator.Play("MoveBoat");
         lakeAnimator.Play("LakeMove");
+        
+        Invoke("ThrowOrb", 2f);
+    }
+
+    public void ThrowOrb()
+    {
+        afterBending?.Invoke();
+    }
+
+    public void SeeEva()
+    {
+        eva.SetActive(true);
         Invoke("Drawn", drawningTime);
     }
 

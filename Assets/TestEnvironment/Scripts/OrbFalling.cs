@@ -11,6 +11,7 @@ public class OrbFalling : MonoBehaviour
     private void Awake()
     {
         animator = gameObject.GetComponent<Animator>();
+        gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -20,10 +21,16 @@ public class OrbFalling : MonoBehaviour
 
         if (startDelay <= 0)
         {
-            animator.Play("Fall");
-            Invoke("RemoveOrb", 4f);
+           
         }
            
+    }
+
+    public void FallIntoWater()
+    {
+        gameObject.SetActive(true);
+        animator.Play("Fall");
+        Invoke("RemoveOrb", 4f);
     }
 
     private void RemoveOrb()
@@ -39,7 +46,12 @@ public class OrbFalling : MonoBehaviour
         {
             //activate splash
             Debug.Log("SPLASH");
-            onOrbAway.Invoke();
+            Invoke("RevealAfterSplash", 1f);
         }
+    }
+
+    private void RevealAfterSplash()
+    {
+        onOrbAway.Invoke();
     }
 }

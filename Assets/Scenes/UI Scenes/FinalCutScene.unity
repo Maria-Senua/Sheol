@@ -661,7 +661,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 548137752451728364, guid: 9d7fa426389578c49abadbf2cbfe3663, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2612304141272356026, guid: 9d7fa426389578c49abadbf2cbfe3663, type: 3}
       propertyPath: m_LocalScale.x
@@ -725,7 +725,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7696387136790535853, guid: 9d7fa426389578c49abadbf2cbfe3663, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -789,7 +789,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1582810396}
         m_TargetAssemblyTypeName: DrawningController, Assembly-CSharp
-        m_MethodName: LookInWater
+        m_MethodName: SeeEva
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -962,6 +962,22 @@ MonoBehaviour:
   drawningTime: 7
   reflection: {fileID: 1671322376}
   realisingTime: 5
+  startDelay: 3
+  afterBending:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1193328610}
+        m_TargetAssemblyTypeName: OrbFalling, Assembly-CSharp
+        m_MethodName: FallIntoWater
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onRealisation:
     m_PersistentCalls:
       m_Calls:
