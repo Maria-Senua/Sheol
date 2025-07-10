@@ -8,7 +8,7 @@ public class SceneLoader : MonoBehaviour
     public bool activeWristUI = false;
 
     public float startVideoTime = 5f;
-    public float finalVideoTime = 7f;
+    //public float finalVideoTime = 7f;
     Scene currentScene;
     private string sceneName;
     //public Button continueBtn;
@@ -23,23 +23,19 @@ public class SceneLoader : MonoBehaviour
     {
         if (sceneName == "StartCutScene")
         {
-            Cursor.lockState = CursorLockMode.Locked;
             startVideoTime -= Time.deltaTime;
 
             if (startVideoTime <= 0) OpenSpiralScene();
         }
-        if (sceneName == "FinalCutScene")
-        {
-            Cursor.lockState = CursorLockMode.Locked;
-            finalVideoTime -= Time.deltaTime;
+        //if (sceneName == "FinalCutScene")
+        //{
+        //    finalVideoTime -= Time.deltaTime;
 
-            if (finalVideoTime <= 0)
-            {
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
-                ShowCredits();
-            }
-        }
+        //    if (finalVideoTime <= 0)
+        //    {
+        //        ShowCredits();
+        //    }
+        //}
     }
 
     public void OpenSpiralScene()
