@@ -6,6 +6,7 @@ public class OrbFalling : MonoBehaviour
     private Animator animator;
     private AudioSource audioSource;
     public float startDelay = 5f;
+    public GameObject splash;
 
     public UnityEvent onOrbAway;
 
@@ -20,12 +21,13 @@ public class OrbFalling : MonoBehaviour
     {
         gameObject.SetActive(true);
         animator.Play("Fall");
-        Invoke("RemoveOrb", 4f);
+        //Invoke("RemoveOrb", 2f);
     }
 
     private void RemoveOrb()
     {
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
+        Destroy(gameObject);
         
 
     }
@@ -34,7 +36,7 @@ public class OrbFalling : MonoBehaviour
     {
         if (other.CompareTag("Water"))
         {
-            //activate splash
+            splash.SetActive(true);
             Debug.Log("SPLASH");
             audioSource.Play();
             Invoke("RevealAfterSplash", 1f);
@@ -43,6 +45,8 @@ public class OrbFalling : MonoBehaviour
 
     private void RevealAfterSplash()
     {
+        
         onOrbAway.Invoke();
+        RemoveOrb();
     }
 }
