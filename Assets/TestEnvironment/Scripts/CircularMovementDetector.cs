@@ -181,10 +181,19 @@ public class CircularMovementDetector : MonoBehaviour
 
         if (direction != 0)
         {
-            float deltaY = direction * playerSpeed * direction == 1 ? speedMultiplierDown : speedMultiplierUp * Time.deltaTime;
-
+            //float deltaY = direction * playerSpeed * direction == 1 ? speedMultiplierDown : speedMultiplierUp * Time.deltaTime;
+             float deltaY = 0;
+             if (direction == 1)
+             {
+                 deltaY = direction * playerSpeed * speedMultiplierDown * Time.deltaTime;
+             }
+             else if (direction == -1)
+             {
+                 deltaY = direction * playerSpeed * speedMultiplierUp * Time.deltaTime;
+             }
+    
           
-                subscenes.transform.position += new Vector3(0, deltaY, 0);
+                             subscenes.transform.position += new Vector3(0, deltaY, 0);
             
         }
 

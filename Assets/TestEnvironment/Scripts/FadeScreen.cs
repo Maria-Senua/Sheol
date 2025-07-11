@@ -17,20 +17,24 @@ public class FadeScreen : MonoBehaviour
 
     public void FadeIn()
     {
-        Fade(1, 0);
+        Debug.Log("FAIDEING IN");
+        StartCoroutine(FadeRoutine(1, 0, () => gameObject.SetActive(false)));
     }
 
     public void FadeOut()
     {
-        Fade(0, 1);
+        Debug.Log("FAIDEING OUT");
+        gameObject.SetActive(true);
+        StartCoroutine(FadeRoutine(0, 1, null));
+        
     }
 
-    public void Fade(float alphaIn, float alphaOut)
+    public void Fade(float alphaIn, float alphaOut, System.Action onComplete = null)
     {
-        StartCoroutine(FadeRoutine(alphaIn, alphaOut));
+        StartCoroutine(FadeRoutine(alphaIn, alphaOut, onComplete));
     }
 
-    public IEnumerator FadeRoutine(float alphaIn, float alphaOut)
+    public IEnumerator FadeRoutine(float alphaIn, float alphaOut, System.Action onComplete)
     {
         float timer = 0;
         while (timer <= fadeDuration)
@@ -46,5 +50,6 @@ public class FadeScreen : MonoBehaviour
         Color newColor2 = fadeColor;
         newColor2.a = alphaOut;
         rend.material.SetColor("_Color", newColor2);
+        onComplete?.Invoke();
     }
 }
