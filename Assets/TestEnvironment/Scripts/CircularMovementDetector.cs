@@ -10,7 +10,8 @@ public class CircularMovementDetector : MonoBehaviour
     public Transform trackedTransform;
     public GameObject subscenes;
     public GameObject[] dioramas;
-    public float speedMultiplier = 0.3f;
+    public float speedMultiplierUp = 0.3f;
+    public float speedMultiplierDown = 0.3f;
     public float distance;
 
     private Vector3 lastPosition;
@@ -33,7 +34,7 @@ public class CircularMovementDetector : MonoBehaviour
     [SerializeField] private AudioClip[] stoneStep;
     [SerializeField] private AudioClip[] boatStep;
 
-
+    public UnityEvent onMemoryFull;
 
     //private bool isNearDiorama = false;
 
@@ -165,12 +166,12 @@ public class CircularMovementDetector : MonoBehaviour
             if (cross > 0)
             {
                 direction = -1;
-                // Debug.Log("Counterclockwise");
+                 Debug.Log("Counterclockwise"); //up
             }
             else
             {
                 direction = 1;
-                // Debug.Log("Clockwise");
+                Debug.Log("Clockwise"); //down 
             }
         }
         else
@@ -180,7 +181,7 @@ public class CircularMovementDetector : MonoBehaviour
 
         if (direction != 0)
         {
-            float deltaY = direction * playerSpeed * speedMultiplier * Time.deltaTime;
+            float deltaY = direction * playerSpeed * direction == 1 ? speedMultiplierDown : speedMultiplierUp * Time.deltaTime;
 
           
                 subscenes.transform.position += new Vector3(0, deltaY, 0);
@@ -226,6 +227,8 @@ public class CircularMovementDetector : MonoBehaviour
             
             Debug.Log("SOUND DIORAMA");
         }
+        
+        if (other.CompareTag("Memory")) onMemoryFull?.Invoke();
 
     }
 
