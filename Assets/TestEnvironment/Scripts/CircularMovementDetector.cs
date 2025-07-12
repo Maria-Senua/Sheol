@@ -237,7 +237,7 @@ public class CircularMovementDetector : MonoBehaviour
             Debug.Log("SOUND DIORAMA");
         }
         
-        if (other.CompareTag("Memory")) onMemoryFull?.Invoke();
+        if (other.CompareTag("Memory")) onMemoryFull?.Invoke(); //only after the pager puzzle is solved, activate orb then
 
     }
 
