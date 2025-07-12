@@ -102,7 +102,6 @@ public class FloatHandler : MonoBehaviour
     
     private void CheckRoomType()
     {
-        // Check for colliders only on the specified layer(s)
         Collider[] nearbyColliders = Physics.OverlapSphere(
             transform.position, 
             distance, 
@@ -110,13 +109,11 @@ public class FloatHandler : MonoBehaviour
             QueryTriggerInteraction.Collide
         );
 
-        // If any colliders are found on the "Room" layer, we're inside
         isInsideRoom = nearbyColliders.Length > 0;
 
         rb.useGravity = isInsideRoom;
         debugString = $"Is Inside Room: {isInsideRoom} | Nearby Colliders: {nearbyColliders.Length}";
 
-        // Slow down if outside
         if (!isInsideRoom && rb.linearVelocity.magnitude > 0.1f)
         {
             rb.linearVelocity = Vector3.Lerp(rb.linearVelocity, Vector3.zero, 0.1f);
