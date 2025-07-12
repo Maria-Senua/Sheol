@@ -11,6 +11,7 @@ public class DrawningController : MonoBehaviour
     public GameObject reflection;
     public float realisingTime = 5f;
     public float startDelay = 3f;
+    public GameObject ripple;
 
     private Animator boatAnimator;
     private Animator lakeAnimator;
@@ -71,12 +72,14 @@ public class DrawningController : MonoBehaviour
 
         while (elapsed < duration)
         {
+            ripple.SetActive(true);
             eva.transform.position = Vector3.Lerp(startPos, targetPos, elapsed / duration);
             elapsed += Time.deltaTime;
             yield return null;
         }
 
         eva.transform.position = targetPos;
+        //ripple.SetActive(false);
         reflection.SetActive(true);
 
         yield return new WaitForSeconds(realisingTime);
