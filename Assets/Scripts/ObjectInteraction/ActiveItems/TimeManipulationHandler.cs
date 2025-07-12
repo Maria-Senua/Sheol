@@ -19,8 +19,9 @@ public class TimeManipulationHandler : MonoBehaviour
     [Header("Setup")] 
     [SerializeField] private GameObject bottomLimit;
     [SerializeField] private GameObject player;
-    [SerializeField] private bool canManipulateTime = false;
-    [SerializeField] private bool isLocked = false;
+    [SerializeField] private float animationSpeed = 1f;
+    private bool canManipulateTime = false; 
+    private bool isLocked = false;
     private Animator animation;
     private float previousY;
     private float distance;
@@ -80,13 +81,14 @@ public class TimeManipulationHandler : MonoBehaviour
         Quaternion rotation = Quaternion.LookRotation(direction);
         transform.rotation = rotation;
         
+        debugString = isLocked ? "Time manipulation is locked." : "Time manipulation is unlocked.";
     }
     
     private void ManipulateTime()
     {
         if(isLocked) return;
-        
-        if (xrGrabInteractable.isSelected) //For Future bool use
+    
+        if (xrGrabInteractable.isSelected)
         {
             rb.useGravity = true;
             rb.isKinematic = false;
@@ -97,29 +99,32 @@ public class TimeManipulationHandler : MonoBehaviour
         {
             canManipulateTime = false;
         }
-        
-        if (!canManipulateTime) return;
-        
-        if (distance > previousY)
+    
+        if (!canManipulateTime) 
         {
-            animation.SetFloat("reverser", -1);
-            animation.speed = 1f;
-            debugString = "Reversing";
-            previousY = distance;
-        }
-        else if (distance < previousY) 
-        {
-            animation.SetFloat("reverser", 1);
-            animation.speed = 1f;
-            debugString = "Forwarding";
-            previousY = distance;
-        }
-        else
-        {
-            animation.SetFloat("reverser", 1);
             animation.speed = 0f;
-            debugString = "Paused";
+            return;
         }
+
+        float direction = Mathf.Sign(previousY - distance);
+    
+        AnimatorStateInfo stateInfo = animation.GetCurrentAnimatorStateInfo(0);
+        float currentNormalizedTime = stateInfo.normalizedTime;
+    
+        if (!Mathf.Approximately(distance, previousY) || 
+            (direction > 0 && currentNormalizedTime <= 0f) || 
+            (direction < 0 && currentNormalizedTime >= 1f))
+        {
+            animation.SetFloat("reverser", direction);
+            animation.SetFloat("motionTimer", 0);
+            animation.speed = animationSpeed;
+        }
+        else if (Mathf.Approximately(distance, previousY))
+        {
+            animation.speed = 0f;
+        }
+    
+        previousY = distance;
     }
 
     public void SubtitleCall(InputAction.CallbackContext context)
