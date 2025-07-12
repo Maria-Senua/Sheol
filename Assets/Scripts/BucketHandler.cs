@@ -21,11 +21,11 @@ public class BucketHandler : MonoBehaviour
         }
     }
     
-    void OnDrawGizmos()
-    {
-        Vector3 origin = transform.position;
-
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(origin, sphereRadius);
-    }
+    // void OnDrawGizmos()
+    // {
+    //     Vector3 origin = transform.position;
+    //
+    //     Gizmos.color = Color.blue;
+    //     Gizmos.DrawWireSphere(origin, sphereRadius);
+    // }
 }
