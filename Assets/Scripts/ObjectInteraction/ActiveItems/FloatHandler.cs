@@ -57,21 +57,20 @@ public class FloatHandler : MonoBehaviour
 
     private IEnumerator FloatingRoutine()
     {
+        Vector3 randomDirection = UnityEngine.Random.insideUnitSphere * radius;
+        targetPosition = initialPosition + randomDirection;
+
         while (isFloating)
         {
-            targetPosition = initialPosition + new Vector3(
-                UnityEngine.Random.Range(-radius, radius),
-                UnityEngine.Random.Range(-radius, radius),
-                UnityEngine.Random.Range(-radius, radius)
-            );
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
 
-            while (Vector3.Distance(transform.position, targetPosition) > 0.1f)
+            if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
             {
-                transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
-                yield return null;
+                randomDirection = UnityEngine.Random.insideUnitSphere * radius;
+                targetPosition = initialPosition + randomDirection;
             }
 
-            yield return new WaitForSeconds(0.5f);
+            yield return null;
         }
     }
     
@@ -103,10 +102,17 @@ public class FloatHandler : MonoBehaviour
     
     private void CheckRoomType()
     {
-        isInsideRoom = Physics.Raycast(transform.position, Vector3.down, distance, roomLayer);
-        rb.useGravity = isInsideRoom;
+        Collider[] nearbyColliders = Physics.OverlapSphere(
+            transform.position, 
+            distance, 
+            roomLayer,
+            QueryTriggerInteraction.Collide
+        );
 
-        debugString = $"Is Inside Room: {isInsideRoom}";
+        isInsideRoom = nearbyColliders.Length > 0;
+
+        rb.useGravity = isInsideRoom;
+        debugString = $"Is Inside Room: {isInsideRoom} | Nearby Colliders: {nearbyColliders.Length}";
 
         if (!isInsideRoom && rb.linearVelocity.magnitude > 0.1f)
         {
@@ -114,10 +120,10 @@ public class FloatHandler : MonoBehaviour
         }
     }
     
-    // private void OnDrawGizmos()
-    // {
-    //     Gizmos.color = Color.red;
-    //
-    //     Gizmos.DrawWireSphere(transform.position, radius);
-    // }
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+    
+        Gizmos.DrawWireSphere(transform.position, distance);
+    }
 }

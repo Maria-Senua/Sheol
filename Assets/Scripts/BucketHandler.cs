@@ -4,7 +4,8 @@ using UnityEngine;
 public class BucketHandler : MonoBehaviour
 {
     [SerializeField] private float sphereRadius = 1f;
-    [SerializeField] private GameObject water;
+    public GameObject water;
+    public bool hasWater = false;
 
     void Update()
     {
@@ -17,15 +18,16 @@ public class BucketHandler : MonoBehaviour
             if (hitCollider.CompareTag("Water"))
             {
                 water.SetActive(true);
+                hasWater = true;
             }
         }
     }
     
-    void OnDrawGizmos()
-    {
-        Vector3 origin = transform.position;
-
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(origin, sphereRadius);
-    }
+    // void OnDrawGizmos()
+    // {
+    //     Vector3 origin = transform.position;
+    //
+    //     Gizmos.color = Color.blue;
+    //     Gizmos.DrawWireSphere(origin, sphereRadius);
+    // }
 }
