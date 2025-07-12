@@ -51,7 +51,7 @@ public class TimeManipulationHandler : MonoBehaviour
 
         rb = gameObject.GetComponent<Rigidbody>();
         rb.useGravity = false;
-        rb.isKinematic = true;
+        // rb.isKinematic = true;
 
         previousY = Vector3.Distance(bottomLimit.transform.position, player.transform.position);
         xrGrabInteractable = GetComponent<XRGrabInteractable>();

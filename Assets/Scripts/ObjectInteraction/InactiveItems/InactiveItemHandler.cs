@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
@@ -8,7 +9,8 @@ public class InactiveItemHandler : MonoBehaviour
     [Header("Setup")]
     [SerializeField, TextArea] private string subtitles;
     [SerializeField] private TextMeshProUGUI subtitleTMP;
-
+    [SerializeField] private Animator animator;
+    
     [Header("Reference")]
     private AudioSource audioSource;
 
@@ -25,5 +27,15 @@ public class InactiveItemHandler : MonoBehaviour
         }
 
         subtitleTMP.text = subtitles;
+    }
+
+    private void OnCollisionEnter(Collision other)
+    {
+        BucketHandler bucketHandler = other.gameObject.GetComponent<BucketHandler>();
+        if (bucketHandler != null && bucketHandler.hasWater)
+        {
+            animator.enabled = true;
+            bucketHandler.water.SetActive(false);
+        }
     }
 }

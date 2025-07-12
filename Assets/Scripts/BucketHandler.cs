@@ -4,7 +4,8 @@ using UnityEngine;
 public class BucketHandler : MonoBehaviour
 {
     [SerializeField] private float sphereRadius = 1f;
-    [SerializeField] private GameObject water;
+    public GameObject water;
+    public bool hasWater = false;
 
     void Update()
     {
@@ -17,6 +18,7 @@ public class BucketHandler : MonoBehaviour
             if (hitCollider.CompareTag("Water"))
             {
                 water.SetActive(true);
+                hasWater = true;
             }
         }
     }
