@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7fd9488000d3734a9e00ee676215985, type: 3}
+  m_Name: Global Volume Profile
+  m_EditorClassIdentifier: 
+  components:
+  - {fileID: 3145470985867711543}
+--- !u!114 &3145470985867711543
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 558a8e2b6826cf840aae193990ba9f2e, type: 3}
+  m_Name: ShadowsMidtonesHighlights
+  m_EditorClassIdentifier: 
+  active: 1
+  shadows:
+    m_OverrideState: 1
+    m_Value: {x: 0.23228556, y: 0.66009444, z: 1, w: 0.24565876}
+  midtones:
+    m_OverrideState: 1
+    m_Value: {x: 0.901483, y: 0.7632833, z: 1, w: -0.11859355}
+  highlights:
+    m_OverrideState: 1
+    m_Value: {x: 0.92674404, y: 1, z: 0.98548466, w: -0.4743753}
+  shadowsStart:
+    m_OverrideState: 0
+    m_Value: 0.3
+  shadowsEnd:
+    m_OverrideState: 0
+    m_Value: 0.53
+  highlightsStart:
+    m_OverrideState: 0
+    m_Value: 1
+  highlightsEnd:
+    m_OverrideState: 0
+    m_Value: 1
