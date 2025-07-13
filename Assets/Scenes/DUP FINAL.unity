@@ -5618,6 +5618,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1073637827}
     m_Modifications:
+    - target: {fileID: 548137752451728364, guid: 9d7fa426389578c49abadbf2cbfe3663, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2612304141272356026, guid: 9d7fa426389578c49abadbf2cbfe3663, type: 3}
       propertyPath: m_LocalScale.x
       value: 2.3190691
@@ -5675,6 +5679,10 @@ PrefabInstance:
       value: VFX_MagicalOrb
       objectReference: {fileID: 0}
     - target: {fileID: 7696387136790535853, guid: 9d7fa426389578c49abadbf2cbfe3663, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7696387136790535853, guid: 9d7fa426389578c49abadbf2cbfe3663, type: 3}
       propertyPath: m_TagString
       value: Memory
       objectReference: {fileID: 0}
@@ -5727,7 +5735,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 577778564}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 32d84e27b1dd144e1a5042a6fc22987e, type: 3}
@@ -27742,6 +27750,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 84460589}
+    - target: {fileID: 7901588144825462555, guid: c1f27cc78c3bb0f4584ca3be82da6aae, type: 3}
+      propertyPath: memoryOrb
+      value: 
+      objectReference: {fileID: 577778564}
     - target: {fileID: 7901588144825462555, guid: c1f27cc78c3bb0f4584ca3be82da6aae, type: 3}
       propertyPath: bottomLimit
       value: 

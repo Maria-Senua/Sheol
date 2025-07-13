@@ -39,6 +39,7 @@ public class TimeManipulationHandler : MonoBehaviour
     private XRGrabInteractable xrGrabInteractable;
     [SerializeField] private GameObject fishBody;
     [SerializeField] private GameObject fishSkeleton;
+    [SerializeField] private GameObject memoryOrb;
 
 
     [Header("Input Actions")]
@@ -166,6 +167,7 @@ public class TimeManipulationHandler : MonoBehaviour
     private void OnAnimationFinished()
     {
         if (fishSkeleton != null) fishSkeleton.SetActive(false);
+        if (memoryOrb != null) memoryOrb.SetActive(true);
     }
 
 
