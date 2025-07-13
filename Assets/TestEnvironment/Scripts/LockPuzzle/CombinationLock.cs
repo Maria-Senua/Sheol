@@ -19,24 +19,21 @@ public class CombinationLock : MonoBehaviour
         for (int i = 0; i < dials.Length; i++)
         {
             int combinationNumber = int.Parse(combination[i].ToString());
-
-            Debug.Log("CheckCombination " + dials[i].GetNumber());
-            CorrectCombination();
-            //if (combinationNumber != dials[i].GetNumber())
-           // {
-             //  dial.Unlock();
-               // return;
-           // }
+            if (combinationNumber != dials[i].GetNumber())
+            {
+                return;
+            }
         }
 
-        
+        CorrectCombination();
     }
+
 
     private void CorrectCombination()
     {
-       for (int i = 0; i < dials.Length; i++) dials[i].Lock();
+       //for (int i = 0; i < dials.Length; i++) dials[i].Lock();
 
         onCorrectCombinationFound?.Invoke();
-        for (int i = 0; i < dials.Length; i++) dials[i].Unlock();
+        //for (int i = 0; i < dials.Length; i++) dials[i].Unlock();
     }
 }

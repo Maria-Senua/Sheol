@@ -41,7 +41,7 @@ public class OrbFalling : MonoBehaviour
             ripple.SetActive(true);
             Debug.Log("SPLASH");
             audioSource.Play();
-            Invoke("RevealAfterSplash", 3f);
+            Invoke("RevealAfterSplash", 0.1f);
         }
     }
 

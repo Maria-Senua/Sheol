@@ -34,8 +34,12 @@ public class Dial : MonoBehaviour
         if (currentIndex >= 4) currentIndex = 0;
 
         LeanTween.cancel(gameObject);
-        LeanTween.rotateAroundLocal(gameObject, Vector3.back, -90, animationDuration).setOnComplete(RotationCompleteCallback);
-
+        LeanTween.rotateAroundLocal(gameObject, Vector3.back, -90, animationDuration)
+     .setOnComplete(() => {
+         isRotating = false;
+         onDialRotated?.Invoke(this);
+     });
+        Debug.Log("dialnum " + gameObject.name + " " + currentIndex);
         debugString = "Rotating dial to index: " + currentIndex;
     }
 
