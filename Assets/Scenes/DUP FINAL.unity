@@ -4357,6 +4357,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2974881114525751269, guid: 7830e4acca2a93c4a9f9f9720a8de538, type: 3}
   m_PrefabInstance: {fileID: 1698185627}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &430857148 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3387773087525551239, guid: 7830e4acca2a93c4a9f9f9720a8de538, type: 3}
+  m_PrefabInstance: {fileID: 1698185627}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &446617939
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -43636,7 +43641,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0c7ffd2fa3d74ff28ca6666f7e20355, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tile: {fileID: 0}
+  tile: {fileID: 1246745080}
+  fishAnimator: {fileID: 430857148}
 --- !u!1 &1878799199
 GameObject:
   m_ObjectHideFlags: 0
