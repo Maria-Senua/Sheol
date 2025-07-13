@@ -36,10 +36,14 @@ public class TimeManipulationHandler : MonoBehaviour
     
     [Header("References")]
     private XRGrabInteractable xrGrabInteractable;
-    
+    [SerializeField] private GameObject fishBody;
+    [SerializeField] private GameObject fishSkeleton;
+
+
     [Header("Input Actions")]
     [SerializeField] private InputActionReference leftActivateAction;
     [SerializeField] private InputActionReference rightActivateAction;
+
     
     private void Awake()
     {
@@ -47,6 +51,10 @@ public class TimeManipulationHandler : MonoBehaviour
         if(animation == null)
         {
             animation = GetComponentInChildren<Animator>();
+        }
+        if (fishBody != null)
+        {
+            animation = fishBody.GetComponent<Animator>();
         }
 
         rb = gameObject.GetComponent<Rigidbody>();
@@ -94,6 +102,7 @@ public class TimeManipulationHandler : MonoBehaviour
             rb.isKinematic = false;
             canManipulateTime = true;
             subtitleTMP.text = "";
+            if (fishBody != null) fishBody.SetActive(true);
         }
         else
         {
@@ -122,6 +131,7 @@ public class TimeManipulationHandler : MonoBehaviour
         else if (Mathf.Approximately(distance, previousY))
         {
             animation.speed = 0f;
+            
         }
     
         previousY = distance;
