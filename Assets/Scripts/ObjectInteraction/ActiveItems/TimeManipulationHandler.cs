@@ -22,7 +22,7 @@ public class TimeManipulationHandler : MonoBehaviour
     [SerializeField] private float animationSpeed = 1f;
     private bool canManipulateTime = false; 
     private bool isLocked = false;
-    private Animator animation;
+    public Animator animation;
     private float previousY;
     private float distance;
     private Rigidbody rb;
