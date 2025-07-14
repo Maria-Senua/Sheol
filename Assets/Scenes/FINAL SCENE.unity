@@ -2106,6 +2106,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Toy
       objectReference: {fileID: 0}
+    - target: {fileID: 4484208495239038710, guid: 5416a9dbea6425947a0db507fb2b0078, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -35346,7 +35350,7 @@ Camera:
   m_ShutterSpeed: 0.005
   m_Aperture: 16
   m_FocusDistance: 10
-  m_FocalLength: 34.850533
+  m_FocalLength: 25.158525
   m_BladeCount: 5
   m_Curvature: {x: 2, y: 11}
   m_BarrelClipping: 0.25
@@ -35361,7 +35365,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 38
+  field of view: 51
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -35388,7 +35392,7 @@ Transform:
   m_GameObject: {fileID: 1825908210}
   serializedVersion: 2
   m_LocalRotation: {x: 0.20624934, y: -0.76177484, z: 0.28907174, w: 0.5418468}
-  m_LocalPosition: {x: 1.556, y: 9.394762, z: 27.737}
+  m_LocalPosition: {x: 1.34, y: 10.8, z: 27.737}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
