@@ -22,9 +22,4 @@ public class BucketHandler : MonoBehaviour
             }
         }
     }
-
-    private void OnCollisionEnter(Collision other)
-    {
-        
-    }
 }

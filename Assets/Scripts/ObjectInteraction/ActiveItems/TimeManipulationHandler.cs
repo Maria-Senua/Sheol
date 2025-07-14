@@ -1,4 +1,3 @@
-using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -23,7 +22,7 @@ public class TimeManipulationHandler : MonoBehaviour
     [SerializeField] private float animationSpeed = 1f;
     private bool canManipulateTime = false; 
     private bool isLocked = false;
-    public Animator animation;
+    private Animator animation;
     private float previousY;
     private float distance;
     private Rigidbody rb;
@@ -37,29 +36,17 @@ public class TimeManipulationHandler : MonoBehaviour
     
     [Header("References")]
     private XRGrabInteractable xrGrabInteractable;
-    [SerializeField] private GameObject fishBody;
-    [SerializeField] private GameObject fishSkeleton;
-    [SerializeField] private GameObject memoryOrb;
-
-
+    
     [Header("Input Actions")]
     [SerializeField] private InputActionReference leftActivateAction;
     [SerializeField] private InputActionReference rightActivateAction;
-
-    private Coroutine animationCoroutine;
-    private bool isPlaying = false;
-
-
+    
     private void Awake()
     {
         animation = GetComponent<Animator>();
         if(animation == null)
         {
             animation = GetComponentInChildren<Animator>();
-        }
-        if (fishBody != null)
-        {
-            animation = fishBody.GetComponent<Animator>();
         }
 
         rb = gameObject.GetComponent<Rigidbody>();
@@ -107,7 +94,6 @@ public class TimeManipulationHandler : MonoBehaviour
             rb.isKinematic = false;
             canManipulateTime = true;
             subtitleTMP.text = "";
-            if (fishBody != null) fishBody.SetActive(true);
         }
         else
         {
@@ -132,44 +118,14 @@ public class TimeManipulationHandler : MonoBehaviour
             animation.SetFloat("reverser", direction);
             animation.SetFloat("motionTimer", 0);
             animation.speed = animationSpeed;
-
-            if (!isPlaying)
-            {
-                float clipLength = animation.GetCurrentAnimatorClipInfo(0)[0].clip.length;
-                if (animationCoroutine != null)
-                    StopCoroutine(animationCoroutine);
-
-                animationCoroutine = StartCoroutine(WaitForAnimation(clipLength, animationSpeed * direction));
-            }
         }
         else if (Mathf.Approximately(distance, previousY))
         {
             animation.speed = 0f;
-            
         }
-
-
-
+    
         previousY = distance;
     }
-
-    private IEnumerator WaitForAnimation(float clipLength, float speed)
-    {
-        isPlaying = true;
-
-        float waitTime = clipLength / Mathf.Abs(speed); 
-        yield return new WaitForSeconds(waitTime);
-
-        isPlaying = false;
-        OnAnimationFinished();
-    }
-
-    private void OnAnimationFinished()
-    {
-        if (fishSkeleton != null) fishSkeleton.SetActive(false);
-        if (memoryOrb != null) memoryOrb.SetActive(true);
-    }
-
 
     public void SubtitleCall(InputAction.CallbackContext context)
     {
