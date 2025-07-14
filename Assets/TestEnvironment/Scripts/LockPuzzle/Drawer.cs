@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Drawer : MonoBehaviour
 {
@@ -23,6 +24,10 @@ public class Drawer : MonoBehaviour
 
     private Vector3 closedPos;
     private Vector3 openPos;
+
+    [Header("Events")]
+    public UnityEvent onOpeningDrawer;
+    public UnityEvent onClosingDrawer;
 
 
     //private Animator animator;
@@ -62,6 +67,9 @@ public class Drawer : MonoBehaviour
         audioSource.PlayOneShot(sounds[1]);
         LeanTween.moveLocal(gameObject, openPos, moveDuration)
             .setEase(LeanTweenType.easeOutCubic);
+       
+        onOpeningDrawer?.Invoke();
+        gameObject.GetComponent<BoxCollider>().enabled = false;
     }
 
     private void CloseDrawer()
@@ -69,6 +77,7 @@ public class Drawer : MonoBehaviour
         audioSource.PlayOneShot(sounds[2]);
         LeanTween.moveLocal(gameObject, closedPos, moveDuration)
             .setEase(LeanTweenType.easeInCubic);
+        onClosingDrawer?.Invoke();
     }
 
     public void PullDrawer()

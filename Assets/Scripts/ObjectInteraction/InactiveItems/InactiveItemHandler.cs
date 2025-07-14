@@ -9,9 +9,9 @@ public class InactiveItemHandler : MonoBehaviour
     [Header("Setup")]
     [SerializeField, TextArea] private string subtitles;
     [SerializeField] private TextMeshProUGUI subtitleTMP;
-    [SerializeField] private Animator animator;
     
     [Header("Reference")]
+    public AudioClip audioclip;
     private AudioSource audioSource;
 
     void Start()
@@ -29,13 +29,5 @@ public class InactiveItemHandler : MonoBehaviour
         subtitleTMP.text = subtitles;
     }
 
-    private void OnCollisionEnter(Collision other)
-    {
-        BucketHandler bucketHandler = other.gameObject.GetComponent<BucketHandler>();
-        if (bucketHandler != null && bucketHandler.hasWater)
-        {
-            animator.enabled = true;
-            bucketHandler.water.SetActive(false);
-        }
-    }
+
 }
