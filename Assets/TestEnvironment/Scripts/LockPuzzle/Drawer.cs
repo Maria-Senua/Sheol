@@ -67,7 +67,9 @@ public class Drawer : MonoBehaviour
         audioSource.PlayOneShot(sounds[1]);
         LeanTween.moveLocal(gameObject, openPos, moveDuration)
             .setEase(LeanTweenType.easeOutCubic);
+       
         onOpeningDrawer?.Invoke();
+        gameObject.GetComponent<BoxCollider>().enabled = false;
     }
 
     private void CloseDrawer()
