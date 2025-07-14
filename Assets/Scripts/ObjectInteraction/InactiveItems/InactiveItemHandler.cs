@@ -11,6 +11,7 @@ public class InactiveItemHandler : MonoBehaviour
     [SerializeField] private TextMeshProUGUI subtitleTMP;
     
     [Header("Reference")]
+    public AudioClip audioclip;
     private AudioSource audioSource;
 
     void Start()
