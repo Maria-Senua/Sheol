@@ -183,6 +183,11 @@ public class TimeManipulationHandler : MonoBehaviour
             isLocked = !isLocked;
         }
     }
+
+    public void disableKinematic()
+    {
+        rb.isKinematic = false;
+    }
     
     private void OnHoverEntered(HoverEnterEventArgs args)
     {

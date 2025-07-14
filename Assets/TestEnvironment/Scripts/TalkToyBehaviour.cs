@@ -86,7 +86,7 @@ public class TalkToyBehaviour : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        
+        rb.isKinematic = true;
      }
 
     // private void OnTriggerEnter(Collider other)

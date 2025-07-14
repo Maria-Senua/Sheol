@@ -126,4 +126,10 @@ public class FloatHandler : MonoBehaviour
     
         Gizmos.DrawWireSphere(transform.position, distance);
     }
+    
+    private void OnCollisionEnter(Collision collision)
+    {
+        isInsideRoom = true;
+        rb.isKinematic = true;
+    }
 }
