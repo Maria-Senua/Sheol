@@ -412,6 +412,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 318254760}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &421437062 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3654211691881900832, guid: a450cf77cba9f7b4f9602b9215371e79, type: 3}
+  m_PrefabInstance: {fileID: 3805336310869302703}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &423529120
 GameObject:
   m_ObjectHideFlags: 0
@@ -1142,6 +1147,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EvaFader
       objectReference: {fileID: 0}
+    - target: {fileID: 5010322354950324463, guid: 0a67cdd42189bb147be6ca9e6b93f6f2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1479,7 +1488,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startDelay: 5
   splash: {fileID: 1596395921}
-  ripple: {fileID: 0}
   onOrbAway:
     m_PersistentCalls:
       m_Calls:
@@ -1840,6 +1848,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1304015890116535541, guid: d2e4b05d3e323bd4187a5e0769fab386, type: 3}
   m_PrefabInstance: {fileID: 1444693951}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1469042289 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2708338168473931808, guid: 1d2b4c8f9c3fe354ab6f9daf4e922c70, type: 3}
+  m_PrefabInstance: {fileID: 6962652716511740494}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1531483924
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2025,9 +2038,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boat: {fileID: 33479324}
   lake: {fileID: 722127823}
-  eva: {fileID: 2708338168473931808, guid: 1d2b4c8f9c3fe354ab6f9daf4e922c70, type: 3}
+  eva: {fileID: 1469042289}
   drawningTime: 3
-  reflection: {fileID: 3654211691881900832, guid: a450cf77cba9f7b4f9602b9215371e79, type: 3}
+  reflection: {fileID: 421437062}
   realisingTime: 5
   startDelay: 3
   ripple: {fileID: 2021905427}
