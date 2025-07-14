@@ -13,6 +13,9 @@ public class HerbariumPuzzleHandler : MonoBehaviour
    private Button[] pressedButtons = new Button[2];
    private int pressCount = 0;
    
+   [Header("Detection")]
+   [SerializeField] private RectTransform uiElement;
+   [SerializeField] private CapsuleCollider capsuleCollider;
    private void Start()
    {
       buttonOne.onClick.AddListener(() => OnButtonPressed(buttonOne));
@@ -44,5 +47,31 @@ public class HerbariumPuzzleHandler : MonoBehaviour
       Vector3 tempPosition = rectTransform1.localPosition;
       rectTransform1.localPosition = rectTransform2.localPosition;
       rectTransform2.localPosition = tempPosition;
+   }
+   
+
+
+   void Update()
+   {
+      if (IsUIOverlappingCollider(uiElement, capsuleCollider))
+      {
+         Debug.Log("It worked"); 
+         buttonThree.gameObject.SetActive(true);
+      }
+   }
+
+   bool IsUIOverlappingCollider(RectTransform uiRect, CapsuleCollider collider)
+   {
+      Vector3[] corners = new Vector3[4];
+      uiRect.GetWorldCorners(corners);
+      Bounds uiBounds = new Bounds(corners[0], Vector3.zero);
+      for (int i = 1; i < 4; i++)
+      {
+         uiBounds.Encapsulate(corners[i]);
+      }
+
+      Bounds colliderBounds = collider.bounds;
+
+      return uiBounds.Intersects(colliderBounds);
    }
 }
