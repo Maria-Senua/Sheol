@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -23,6 +24,7 @@ public class CombinationLock : MonoBehaviour
             {
                 return;
             }
+            Debug.Log("Combination is " + dials[i].GetNumber() +"dials name " + dials[i].name);
         }
 
         CorrectCombination();

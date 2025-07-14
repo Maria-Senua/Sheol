@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -9,6 +10,7 @@ public class Dial : MonoBehaviour
     [SerializeField] private float animationDuration;
     private bool isRotating = false;
     private int currentIndex;
+    [SerializeField] private TextMeshPro tmp;
 
     [Header("Events")]
     [SerializeField] private UnityEvent<Dial> onDialRotated;
@@ -40,6 +42,8 @@ public class Dial : MonoBehaviour
          onDialRotated?.Invoke(this);
      });
         Debug.Log("dialnum " + gameObject.name + " " + currentIndex);
+        tmp.text = "dialum " + gameObject.name + " " + currentIndex;
+
         debugString = "Rotating dial to index: " + currentIndex;
     }
 
