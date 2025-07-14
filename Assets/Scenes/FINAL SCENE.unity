@@ -3542,6 +3542,12 @@ MonoBehaviour:
   jiggleZ: 0.009
   jiggleDuration: 0.05
   sounds: []
+  onOpeningDrawer:
+    m_PersistentCalls:
+      m_Calls: []
+  onClosingDrawer:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!65 &280450881
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -46898,6 +46904,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4027767496921368746, guid: c1f27cc78c3bb0f4584ca3be82da6aae, type: 3}
   m_PrefabInstance: {fileID: 1989738419}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1989738421 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1269516311624332346, guid: c1f27cc78c3bb0f4584ca3be82da6aae, type: 3}
+  m_PrefabInstance: {fileID: 1989738419}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 627190653}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ad34abafad169848a38072baa96cdb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1989738430
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47326,6 +47343,36 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d7489ebf1f8564778b72c9d70339c996, type: 3}
   - {fileID: 8300000, guid: c28732c6c51a74faba219024ab270d39, type: 3}
   - {fileID: 8300000, guid: 12a28f84094ec4bab96e0a475f26caa6, type: 3}
+  onOpeningDrawer:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1989738421}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  onClosingDrawer:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1989738421}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!65 &2035205296
 BoxCollider:
   m_ObjectHideFlags: 0
