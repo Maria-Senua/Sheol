@@ -1376,6 +1376,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5402434776196511834, guid: 3b96fbd8d234142498b06125a2f3a42c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7200558424605721048, guid: 3b96fbd8d234142498b06125a2f3a42c, type: 3}
       propertyPath: m_Name
       value: 'Drawer '
@@ -1520,7 +1524,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 93548844265864642, guid: e2e85e6665a40394792f909534f76fcd, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 93548844265864642, guid: e2e85e6665a40394792f909534f76fcd, type: 3}
       propertyPath: m_TagString
@@ -47721,8 +47725,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.25713542, y: 0.17960191, z: 0.59504545}
-  m_Center: {x: -0.081320904, y: 0.5091848, z: 0.023006521}
+  m_Size: {x: 0.25713542, y: 0.17960191, z: 0.091254674}
+  m_Center: {x: -0.081323825, y: 0.5091763, z: 0.27489996}
 --- !u!114 &2035205297
 MonoBehaviour:
   m_ObjectHideFlags: 0
