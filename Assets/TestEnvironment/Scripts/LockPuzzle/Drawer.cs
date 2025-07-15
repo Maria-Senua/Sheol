@@ -39,7 +39,7 @@ public class Drawer : MonoBehaviour
         closedPos = transform.localPosition;
         openPos = closedPos + new Vector3(0, 0, openZ);
         audioSource = gameObject.GetComponent<AudioSource>();
-
+        onClosingDrawer?.Invoke();
         //animator = gameObject.GetComponent<Animator>();
     }
 

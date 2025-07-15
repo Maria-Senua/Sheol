@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.Events;
 
 [System.Serializable]
 public class TileAssignment
@@ -25,6 +26,9 @@ public class GridManager : MonoBehaviour
     [Header("Corrected Grid Settings")]
     public List<TileAssignment> correctOrientation = new List<TileAssignment>();
     private Dictionary<GameObject, GameObject> currentAssignments = new Dictionary<GameObject, GameObject>();
+
+    public UnityEvent onBoxOpening;
+    public UnityEvent onBoxClosed;
 
     private void Awake()
     {
@@ -49,7 +53,7 @@ public class GridManager : MonoBehaviour
             currentAssignments.Add(correctPair.tile, child != null ? child.gameObject : null);
         }
 
-        
+        onBoxClosed?.Invoke();
         // GenerateGrid();
         AssignNeighbors();
     }
@@ -146,6 +150,8 @@ public class GridManager : MonoBehaviour
         }
 
         boxPrefab.transform.rotation = targetRotation;
+        //trigger pager drag
+        onBoxOpening?.Invoke();
  
     }
 }
