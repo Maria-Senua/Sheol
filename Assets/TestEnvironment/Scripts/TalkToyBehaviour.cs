@@ -14,6 +14,10 @@ public class TalkToyBehaviour : MonoBehaviour
     private bool isCarried = false;
     private Rigidbody rb;
 
+    public AudioClip commentVoice;
+    public float commentTimer = 4f;
+    private bool hasCommented = false;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -36,6 +40,16 @@ public class TalkToyBehaviour : MonoBehaviour
             {
                 ManageVoice();
                 timer = checkInterval;
+            }
+
+            if (!hasCommented)
+            {
+                commentTimer -= Time.deltaTime;
+                if (commentTimer <= 0f)
+                {
+                    audioSource.PlayOneShot(commentVoice);
+                    hasCommented = true;
+                }
             }
         }
     }
