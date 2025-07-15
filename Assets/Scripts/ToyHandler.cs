@@ -9,7 +9,8 @@ public class ToyHandler : MonoBehaviour
     
     void Start()
     {
-        
+        gameObject.transform.localPosition = new Vector3(-0.0294f, 0.5316f, 0.2025f);
+        gameObject.transform.localRotation = Quaternion.Euler(-94.086f, -42.48999f, 36.34399f);
     }
 
     void Update()
