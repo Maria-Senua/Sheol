@@ -1422,6 +1422,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 337348784536699399, guid: c1f27cc78c3bb0f4584ca3be82da6aae, type: 3}
   m_PrefabInstance: {fileID: 1298089208}
   m_PrefabAsset: {fileID: 0}
+--- !u!23 &78791036 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4362845240218781479, guid: 41c4ee9273b973647b2cbb2b35882a11, type: 3}
+  m_PrefabInstance: {fileID: 1458335402}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &80429951
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27921,6 +27926,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: FishingBox
       objectReference: {fileID: 0}
+    - target: {fileID: 4362845240218781479, guid: 41c4ee9273b973647b2cbb2b35882a11, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6374353717172020342, guid: 41c4ee9273b973647b2cbb2b35882a11, type: 3}
+      propertyPath: meshRenderer
+      value: 
+      objectReference: {fileID: 78791036}
+    - target: {fileID: 6374353717172020342, guid: 41c4ee9273b973647b2cbb2b35882a11, type: 3}
+      propertyPath: detectionRadius
+      value: 0.48
+      objectReference: {fileID: 0}
     - target: {fileID: 6374353717172020342, guid: 41c4ee9273b973647b2cbb2b35882a11, type: 3}
       propertyPath: onBoxClosed.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -50997,7 +51014,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8298045291338814965, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.64
+      value: 2.924
       objectReference: {fileID: 0}
     - target: {fileID: 8298045291338814965, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
       propertyPath: m_LocalPosition.z
