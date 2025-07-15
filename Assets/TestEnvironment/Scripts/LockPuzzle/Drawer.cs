@@ -98,8 +98,8 @@ public class Drawer : MonoBehaviour
             case DrawerStates.OPEN:
                 Debug.Log("Drawer is open");
                 //animator.SetTrigger("Close");
-                CloseDrawer();
-                currentState = DrawerStates.CLOSED;
+                //CloseDrawer();
+                //currentState = DrawerStates.CLOSED;
                 break;
         }
     }
