@@ -145,16 +145,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 136764455}
-  m_LocalRotation: {x: 0.003760012, y: 0.010838079, z: -0.008967228, w: 0.9998941}
+  m_LocalRotation: {x: 0.0080311615, y: -0.23881194, z: 0.001009145, w: 0.9710322}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.7927, y: 0.82594, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 946719133}
-  m_LocalEulerAnglesHint: {x: 0.442, y: 1.238, z: -1.023}
+  m_LocalEulerAnglesHint: {x: 0.921, y: -27.635, z: -0.108}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 46, y: -5}
+  m_AnchoredPosition: {x: -77, y: -5}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &136764457
@@ -234,7 +234,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &217058698
 RectTransform:
   m_ObjectHideFlags: 0
@@ -590,17 +590,17 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 695324248}
-  m_LocalRotation: {x: -0, y: -0, z: 0.029085366, w: 0.9995769}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.095239796, y: 0.095239796, z: 0.095239796}
+  m_LocalRotation: {x: 0.2831616, y: -0.46934393, z: -0.0073197517, w: 0.83635056}
+  m_LocalPosition: {x: 0, y: 0, z: -0.00000035762787}
+  m_LocalScale: {x: 0.09877627, y: 0.09877627, z: 0.09877627}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 217058698}
   m_Father: {fileID: 676441774}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 3.333}
+  m_LocalEulerAnglesHint: {x: 27.825, y: -63.176, z: -18.324}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 26.5, y: -11.4}
+  m_AnchoredPosition: {x: -9.3, y: -12.4}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &695324250
@@ -622,7 +622,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -632,10 +632,10 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 21300000, guid: 2a5f65286d6939f4cbce02f1f9c5c2f0, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 2a5f65286d6939f4cbce02f1f9c5c2f0, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: 2a5f65286d6939f4cbce02f1f9c5c2f0, type: 3}
+    m_DisabledSprite: {fileID: 21300000, guid: 2a5f65286d6939f4cbce02f1f9c5c2f0, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -691,9 +691,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
+  m_Sprite: {fileID: 21300000, guid: 5b9e4ba025bf6ff45a10cca5d9141a7f, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -762,6 +762,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 158936796463135814, guid: 041e6fa849a0540f69ac5bac123362b0, type: 3}
+      propertyPath: m_RenderPostProcessing
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3592646327151721957, guid: 041e6fa849a0540f69ac5bac123362b0, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -1181,16 +1185,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2015986366}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: 0.065659456, z: -0, w: 0.99784213}
   m_LocalPosition: {x: 0, y: 0, z: 19.6}
-  m_LocalScale: {x: 0.1338, y: 0.1338, z: 0.1338}
+  m_LocalScale: {x: 0.079562806, y: 0.079562806, z: 0.079562806}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 676441774}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 7.529, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 10.4, y: 0.00000029802}
+  m_AnchoredPosition: {x: 2.2, y: 8.3}
   m_SizeDelta: {x: 387.5678, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2015986368
@@ -1213,17 +1217,36 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Name - Title - Role
+  m_text: 'Nataliia Dmytrenko - Game Design
+
+    Tabea Eggers - Game Design
+
+    Bersan
+    Samlioglu - Game Art
+
+    Isabel Jaraba - Game Art
+
+    Busra Oscelikors -
+    Game Art
+
+    Maria Smirnova - Game Programming
+
+    Kinshuk Katahra - Game
+    Programming
+
+    Sebastian Saenz - Music and SFX
+
+'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 3ce78b950d18af345be6963d0f4cabb2, type: 2}
+  m_sharedMaterial: {fileID: -2888294249074972409, guid: 3ce78b950d18af345be6963d0f4cabb2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278204686
+  m_fontColor: {r: 0.054864015, g: 0.22493827, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1246,7 +1269,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
@@ -1278,7 +1301,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -379.4157, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
