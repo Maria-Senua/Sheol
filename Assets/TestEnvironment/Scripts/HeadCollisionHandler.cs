@@ -31,5 +31,6 @@ public class HeadCollisionHandler : MonoBehaviour
         Debug.DrawRay(transform.position, pushBackDirection.normalized, Color.magenta);
 
         _characterController.Move(pushBackDirection.normalized * pushBackStrength * Time.deltaTime);
+        _detector.audioSource.Play();
     }
 }

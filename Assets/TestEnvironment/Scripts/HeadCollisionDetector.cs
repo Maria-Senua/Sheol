@@ -16,6 +16,8 @@ public class HeadCollisionDetector : MonoBehaviour
 
     private float _currentTime = 0;
 
+    [HideInInspector] public AudioSource audioSource;
+
     private List<RaycastHit> PerformDetection(Vector3 position, float distance)
     {
         List<RaycastHit> detectedHits = new();
@@ -39,6 +41,7 @@ public class HeadCollisionDetector : MonoBehaviour
     private void Start()
     {
         DetectedColliderHits = PerformDetection(transform.position, _detectionDistance);
+        audioSource = gameObject.GetComponent<AudioSource>();
     }
 
     void Update()
