@@ -13,19 +13,23 @@ public class DoorController : MonoBehaviour
 
     private DoorStates currentState = DoorStates.LOCKED;
     private bool isPlayingAnimation = false;
+    private AudioSource audioSource;
     
     void Start()
     {
         currentState = DoorStates.LOCKED;
+        audioSource = gameObject.GetComponent<AudioSource>();
     }
 
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Key"))
         {
+            audioSource.Play();
             currentState = DoorStates.CLOSED;
             StartCoroutine(RotateDoor(new Vector3(0f, -90f, 0f), 3f));
             debugString = "Door is now closed and unlocked.";
+            
         }
     }
 

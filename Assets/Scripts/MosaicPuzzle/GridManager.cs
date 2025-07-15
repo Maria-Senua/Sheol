@@ -19,6 +19,8 @@ public class GridManager : MonoBehaviour
     [SerializeField] private TileHandler[] tileMap;
     
     [SerializeField] private GameObject boxPrefab;
+    [SerializeField] private MeshRenderer meshRenderer;
+    [SerializeField] private float detectionRadius = 5f;
 
     private TileHandler[,] tileGrid;
     private GameObject tileObject;
@@ -56,6 +58,12 @@ public class GridManager : MonoBehaviour
         onBoxClosed?.Invoke();
         // GenerateGrid();
         AssignNeighbors();
+    }
+
+    
+    void Update()
+    {
+        DetectTiles();
     }
     
     private void AssignNeighbors()
@@ -153,5 +161,25 @@ public class GridManager : MonoBehaviour
         //trigger pager drag
         onBoxOpening?.Invoke();
  
+    }
+
+
+    private void DetectTiles()
+    {
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, detectionRadius);
+
+        foreach (Collider hitCollider in hitColliders)
+        {
+            if (hitCollider.CompareTag("Tile"))
+            {
+                meshRenderer.enabled = true;
+            }
+        }
+    }
+    
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, detectionRadius);
     }
 }
