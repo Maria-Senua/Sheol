@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.3584906, g: 0.3584906, b: 0.3584906, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 067dcc089fae2654d9f0fad2c1f5203f, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: f38b2902a17cac04ea4fe5d6776281fb, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -19116,7 +19116,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4027767496921368746, guid: c1f27cc78c3bb0f4584ca3be82da6aae, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.496
+      value: 1.039
       objectReference: {fileID: 0}
     - target: {fileID: 4027767496921368746, guid: c1f27cc78c3bb0f4584ca3be82da6aae, type: 3}
       propertyPath: m_LocalPosition.y
@@ -19124,7 +19124,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4027767496921368746, guid: c1f27cc78c3bb0f4584ca3be82da6aae, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.537
+      value: 0.143
       objectReference: {fileID: 0}
     - target: {fileID: 4027767496921368746, guid: c1f27cc78c3bb0f4584ca3be82da6aae, type: 3}
       propertyPath: m_LocalRotation.w
@@ -20759,6 +20759,14 @@ PrefabInstance:
     - target: {fileID: 264686474464132312, guid: 395b4b1efaad321469ea8e22c93dd18d, type: 3}
       propertyPath: m_Name
       value: Light_garden
+      objectReference: {fileID: 0}
+    - target: {fileID: 264686474464132312, guid: 395b4b1efaad321469ea8e22c93dd18d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 953593858071744218, guid: 395b4b1efaad321469ea8e22c93dd18d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4979860327607916280, guid: 395b4b1efaad321469ea8e22c93dd18d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -30000,7 +30008,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6598815579406187037, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -50886,7 +50894,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8298045291338814965, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.111
+      value: 5.64
       objectReference: {fileID: 0}
     - target: {fileID: 8298045291338814965, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
       propertyPath: m_LocalPosition.z
