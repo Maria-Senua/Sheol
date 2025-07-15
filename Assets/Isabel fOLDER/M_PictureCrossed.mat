@@ -20,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_Picture
-  m_Shader: {fileID: -6465566751694194690, guid: 81f76bb60d14e574bbd0c09ae939cf71, type: 3}
+  m_Name: M_PictureCrossed
+  m_Shader: {fileID: -6465566751694194690, guid: c2c87d90c1b56ed4d9d396db77c17eeb, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -49,6 +49,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Content:
+        m_Texture: {fileID: 2800000, guid: dffef66376be4fa480fb02b19edbe903, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -66,7 +70,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Front:
-        m_Texture: {fileID: 2800000, guid: eb24fdcc38d53144eb7001128a71e4d6, type: 3}
+        m_Texture: {fileID: 2800000, guid: d585fbc2c96bcc24d99ae60cbc70c779, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
