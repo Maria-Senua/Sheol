@@ -11,9 +11,11 @@ public class HerbariumPuzzleHandler : MonoBehaviour
    [SerializeField] private Button buttonThree;
    [SerializeField] private Button buttonFour;
 
+   [SerializeField] private GameObject puzzlePanel;
+   
    private string buttoneOneName = "tulip";
    private string buttonTwoName = "rose";
-   private string buttonThreeName = "Locked";
+   private string buttonThreeName = "Daisy";
    private string buttonFourName = "lilie";
    
    private Button[] pressedButtons = new Button[2];
@@ -38,7 +40,6 @@ public class HerbariumPuzzleHandler : MonoBehaviour
       {
          pressedButtons[pressCount] = button;
          pressCount++;
-         debugString = $"Pressed {button}. Press count: {pressCount}";
          if (pressCount == 2)
          {
             SwapButtonLocations();
@@ -75,7 +76,6 @@ public class HerbariumPuzzleHandler : MonoBehaviour
 
          if (image1.sprite.name == button1Name && image2.sprite.name == button2Name)
          {
-            Debug.Log("Sprite names match their respective button names.");
             animator.Play("Opened");
          }
       }
@@ -106,5 +106,10 @@ public class HerbariumPuzzleHandler : MonoBehaviour
       Bounds colliderBounds = collider.bounds;
 
       return uiBounds.Intersects(colliderBounds);
+   }
+
+   private void RevealPuzzle()
+   {
+      puzzlePanel.SetActive(true);
    }
 }
