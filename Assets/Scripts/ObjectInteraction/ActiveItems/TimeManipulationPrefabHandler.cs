@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Events;
 
 public class TimeManipulationPrefabHandler : MonoBehaviour
 {
@@ -18,9 +19,16 @@ public class TimeManipulationPrefabHandler : MonoBehaviour
 
     private bool isMaterial1Active = true;
 
+    [Header("Sprite Setup")]
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private Sprite[] spriteSequence;
+    private int currentSpriteIndex = 0;
+
     [Header("Input Actions")]
     [SerializeField] private InputActionReference leftActivateAction;
     [SerializeField] private InputActionReference rightActivateAction;
+
+    public UnityEvent onPagerFinished;
 
     private void Awake()
     {
@@ -28,13 +36,19 @@ public class TimeManipulationPrefabHandler : MonoBehaviour
 
         leftActivateAction.action.performed += ToggleMaterial;
         rightActivateAction.action.performed += ToggleMaterial;
+
+        if (spriteRenderer != null && spriteSequence.Length > 0)
+        {
+            spriteRenderer.sprite = spriteSequence[0];
+        }
     }
 
     private void Update()
     {
         distance = Vector3.Distance(bottomLimit.transform.position, player.transform.position);
 
-        ChangeMaterialBasedOnDistance();
+        if (meshRenderer != null) ChangeMaterialBasedOnDistance();
+        if (spriteRenderer != null) UpdateSpriteBasedOnDistance();
 
         Vector3 direction = player.transform.position - transform.position;
         Quaternion rotation = Quaternion.LookRotation(direction);
@@ -63,6 +77,31 @@ public class TimeManipulationPrefabHandler : MonoBehaviour
         {
             Debug.Log("Toggling material");
             meshRenderer.material = currentMaterial;
+        }
+    }
+
+    private void UpdateSpriteBasedOnDistance()
+    {
+        xy = Mathf.Abs(distance - previousY);
+
+        if (xy >= distanceThreshold && currentSpriteIndex < spriteSequence.Length - 1)
+        {
+            currentSpriteIndex++;
+            spriteRenderer.sprite = spriteSequence[currentSpriteIndex];
+
+            Debug.Log("Sprite changed to index: " + currentSpriteIndex);
+            if (currentSpriteIndex == spriteSequence.Length - 1) onPagerFinished?.Invoke();
+            previousY = distance;
+        }
+    }
+
+    private void ResetSpriteSequence(InputAction.CallbackContext context)
+    {
+        currentSpriteIndex = 0;
+        if (spriteRenderer != null && spriteSequence.Length > 0)
+        {
+            spriteRenderer.sprite = spriteSequence[0];
+            Debug.Log("Sprite sequence reset.");
         }
     }
 

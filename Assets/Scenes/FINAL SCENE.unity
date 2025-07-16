@@ -6994,7 +6994,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &635658519
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17929,15 +17929,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 272750071200399598, guid: 959a039fb87a40f498b12ba144ddc1f4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.21843
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 272750071200399598, guid: 959a039fb87a40f498b12ba144ddc1f4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.212
+      value: 0.23
       objectReference: {fileID: 0}
     - target: {fileID: 272750071200399598, guid: 959a039fb87a40f498b12ba144ddc1f4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.3514
+      value: 0.716
       objectReference: {fileID: 0}
     - target: {fileID: 272750071200399598, guid: 959a039fb87a40f498b12ba144ddc1f4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -17971,8 +17971,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 823048921440260274, guid: 959a039fb87a40f498b12ba144ddc1f4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1662875452762120036, guid: 959a039fb87a40f498b12ba144ddc1f4, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3184274025872159818, guid: 959a039fb87a40f498b12ba144ddc1f4, type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3967434086732237415, guid: 959a039fb87a40f498b12ba144ddc1f4, type: 3}
@@ -17998,6 +18006,10 @@ PrefabInstance:
     - target: {fileID: 8173653120108796939, guid: 959a039fb87a40f498b12ba144ddc1f4, type: 3}
       propertyPath: m_Name
       value: pager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8173653120108796939, guid: 959a039fb87a40f498b12ba144ddc1f4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -18030,6 +18042,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8173653120108796939, guid: 959a039fb87a40f498b12ba144ddc1f4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1059187214}
+    - targetCorrespondingSourceObject: {fileID: 8173653120108796939, guid: 959a039fb87a40f498b12ba144ddc1f4, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1059187215}
     - targetCorrespondingSourceObject: {fileID: 1662875452762120036, guid: 959a039fb87a40f498b12ba144ddc1f4, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1390120732}
@@ -18262,19 +18277,7 @@ MonoBehaviour:
       m_Calls: []
   m_SelectExited:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1059187213}
-        m_TargetAssemblyTypeName: TimeManipulationHandler, Assembly-CSharp
-        m_MethodName: disableKinematic
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_FirstFocusEntered:
     m_PersistentCalls:
       m_Calls: []
@@ -18374,7 +18377,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1059187206}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b4dbe25c3c85f645ab9bf8025745803, type: 3}
   m_Name: 
@@ -18402,7 +18405,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1059187206}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: bb43fec694d990643a1c4c3b4f724f86, type: 2}
   m_CullingMode: 0
@@ -18416,6 +18419,50 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1059187215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1059187206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cda541588bc785a4aaf324d23c28f3c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bottomLimit: {fileID: 44304031}
+  player: {fileID: 84460589}
+  distanceThreshold: 0.3
+  meshRenderer: {fileID: 0}
+  material: {fileID: 0}
+  currentMaterial: {fileID: 0}
+  spriteRenderer: {fileID: 1431132062}
+  spriteSequence:
+  - {fileID: 21300000, guid: 19a35a550612ac648b6d255a97aaba84, type: 3}
+  - {fileID: 21300000, guid: c1b4053e73e88834f8f29f8409915a3b, type: 3}
+  - {fileID: 21300000, guid: 88ca9881bc6747a48bb6ab0cfb104cfb, type: 3}
+  - {fileID: 21300000, guid: fd7c3da95dd1641449c80a3ca98391a5, type: 3}
+  - {fileID: 21300000, guid: ac58c9eacc38e6a49b0fe0669d1e1f2c, type: 3}
+  - {fileID: 21300000, guid: ca64dc4caffa30540814824f81247498, type: 3}
+  - {fileID: 21300000, guid: 28e25f16299010249b208fb62f5a6fa2, type: 3}
+  leftActivateAction: {fileID: -4289430672226363583, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  rightActivateAction: {fileID: 7904272356298805229, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  onPagerFinished:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 577778564}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!4 &1066174451 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2659823769650972810, guid: 5fbbb350580e54a428cb4ddbc42369ff, type: 3}
@@ -21801,6 +21848,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1429392405}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!212 &1431132062 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 1589902600572216159, guid: 959a039fb87a40f498b12ba144ddc1f4, type: 3}
+  m_PrefabInstance: {fileID: 1059187204}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1435555443 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2659823769650972810, guid: 5fbbb350580e54a428cb4ddbc42369ff, type: 3}
@@ -30090,6 +30142,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: pagertest
       objectReference: {fileID: 0}
+    - target: {fileID: 337348784536699399, guid: c1f27cc78c3bb0f4584ca3be82da6aae, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4027767496921368746, guid: c1f27cc78c3bb0f4584ca3be82da6aae, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.49999988
@@ -30761,8 +30817,13 @@ MonoBehaviour:
   meshRenderer: {fileID: 1216807537}
   material: {fileID: 2100000, guid: 6b9dd17441284d54c84bac75fa2f5745, type: 2}
   currentMaterial: {fileID: 2100000, guid: fa52435a81a818449bb6a6061c2b4287, type: 2}
+  spriteRenderer: {fileID: 0}
+  spriteSequence: []
   leftActivateAction: {fileID: -4289430672226363583, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   rightActivateAction: {fileID: 7904272356298805229, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  onPagerFinished:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1614533348 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3147115060500631143, guid: 16ce3fbe7cdf1db4e8b5511e2be09423, type: 3}
@@ -45430,8 +45491,13 @@ MonoBehaviour:
   meshRenderer: {fileID: 1808377053}
   material: {fileID: 2100000, guid: e5b49efd241f7b9488836aa05e70a992, type: 2}
   currentMaterial: {fileID: 2100000, guid: 2444d7025beb4234998cb42ed265d28a, type: 2}
+  spriteRenderer: {fileID: 0}
+  spriteSequence: []
   leftActivateAction: {fileID: -4289430672226363583, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   rightActivateAction: {fileID: 7904272356298805229, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  onPagerFinished:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1808377055
 MonoBehaviour:
   m_ObjectHideFlags: 0

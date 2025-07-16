@@ -43,7 +43,7 @@ public class Dial : MonoBehaviour
          onDialRotated?.Invoke(this);
      });
         Debug.Log("dialnum " + gameObject.name + " " + currentIndex);
-        tmp.text = "dialum " + gameObject.name + " " + currentIndex;
+        //tmp.text = "dialum " + gameObject.name + " " + currentIndex;
 
         debugString = "Rotating dial to index: " + currentIndex;
     }
