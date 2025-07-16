@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -9,6 +10,7 @@ public class Dial : MonoBehaviour
     [SerializeField] private float animationDuration;
     private bool isRotating = false;
     private int currentIndex;
+    [SerializeField] private TextMeshPro tmp;
 
     [Header("Events")]
     [SerializeField] private UnityEvent<Dial> onDialRotated;
@@ -16,7 +18,8 @@ public class Dial : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        currentIndex = Random.Range(0, 4);
+        //currentIndex = Random.Range(0, 4);
+        currentIndex = 0;
         //currentIndex = 0;
         transform.localRotation = Quaternion.Euler(0, 0, -currentIndex * 90f - 25f);
         Debug.Log("start rotation " + transform.localRotation + " of cube " + gameObject.name);
@@ -40,6 +43,8 @@ public class Dial : MonoBehaviour
          onDialRotated?.Invoke(this);
      });
         Debug.Log("dialnum " + gameObject.name + " " + currentIndex);
+        tmp.text = "dialum " + gameObject.name + " " + currentIndex;
+
         debugString = "Rotating dial to index: " + currentIndex;
     }
 

@@ -46,24 +46,24 @@ public class TalkToyBehaviour : MonoBehaviour
 
         if (currentDistance > distance)
         {
-            Debug.Log("DistanceCheck FREEZING");
+            Debug.Log("DistanceCheck FREEZING " + currentDistance);
             audioSource.PlayOneShot(voiceLines[0]);
         }
         else
         {
             if (currentDistance < previousDistance)
             {
-                Debug.Log("DistanceCheck WARM");
+                Debug.Log("DistanceCheck WARM " + currentDistance);
                 audioSource.PlayOneShot(voiceLines[2]);
                 if (currentDistance < hotDistance)
                 {
-                    Debug.Log("DistanceCheck HOT");
+                    Debug.Log("DistanceCheck HOT " + currentDistance);
                     audioSource.PlayOneShot(voiceLines[3]);
                 }
             }
             else if (currentDistance > previousDistance)
             {
-                Debug.Log("DistanceCheck COLD");
+                Debug.Log("DistanceCheck COLD " + currentDistance);
                 audioSource.PlayOneShot(voiceLines[1]);
             }
         }
@@ -86,7 +86,7 @@ public class TalkToyBehaviour : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        
+        rb.isKinematic = true;
      }
 
     // private void OnTriggerEnter(Collider other)

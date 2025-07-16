@@ -7,7 +7,7 @@ public class OrbFalling : MonoBehaviour
     private AudioSource audioSource;
     public float startDelay = 5f;
     public GameObject splash;
-    public GameObject ripple;
+    //public GameObject ripple;
 
     public UnityEvent onOrbAway;
 
@@ -38,7 +38,7 @@ public class OrbFalling : MonoBehaviour
         if (other.CompareTag("Water"))
         {
             splash.SetActive(true);
-            ripple.SetActive(true);
+            //ripple.SetActive(true);
             Debug.Log("SPLASH");
             audioSource.Play();
             Invoke("RevealAfterSplash", 0.1f);

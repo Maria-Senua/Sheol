@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class FadeAlphaParameter : MonoBehaviour
+public class FadeAlphaParameter2 : MonoBehaviour
 {
     public Material material;
     public float fadeDuration = 2f;

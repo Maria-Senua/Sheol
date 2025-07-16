@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 public class HerbariumPuzzleHandler : MonoBehaviour
@@ -9,10 +10,20 @@ public class HerbariumPuzzleHandler : MonoBehaviour
    [SerializeField] private Button buttonTwo;
    [SerializeField] private Button buttonThree;
    [SerializeField] private Button buttonFour;
+
+   private string buttoneOneName = "tulip";
+   private string buttonTwoName = "rose";
+   private string buttonThreeName = "Locked";
+   private string buttonFourName = "lilie";
    
    private Button[] pressedButtons = new Button[2];
    private int pressCount = 0;
+   [SerializeField] private Animator animator;
    
+   [Header("Detection")]
+   [SerializeField] private RectTransform uiElement;
+   [SerializeField] private CapsuleCollider capsuleCollider;
+
    private void Start()
    {
       buttonOne.onClick.AddListener(() => OnButtonPressed(buttonOne));
@@ -38,11 +49,62 @@ public class HerbariumPuzzleHandler : MonoBehaviour
    
    private void SwapButtonLocations()
    {
-      RectTransform rectTransform1 = pressedButtons[0].GetComponent<RectTransform>();
-      RectTransform rectTransform2 = pressedButtons[1].GetComponent<RectTransform>();
+      Image image1 = pressedButtons[0].GetComponent<Image>();
+      Image image2 = pressedButtons[1].GetComponent<Image>();
 
-      Vector3 tempPosition = rectTransform1.localPosition;
-      rectTransform1.localPosition = rectTransform2.localPosition;
-      rectTransform2.localPosition = tempPosition;
+      if (image1 != null && image2 != null)
+      {
+         Sprite tempSprite = image1.sprite;
+         image1.sprite = image2.sprite;
+         image2.sprite = tempSprite;
+
+      }
+
+      if (image1 != null && image1.sprite != null && image2 != null && image2.sprite != null)
+      {
+
+         string button1Name = pressedButtons[0] == buttonOne ? buttoneOneName :
+            pressedButtons[0] == buttonTwo ? buttonTwoName :
+            pressedButtons[0] == buttonThree ? buttonThreeName :
+            pressedButtons[0] == buttonFour ? buttonFourName : null;
+
+         string button2Name = pressedButtons[1] == buttonOne ? buttoneOneName :
+            pressedButtons[1] == buttonTwo ? buttonTwoName :
+            pressedButtons[1] == buttonThree ? buttonThreeName :
+            pressedButtons[1] == buttonFour ? buttonFourName : null;
+
+         if (image1.sprite.name == button1Name && image2.sprite.name == button2Name)
+         {
+            Debug.Log("Sprite names match their respective button names.");
+            animator.Play("Opened");
+         }
+      }
+
+   }
+   
+
+
+   void Update()
+   {
+      if (IsUIOverlappingCollider(uiElement, capsuleCollider))
+      {
+         Debug.Log("It worked"); 
+         buttonThree.gameObject.SetActive(true);
+      }
+   }
+
+   bool IsUIOverlappingCollider(RectTransform uiRect, CapsuleCollider collider)
+   {
+      Vector3[] corners = new Vector3[4];
+      uiRect.GetWorldCorners(corners);
+      Bounds uiBounds = new Bounds(corners[0], Vector3.zero);
+      for (int i = 1; i < 4; i++)
+      {
+         uiBounds.Encapsulate(corners[i]);
+      }
+
+      Bounds colliderBounds = collider.bounds;
+
+      return uiBounds.Intersects(colliderBounds);
    }
 }

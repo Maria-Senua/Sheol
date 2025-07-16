@@ -172,11 +172,15 @@ MonoBehaviour:
   bottomLimit: {fileID: 0}
   player: {fileID: 0}
   animationSpeed: 0.1
+  animation: {fileID: 0}
   subtitles: 'Active Obect
 
 '
   subtitleTMP: {fileID: 860784752624495226}
   audioClip: {fileID: 8300000, guid: fcc8e5f8612c0412eace6b12b5070c0e, type: 3}
+  fishBody: {fileID: 0}
+  fishSkeleton: {fileID: 0}
+  memoryOrb: {fileID: 0}
   leftActivateAction: {fileID: 0}
   rightActivateAction: {fileID: 0}
 --- !u!114 &30756342339371169
@@ -247,10 +251,13 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
+      m_Calls: []
+  m_SelectExited:
+    m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7901588144825462555}
         m_TargetAssemblyTypeName: TimeManipulationHandler, Assembly-CSharp
-        m_MethodName: SubtitleCall
+        m_MethodName: disableKinematic
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -260,9 +267,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  m_SelectExited:
-    m_PersistentCalls:
-      m_Calls: []
   m_FirstFocusEntered:
     m_PersistentCalls:
       m_Calls: []
