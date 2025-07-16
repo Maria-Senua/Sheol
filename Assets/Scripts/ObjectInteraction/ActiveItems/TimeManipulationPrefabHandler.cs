@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Events;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 public class TimeManipulationPrefabHandler : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class TimeManipulationPrefabHandler : MonoBehaviour
     [Header("Sprite Setup")]
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private Sprite[] spriteSequence;
+    [SerializeField] private XRGrabInteractable xrGrabInteractable;
     private int currentSpriteIndex = 0;
 
     [Header("Input Actions")]
@@ -33,7 +35,12 @@ public class TimeManipulationPrefabHandler : MonoBehaviour
     private void Awake()
     {
         previousY = Vector3.Distance(bottomLimit.transform.position, player.transform.position);
-
+        xrGrabInteractable = GetComponent<XRGrabInteractable>();
+        if(xrGrabInteractable == null)
+        {
+            xrGrabInteractable = GetComponentInChildren<XRGrabInteractable>();
+        }
+        
         leftActivateAction.action.performed += ToggleMaterial;
         rightActivateAction.action.performed += ToggleMaterial;
 
@@ -47,9 +54,9 @@ public class TimeManipulationPrefabHandler : MonoBehaviour
     {
         distance = Vector3.Distance(bottomLimit.transform.position, player.transform.position);
 
-        if (meshRenderer != null) ChangeMaterialBasedOnDistance();
-        if (spriteRenderer != null) UpdateSpriteBasedOnDistance();
-
+        if (meshRenderer != null && xrGrabInteractable.isSelected) ChangeMaterialBasedOnDistance();
+        if (spriteRenderer != null && xrGrabInteractable.isSelected) UpdateSpriteBasedOnDistance();
+        
         Vector3 direction = player.transform.position - transform.position;
         Quaternion rotation = Quaternion.LookRotation(direction);
         transform.rotation = rotation;
@@ -63,7 +70,6 @@ public class TimeManipulationPrefabHandler : MonoBehaviour
         {
             if (meshRenderer != null && currentMaterial != null)
             {
-                Debug.Log("Changing material based on distance");
                 meshRenderer.material = material;
             }
 
