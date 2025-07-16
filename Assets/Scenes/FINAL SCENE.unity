@@ -19366,6 +19366,11 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 8691780276856062721, guid: 0430b6c3cd359dd4eb5d118d65d9bcaf, type: 3}
+--- !u!23 &1216807537 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 4227018376290613148, guid: 8ff1e04b024c77e4e96c813548523599, type: 3}
+  m_PrefabInstance: {fileID: 1613909350}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1221050833 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 117214286460000749, guid: d28af09e1d6a64c6aac40655c1b9679f, type: 3}
@@ -30324,6 +30329,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -1.6223441
       objectReference: {fileID: 0}
+    - target: {fileID: 4227018376290613148, guid: 8ff1e04b024c77e4e96c813548523599, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4436689081807138995, guid: 8ff1e04b024c77e4e96c813548523599, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -30423,6 +30432,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8337107475932458489, guid: 8ff1e04b024c77e4e96c813548523599, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1613909363}
+    - targetCorrespondingSourceObject: {fileID: 8337107475932458489, guid: 8ff1e04b024c77e4e96c813548523599, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1613909368}
     - targetCorrespondingSourceObject: {fileID: 3917447697049369417, guid: 8ff1e04b024c77e4e96c813548523599, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1613909358}
@@ -30731,6 +30743,26 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.4786404, y: 1, z: 2.019519}
   m_Center: {x: -0.23931862, y: 0.000000036203645, z: -0.061862115}
+--- !u!114 &1613909368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1613909357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cda541588bc785a4aaf324d23c28f3c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bottomLimit: {fileID: 44304031}
+  player: {fileID: 84460589}
+  distanceThreshold: 1.5
+  meshRenderer: {fileID: 1216807537}
+  material: {fileID: 2100000, guid: 6b9dd17441284d54c84bac75fa2f5745, type: 2}
+  currentMaterial: {fileID: 2100000, guid: fa52435a81a818449bb6a6061c2b4287, type: 2}
+  leftActivateAction: {fileID: -4289430672226363583, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  rightActivateAction: {fileID: 7904272356298805229, guid: c348712bda248c246b8c49b3db54643f, type: 3}
 --- !u!4 &1614533348 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3147115060500631143, guid: 16ce3fbe7cdf1db4e8b5511e2be09423, type: 3}
