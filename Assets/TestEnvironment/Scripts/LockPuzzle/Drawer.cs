@@ -17,7 +17,8 @@ public class Drawer : MonoBehaviour
     [SerializeField] private float moveDuration = 0.5f;
     [SerializeField] private float jiggleZ = 0.009f;
     [SerializeField] private float jiggleDuration = 0.05f;
-
+    [SerializeField] private MeshRenderer toy;
+    
     [Header("Sounds")]
     public AudioClip[] sounds;
     private AudioSource audioSource;
@@ -25,9 +26,9 @@ public class Drawer : MonoBehaviour
     private Vector3 closedPos;
     private Vector3 openPos;
 
-    [Header("Events")]
-    public UnityEvent onOpeningDrawer;
-    public UnityEvent onClosingDrawer;
+    // [Header("Events")]
+   public UnityEvent onOpeningDrawer;
+    // public UnityEvent onClosingDrawer;
 
 
     //private Animator animator;
@@ -39,7 +40,7 @@ public class Drawer : MonoBehaviour
         closedPos = transform.localPosition;
         openPos = closedPos + new Vector3(0, 0, openZ);
         audioSource = gameObject.GetComponent<AudioSource>();
-        onClosingDrawer?.Invoke();
+        // onClosingDrawer?.Invoke();
         //animator = gameObject.GetComponent<Animator>();
     }
 
@@ -68,7 +69,7 @@ public class Drawer : MonoBehaviour
         LeanTween.moveLocal(gameObject, openPos, moveDuration)
             .setEase(LeanTweenType.easeOutCubic);
        
-        onOpeningDrawer?.Invoke();
+        // onOpeningDrawer?.Invoke();
         gameObject.GetComponent<BoxCollider>().enabled = false;
     }
 
@@ -77,7 +78,7 @@ public class Drawer : MonoBehaviour
         audioSource.PlayOneShot(sounds[2]);
         LeanTween.moveLocal(gameObject, closedPos, moveDuration)
             .setEase(LeanTweenType.easeInCubic);
-        onClosingDrawer?.Invoke();
+        // onClosingDrawer?.Invoke();
     }
 
     public void PullDrawer()

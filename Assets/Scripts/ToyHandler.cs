@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 public class ToyHandler : MonoBehaviour
 {
@@ -6,7 +8,14 @@ public class ToyHandler : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private string openAnimation;
     [SerializeField] private GameObject soundModule;
-    
+
+    [SerializeField] private XRGrabInteractable XRGrabInteractable;
+
+    private void Awake()
+    {
+        XRGrabInteractable = GetComponent<XRGrabInteractable>();
+    }
+
     void Start()
     {
         gameObject.transform.localPosition = new Vector3(-0.0294f, 0.5316f, 0.2025f);
@@ -15,6 +24,11 @@ public class ToyHandler : MonoBehaviour
 
     void Update()
     {
+        // if (!XRGrabInteractable.isActiveAndEnabled)
+        // {
+        //     XRGrabInteractable.enabled = true;
+        // }
+        
         AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
 
         if (stateInfo.IsName(openAnimation))

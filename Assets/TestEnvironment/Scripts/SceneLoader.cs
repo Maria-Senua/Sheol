@@ -11,6 +11,7 @@ public class SceneLoader : MonoBehaviour
     public bool activeWristUI = false;
 
     public float startVideoTime = 5f;
+    public float finalVideoTime = 10f;
     //public float finalVideoTime = 7f;
     Scene currentScene;
     private string sceneName;
@@ -42,6 +43,12 @@ public class SceneLoader : MonoBehaviour
             startVideoTime -= Time.deltaTime;
 
             if (startVideoTime <= 0) GoToScene("FINAL SCENE");
+        }
+        if (sceneName == "FinalCutScene")
+        {
+            finalVideoTime -= Time.deltaTime;
+
+            if (finalVideoTime <= 0) GoToScene("CreditsScene");
         }
     }
 
