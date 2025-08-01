@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Helo helo texte testjhbre.kgjh,d
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0e2916f2fd2163145ab9209cd1eb0913, type: 2}
   m_sharedMaterial: {fileID: 6759801320231383841, guid: 0e2916f2fd2163145ab9209cd1eb0913, type: 2}
@@ -154,7 +154,7 @@ GameObject:
   m_Layer: 0
   m_Name: InactiveItem
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -282,6 +282,8 @@ MonoBehaviour:
   subtitles: I wish this works in VR
   subtitleTMP: {fileID: 3588012443746349052}
   audioclip: {fileID: 0}
+  leftActivateAction: {fileID: 0}
+  rightActivateAction: {fileID: 0}
 --- !u!82 &5431182845856763323
 AudioSource:
   m_ObjectHideFlags: 0

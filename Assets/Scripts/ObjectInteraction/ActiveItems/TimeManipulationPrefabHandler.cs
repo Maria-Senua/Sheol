@@ -31,6 +31,7 @@ public class TimeManipulationPrefabHandler : MonoBehaviour
     [SerializeField] private InputActionReference rightActivateAction;
 
     public UnityEvent onPagerFinished;
+    public UnityEvent onDiaryRead;
 
     private void Awake()
     {
@@ -71,6 +72,7 @@ public class TimeManipulationPrefabHandler : MonoBehaviour
             if (meshRenderer != null && currentMaterial != null)
             {
                 meshRenderer.material = material;
+                onDiaryRead?.Invoke();
             }
 
             previousY = distance;

@@ -3093,7 +3093,11 @@ MonoBehaviour:
   moveDuration: 0.5
   jiggleZ: 0.009
   jiggleDuration: 0.05
+  toy: {fileID: 0}
   sounds: []
+  onOpeningDrawer:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!65 &280450881
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6341,6 +6345,7 @@ MonoBehaviour:
   wristUI: {fileID: 321554521}
   activeWristUI: 0
   startVideoTime: 5
+  finalVideoTime: 10
 --- !u!1 &751519687
 GameObject:
   m_ObjectHideFlags: 0
@@ -27583,7 +27588,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6598815579406187037, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -28176,6 +28181,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugString: 
   animationDuration: 0.3
+  tmp: {fileID: 0}
   onDialRotated:
     m_PersistentCalls:
       m_Calls:
@@ -29083,6 +29089,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugString: 
   animationDuration: 0.3
+  tmp: {fileID: 0}
   onDialRotated:
     m_PersistentCalls:
       m_Calls:
@@ -42197,6 +42204,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugString: 
   animationDuration: 0.3
+  tmp: {fileID: 0}
   onDialRotated:
     m_PersistentCalls:
       m_Calls:
@@ -42259,6 +42267,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugString: 
   animationDuration: 0.3
+  tmp: {fileID: 0}
   onDialRotated:
     m_PersistentCalls:
       m_Calls:
@@ -43285,6 +43294,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1744636055}
     m_Modifications:
+    - target: {fileID: -8768133303093192197, guid: d28af09e1d6a64c6aac40655c1b9679f, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d629fba89ac85462db76b80f0ef5c6f3, type: 2}
+    - target: {fileID: -4587302668392987624, guid: d28af09e1d6a64c6aac40655c1b9679f, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 94bc437bc46c444e1b0cfd55daeee684, type: 2}
+    - target: {fileID: -2571118854743697038, guid: d28af09e1d6a64c6aac40655c1b9679f, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 94bc437bc46c444e1b0cfd55daeee684, type: 2}
+    - target: {fileID: -1823322365421230674, guid: d28af09e1d6a64c6aac40655c1b9679f, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d629fba89ac85462db76b80f0ef5c6f3, type: 2}
+    - target: {fileID: 8442510506162454399, guid: d28af09e1d6a64c6aac40655c1b9679f, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d629fba89ac85462db76b80f0ef5c6f3, type: 2}
     - target: {fileID: -8679921383154817045, guid: 25dc8c5a95711fe42b1174d208bf3070, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.1356886
@@ -43349,26 +43378,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8768133303093192197, guid: d28af09e1d6a64c6aac40655c1b9679f, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: d629fba89ac85462db76b80f0ef5c6f3, type: 2}
-    - target: {fileID: -4587302668392987624, guid: d28af09e1d6a64c6aac40655c1b9679f, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 94bc437bc46c444e1b0cfd55daeee684, type: 2}
-    - target: {fileID: -2571118854743697038, guid: d28af09e1d6a64c6aac40655c1b9679f, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: 94bc437bc46c444e1b0cfd55daeee684, type: 2}
-    - target: {fileID: -1823322365421230674, guid: d28af09e1d6a64c6aac40655c1b9679f, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: d629fba89ac85462db76b80f0ef5c6f3, type: 2}
-    - target: {fileID: 8442510506162454399, guid: d28af09e1d6a64c6aac40655c1b9679f, type: 3}
-      propertyPath: 'm_Materials.Array.data[0]'
-      value: 
-      objectReference: {fileID: 2100000, guid: d629fba89ac85462db76b80f0ef5c6f3, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 5841832397272239183, guid: 25dc8c5a95711fe42b1174d208bf3070, type: 3}
@@ -43494,6 +43503,7 @@ MonoBehaviour:
   _detectionDistance: 0.2
   detectableTags:
   - Obstacles
+  audioSource: {fileID: 0}
 --- !u!1001 &1932182502
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45940,10 +45950,14 @@ MonoBehaviour:
   moveDuration: 1
   jiggleZ: 0.009
   jiggleDuration: 0.05
+  toy: {fileID: 0}
   sounds:
   - {fileID: 8300000, guid: d7489ebf1f8564778b72c9d70339c996, type: 3}
   - {fileID: 8300000, guid: c28732c6c51a74faba219024ab270d39, type: 3}
   - {fileID: 8300000, guid: 12a28f84094ec4bab96e0a475f26caa6, type: 3}
+  onOpeningDrawer:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!65 &2035205296
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -47522,6 +47536,7 @@ MonoBehaviour:
   wristUI: {fileID: 321554521}
   activeWristUI: 1
   startVideoTime: 5
+  finalVideoTime: 10
 --- !u!1 &3511358974971931800
 GameObject:
   m_ObjectHideFlags: 0

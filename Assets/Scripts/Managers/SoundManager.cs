@@ -45,4 +45,26 @@ public class SoundManager : MonoBehaviour
         }
         
     }
+    
+    public IEnumerator TypeStringInactive(string text, AudioClip audioClip, TextMeshProUGUI TMP, AudioSource audioSource)
+    {
+        TMP.text = "";
+
+        audioSource.clip = audioClip;
+        audioSource.Play();
+        
+        float typingSpeed = audioClip.length / text.Length; 
+
+        foreach (char character in text)
+        {
+
+            TMP.text = "";
+            audioSource.Stop();
+            audioSource.clip = null;
+                
+            TMP.text += character;
+            yield return new WaitForSeconds(typingSpeed);
+        }
+        
+    }
 }

@@ -45,11 +45,11 @@ public class FloatHandler : MonoBehaviour
 
     private void Floating()
     {
-        if (xrGrabInteractable.isSelected) // Object is grabbed
+        if (xrGrabInteractable.isSelected) // Object grabbed
         {
             StopFloating();
         }
-        else if (!isInsideRoom) // Object is outside the room
+        else if (!isInsideRoom) // Object outside the room
         {
             StartFloating();
         }
