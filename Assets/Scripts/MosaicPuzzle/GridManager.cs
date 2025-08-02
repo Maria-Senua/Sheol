@@ -21,7 +21,8 @@ public class GridManager : MonoBehaviour
     [SerializeField] private GameObject boxPrefab;
     [SerializeField] private MeshRenderer meshRenderer;
     [SerializeField] private float detectionRadius = 5f;
-
+    [SerializeField] private bool ispuzzleInitated = false;
+        
     private TileHandler[,] tileGrid;
     private GameObject tileObject;
     
@@ -59,7 +60,6 @@ public class GridManager : MonoBehaviour
         // GenerateGrid();
         AssignNeighbors();
     }
-
     
     void Update()
     {
@@ -106,7 +106,6 @@ public class GridManager : MonoBehaviour
     
     private void CheckOrientation()
     {
-        
         foreach (var correctPair in correctOrientation)
         {
             bool hasAssignment = currentAssignments.TryGetValue(correctPair.tile, out var currentObj);
@@ -136,9 +135,7 @@ public class GridManager : MonoBehaviour
 
     private void PuzzleSolved()
     {
-        Debug.Log("Puzzle Solved!");
-        
-        if (boxPrefab != null)
+        if (boxPrefab != null && ispuzzleInitated)
         {
             StartCoroutine(RotateBoxAfterDelay(2f));
         }
@@ -163,7 +160,6 @@ public class GridManager : MonoBehaviour
  
     }
 
-
     private void DetectTiles()
     {
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, detectionRadius);
@@ -173,6 +169,7 @@ public class GridManager : MonoBehaviour
             if (hitCollider.CompareTag("Tile"))
             {
                 meshRenderer.enabled = true;
+                ispuzzleInitated = true;
             }
         }
     }

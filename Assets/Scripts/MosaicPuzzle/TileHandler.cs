@@ -12,7 +12,6 @@ public class TileHandler : MonoBehaviour
 
     private TileHandler movedToTile;
     
-    
     private void Awake()
     {
         if(this.transform.childCount > 0 && this.transform.GetChild(0).gameObject.activeSelf)

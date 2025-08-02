@@ -40,11 +40,7 @@ public class FloatHandler : MonoBehaviour
     private void FixedUpdate()
     {
         CheckRoomType();
-        Floating();
-    }
-
-    private void Floating()
-    {
+        
         if (xrGrabInteractable.isSelected) // Object grabbed
         {
             StopFloating();
@@ -129,6 +125,7 @@ public class FloatHandler : MonoBehaviour
     
     private void OnCollisionEnter(Collision collision)
     {
+        
         isInsideRoom = true;
         rb.isKinematic = true;
     }
