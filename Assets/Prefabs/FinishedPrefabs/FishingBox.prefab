@@ -831,11 +831,11 @@ Transform:
   m_GameObject: {fileID: 2811030158215851570}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0008, y: 0, z: 0.0008}
+  m_LocalPosition: {x: 0.00029970706, y: 0, z: -0.0005446449}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8663047029571394494}
+  m_Father: {fileID: 844289209438357833}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2485996492063510271
 MeshFilter:
@@ -944,7 +944,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1944420246722695508}
+  - {fileID: 5316588731687557363}
   m_Father: {fileID: 6323250547043607876}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &2759869825068697557
@@ -1105,7 +1105,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: 0.5}
   m_LocalPosition: {x: -6.83, y: 2.09, z: 10.17}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 0.6198076, y: 0.61980754, z: 0.6198076}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2329451965251779439}
@@ -1460,7 +1460,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5316588731687557363}
+  - {fileID: 1944420246722695508}
   m_Father: {fileID: 6323250547043607876}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &520228478527581645
@@ -2027,7 +2027,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6439541906276925684}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -2366,11 +2366,11 @@ Transform:
   m_GameObject: {fileID: 7757094667007704356}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0009, y: 0.0002, z: -0.00011225045}
+  m_LocalPosition: {x: -0.0012001302, y: 0.00020001829, z: 0.00044459105}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 844289209438357833}
+  m_Father: {fileID: 8663047029571394494}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3425032515169475365
 MeshFilter:
@@ -2502,6 +2502,9 @@ MonoBehaviour:
   - {fileID: 5547880691054667427}
   - {fileID: 3686326298470220497}
   boxPrefab: {fileID: 4280264213086856379}
+  meshRenderer: {fileID: 4362845240218781479}
+  detectionRadius: 0.48
+  ispuzzleInitated: 0
   correctOrientation:
   - tile: {fileID: 6147767416929491401}
     assignedObject: {fileID: 2621878180844243073}
@@ -2521,6 +2524,48 @@ MonoBehaviour:
     assignedObject: {fileID: 2811030158215851570}
   - tile: {fileID: 962394775540241883}
     assignedObject: {fileID: 5965129303898303542}
+  onBoxOpening:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  onBoxClosed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &8728551154493055151
 GameObject:
   m_ObjectHideFlags: 0
