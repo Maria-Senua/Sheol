@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 1269516311624332346}
   - component: {fileID: 2075164136980632185}
   - component: {fileID: 5917153192315939679}
+  - component: {fileID: 6283628422107875717}
   m_Layer: 0
   m_Name: TimeManiTest(Active)
   m_TagString: Untagged
@@ -458,6 +459,14 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!33 &6283628422107875717
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 337348784536699399}
+  m_Mesh: {fileID: 0}
 --- !u!1 &1587225732288822921
 GameObject:
   m_ObjectHideFlags: 0
@@ -492,8 +501,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.44, y: 0.74}
-  m_SizeDelta: {x: 536.631, y: 50}
+  m_AnchoredPosition: {x: 0.889, y: 0.036}
+  m_SizeDelta: {x: 219.6125, y: 23.3507}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6148410535595376027
 CanvasRenderer:
