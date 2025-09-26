@@ -1,11 +1,14 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class MusicBoxHandler : MonoBehaviour
 {
     [SerializeField] private Animator animator;
     [SerializeField] private string danceAnimation;
     [SerializeField] private GameObject picture;
-    
+
+    public UnityEvent onPhotoAppear;
+
     void Start()
     {
         
@@ -23,7 +26,15 @@ public class MusicBoxHandler : MonoBehaviour
             {
                 animator.enabled = false;
                 picture.SetActive(true);
+
+                //unity event for demo
+                Invoke("ReactToPhoto", 3f);
             }
         }
+    }
+
+    void ReactToPhoto()
+    {
+        onPhotoAppear?.Invoke();
     }
 }
