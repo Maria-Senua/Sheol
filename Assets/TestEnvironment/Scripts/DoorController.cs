@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class DoorController : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class DoorController : MonoBehaviour
     private DoorStates currentState = DoorStates.LOCKED;
     private bool isPlayingAnimation = false;
     private AudioSource audioSource;
+
+    public UnityEvent onPuzzleSolved;
     
     void Start()
     {
@@ -65,5 +68,7 @@ public class DoorController : MonoBehaviour
 
         transform.rotation = targetRotation;
         isPlayingAnimation = false;
+
+        onPuzzleSolved?.Invoke();
     }
 }
