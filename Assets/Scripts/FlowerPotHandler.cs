@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class FlowerPotHandler : MonoBehaviour
 {
@@ -8,7 +9,9 @@ public class FlowerPotHandler : MonoBehaviour
     public GameObject daisyFlower;
     public GameObject planedFlower;
     [SerializeField] private Animator animator;
-    
+
+    public UnityEvent onPuzzleSolved;
+
     void Update()
     {
         AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
@@ -17,6 +20,8 @@ public class FlowerPotHandler : MonoBehaviour
             debugString = "Flower pot animation completed.";
             planedFlower.SetActive(false);
             daisyFlower.SetActive(true);
+
+            onPuzzleSolved?.Invoke();
         }
     }
 
