@@ -5,6 +5,7 @@ public class DemoHookManager : MonoBehaviour
 {
     [SerializeField] private GameObject glitchScreen;
     [SerializeField] private GameObject bubbles;
+    [SerializeField] private GameObject safeGrid;
     [SerializeField] private GameObject environment;
     [SerializeField] private GameObject environmentSoundHolder;
     [SerializeField] private Material normalSkyboxMat;
@@ -13,6 +14,7 @@ public class DemoHookManager : MonoBehaviour
     private IEnumerator HookRoutine()
     {
         glitchScreen.SetActive(true);
+        safeGrid.SetActive(true);
         bubbles.SetActive(true);
         environment.SetActive(false);
         environmentSoundHolder.SetActive(false);
@@ -33,6 +35,7 @@ public class DemoHookManager : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
 
+        safeGrid.SetActive(false);
         glitchScreen.SetActive(false);
     }
 
