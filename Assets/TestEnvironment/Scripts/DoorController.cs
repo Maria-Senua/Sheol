@@ -17,7 +17,8 @@ public class DoorController : MonoBehaviour
     private AudioSource audioSource;
 
     public UnityEvent onPuzzleSolved;
-    
+    private bool puzzleSolved = false;
+
     void Start()
     {
         currentState = DoorStates.LOCKED;
@@ -32,8 +33,14 @@ public class DoorController : MonoBehaviour
             currentState = DoorStates.CLOSED;
             StartCoroutine(RotateDoor(new Vector3(0f, -90f, 0f), 3f));
             debugString = "Door is now closed and unlocked.";
-            
+            StartCoroutine(RemoveKey(collision.gameObject));
         }
+    }
+
+    private IEnumerator RemoveKey(GameObject key)
+    {
+        yield return new WaitForSeconds(2f);
+        key.SetActive(false);
     }
 
     public void TouchDoor()
@@ -69,6 +76,10 @@ public class DoorController : MonoBehaviour
         transform.rotation = targetRotation;
         isPlayingAnimation = false;
 
-        onPuzzleSolved?.Invoke();
+        if (!puzzleSolved)
+        {
+            onPuzzleSolved?.Invoke();
+            puzzleSolved = true;
+        }
     }
 }

@@ -16,11 +16,12 @@ public class DemoHookManager : MonoBehaviour
         glitchScreen.SetActive(true);
         safeGrid.SetActive(true);
         bubbles.SetActive(true);
-        environment.SetActive(false);
+        
         environmentSoundHolder.SetActive(false);
         RenderSettings.skybox = weirdSkyboxMat;
 
         yield return new WaitForSeconds(1f);
+        environment.SetActive(false);
 
         glitchScreen.SetActive(false);
     }
