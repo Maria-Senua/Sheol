@@ -21,7 +21,10 @@ public class DemoHookManager : MonoBehaviour
         RenderSettings.skybox = weirdSkyboxMat;
 
         yield return new WaitForSeconds(1f);
-        environment.SetActive(false);
+        //environment.SetActive(false);
+        Renderer[] rs = environment.GetComponentsInChildren<Renderer>();
+        foreach (Renderer r in rs)
+            r.enabled = false;
 
         glitchScreen.SetActive(false);
     }
@@ -30,7 +33,10 @@ public class DemoHookManager : MonoBehaviour
     {
         glitchScreen.SetActive(true);
         bubbles.SetActive(false);
-        environment.SetActive(true);
+        //environment.SetActive(true);
+        Renderer[] rs = environment.GetComponentsInChildren<Renderer>();
+        foreach (Renderer r in rs)
+            r.enabled = true;
         environmentSoundHolder.SetActive(true);
         RenderSettings.skybox = normalSkyboxMat;
 
