@@ -13,25 +13,27 @@ public class DemoHookManager : MonoBehaviour
 
     private IEnumerator HookRoutine()
     {
-        glitchScreen.SetActive(true);
+        //glitchScreen.SetActive(true);
         //safeGrid.SetActive(true);
+        yield return new WaitForSeconds(0.01f);
         bubbles.SetActive(true);
         
         environmentSoundHolder.SetActive(false);
         RenderSettings.skybox = weirdSkyboxMat;
 
-        yield return new WaitForSeconds(1f);
+       
         //environment.SetActive(false);
         Renderer[] rs = environment.GetComponentsInChildren<Renderer>();
         foreach (Renderer r in rs)
             r.enabled = false;
 
-        glitchScreen.SetActive(false);
+        //glitchScreen.SetActive(false);
     }
 
     private IEnumerator UnhookRoutine()
     {
-        glitchScreen.SetActive(true);
+        //glitchScreen.SetActive(true);
+        yield return new WaitForSeconds(0.01f);
         bubbles.SetActive(false);
         //environment.SetActive(true);
         Renderer[] rs = environment.GetComponentsInChildren<Renderer>();
@@ -40,10 +42,10 @@ public class DemoHookManager : MonoBehaviour
         environmentSoundHolder.SetActive(true);
         RenderSettings.skybox = normalSkyboxMat;
 
-        yield return new WaitForSeconds(1f);
+       
 
         //safeGrid.SetActive(false);
-        glitchScreen.SetActive(false);
+        //glitchScreen.SetActive(false);
     }
 
     public void HookPlayer()
