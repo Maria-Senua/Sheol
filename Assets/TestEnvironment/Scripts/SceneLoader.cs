@@ -44,7 +44,7 @@ public class SceneLoader : MonoBehaviour
 
             if (startVideoTime <= 0) GoToScene("FINAL SCENE");
         }
-        if (sceneName == "FinalCutScene")
+        if (sceneName == "FinalDemoScene")
         {
             finalVideoTime -= Time.deltaTime;
 
