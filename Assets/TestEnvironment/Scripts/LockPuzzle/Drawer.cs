@@ -18,7 +18,8 @@ public class Drawer : MonoBehaviour
     [SerializeField] private float jiggleZ = 0.009f;
     [SerializeField] private float jiggleDuration = 0.05f;
     [SerializeField] private GameObject toy;
-    
+    [SerializeField] private GameObject musicBox;
+
     [Header("Sounds")]
     public AudioClip[] sounds;
     private AudioSource audioSource;
@@ -65,13 +66,15 @@ public class Drawer : MonoBehaviour
 
     private void OpenDrawer()
     {
-        toy.SetActive(true);
+        //toy.SetActive(true);
+        //musicBox.SetActive(true);
         audioSource.PlayOneShot(sounds[1]);
         LeanTween.moveLocal(gameObject, openPos, moveDuration)
             .setEase(LeanTweenType.easeOutCubic);
        
-        // onOpeningDrawer?.Invoke();
+        onOpeningDrawer?.Invoke();
         gameObject.GetComponent<BoxCollider>().enabled = false;
+
         
     }
 

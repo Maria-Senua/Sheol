@@ -3719,6 +3719,7 @@ MonoBehaviour:
   jiggleZ: 0.009
   jiggleDuration: 0.05
   toy: {fileID: 0}
+  musicBox: {fileID: 0}
   sounds: []
   onOpeningDrawer:
     m_PersistentCalls:
@@ -31837,7 +31838,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6598815579406187037, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -51426,6 +51427,7 @@ MonoBehaviour:
   jiggleZ: 0.009
   jiggleDuration: 0.05
   toy: {fileID: 627190653}
+  musicBox: {fileID: 72227624}
   sounds:
   - {fileID: 8300000, guid: d7489ebf1f8564778b72c9d70339c996, type: 3}
   - {fileID: 8300000, guid: c28732c6c51a74faba219024ab270d39, type: 3}
@@ -51433,7 +51435,7 @@ MonoBehaviour:
   onOpeningDrawer:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 627190653}
+      - m_Target: {fileID: 72227624}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -51445,7 +51447,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 72227624}
+      - m_Target: {fileID: 627190653}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -53598,7 +53600,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 120783535055710319, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
       propertyPath: m_EnableFarCasting
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2243020122175513872, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
       propertyPath: m_IsActive
@@ -53726,7 +53728,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2291735172237534479, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
       propertyPath: m_EnableFarCasting
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3229012808228254544, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
       propertyPath: m_RenderPostProcessing
@@ -53770,7 +53772,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5449417192905406274, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
       propertyPath: m_EnableFarCasting
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5518899284880179291, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
       propertyPath: m_IsActive
@@ -54046,7 +54048,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9141569775962405776, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
       propertyPath: m_EnableFarCasting
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
