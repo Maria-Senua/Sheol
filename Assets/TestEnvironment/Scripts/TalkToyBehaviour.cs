@@ -76,7 +76,7 @@ public class TalkToyBehaviour : MonoBehaviour
                 Debug.Log("DistanceCheck HOT " + currentDistance);
                 audioSource.PlayOneShot(voiceLines[3]);
             }
-            else if (currentDistance > previousDistance)
+            else if (currentDistance > previousDistance && (currentDistance - previousDistance > 0.5))
             {
                 Debug.Log("DistanceCheck COLD " + currentDistance);
                 audioSource.PlayOneShot(voiceLines[1]);
