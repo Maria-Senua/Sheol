@@ -1,4 +1,5 @@
 using System;
+using Unity.Entities;
 using UnityEngine;
 using UnityEngine.UI;
 public class HerbariumPuzzleHandler : MonoBehaviour
@@ -82,15 +83,13 @@ public class HerbariumPuzzleHandler : MonoBehaviour
 
    }
    
-
-
    void Update()
    {
-      if (IsUIOverlappingCollider(uiElement, capsuleCollider))
-      {
-         Debug.Log("It worked"); 
-         buttonThree.gameObject.SetActive(true);
-      }
+      // if (IsUIOverlappingCollider(uiElement, capsuleCollider))
+      // {
+      //    Debug.Log("It worked"); 
+      //    buttonThree.gameObject.SetActive(true);
+      // }
    }
 
    bool IsUIOverlappingCollider(RectTransform uiRect, CapsuleCollider collider)
@@ -104,12 +103,34 @@ public class HerbariumPuzzleHandler : MonoBehaviour
       }
 
       Bounds colliderBounds = collider.bounds;
-
+      // collider.gameObject.SetActive(false);
       return uiBounds.Intersects(colliderBounds);
+   }
+
+   private void OnTriggerEnter(Collider other)
+   {
+      if(other == capsuleCollider)
+      {
+         capsuleCollider.gameObject.SetActive(false);
+         buttonThree.gameObject.SetActive(true);
+      }
    }
 
    private void RevealPuzzle()
    {
       puzzlePanel.SetActive(true);
    }
+
+   public class HerbariumPuzzleHandlerBaker : Baker<HerbariumPuzzleHandler>
+   {
+      public override void Bake(HerbariumPuzzleHandler authoring)
+      {
+         var entity = GetEntity(TransformUsageFlags.Dynamic);
+         AddComponent(entity, new HerbariumPuzzleHandlerComponentData());
+      }
+   }
+}
+
+public struct HerbariumPuzzleHandlerComponentData : IComponentData
+{
 }

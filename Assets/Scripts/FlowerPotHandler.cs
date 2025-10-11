@@ -24,8 +24,8 @@ public class FlowerPotHandler : MonoBehaviour
             animationCompleted = true;
 
             debugString = "Flower pot animation completed.";
-            planedFlower.SetActive(false);
             daisyFlower.SetActive(true);
+            planedFlower.SetActive(false);
 
             onPuzzleSolved?.Invoke();
         }
@@ -34,7 +34,6 @@ public class FlowerPotHandler : MonoBehaviour
     private void OnCollisionEnter(Collision other)
     {
         BucketHandler bucketHandler = other.gameObject.GetComponent<BucketHandler>();
-        debugString = "Collision with: " + other.gameObject.name;
         if (bucketHandler != null && bucketHandler.hasWater)
         {
             debugString = "Watering the flower pot!";
@@ -46,7 +45,7 @@ public class FlowerPotHandler : MonoBehaviour
 
     private IEnumerator RemoveBucket(GameObject bucket)
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
         bucket.SetActive(false);
     }
 }

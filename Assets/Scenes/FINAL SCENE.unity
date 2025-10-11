@@ -375,6 +375,10 @@ PrefabInstance:
       value: Daisy
       objectReference: {fileID: 0}
     - target: {fileID: 337348784536699399, guid: c1f27cc78c3bb0f4584ca3be82da6aae, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 337348784536699399, guid: c1f27cc78c3bb0f4584ca3be82da6aae, type: 3}
       propertyPath: m_TagString
       value: Key
       objectReference: {fileID: 0}
@@ -3216,6 +3220,32 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fbbb350580e54a428cb4ddbc42369ff, type: 3}
+--- !u!1 &244705739 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4217049301965009563, guid: cbfca99946b481b47afdb5113747eb6d, type: 3}
+  m_PrefabInstance: {fileID: 2103067893}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &244705747
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 244705739}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 75.25, y: 85.9, z: 25.02}
+  m_Center: {x: 0, y: 24.66, z: 0}
 --- !u!1 &251943957 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7277802327414017194, guid: 77e7c27b2c5525e4aa8cc9f99d654486, type: 3}
@@ -49014,7 +49044,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sphereRadius: 0.24
   water: {fileID: 400466977}
-  hasWater: 1
+  hasWater: 0
 --- !u!114 &1972367379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52273,7 +52303,10 @@ PrefabInstance:
     - {fileID: 3783917670185282440, guid: cbfca99946b481b47afdb5113747eb6d, type: 3}
     - {fileID: 1016416756405603546, guid: cbfca99946b481b47afdb5113747eb6d, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4217049301965009563, guid: cbfca99946b481b47afdb5113747eb6d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 244705747}
   m_SourcePrefab: {fileID: 100100000, guid: cbfca99946b481b47afdb5113747eb6d, type: 3}
 --- !u!4 &2103067894 stripped
 Transform:
