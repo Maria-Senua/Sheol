@@ -6,7 +6,7 @@ public class TalkToyBehaviour : MonoBehaviour
     public GameObject hiddenObject;
     private AudioSource audioSource;
     public AudioClip[] voiceLines;
-    public float distance;
+    public float freezeDistance;
     public float hotDistance;
     private float previousDistance;
     public float checkInterval = 5f; 
@@ -58,22 +58,23 @@ public class TalkToyBehaviour : MonoBehaviour
     {
         float currentDistance = Vector3.Distance(hiddenObject.transform.position, gameObject.transform.position);
 
-        if (currentDistance > distance)
+        if (currentDistance > freezeDistance)
         {
             Debug.Log("DistanceCheck FREEZING " + currentDistance);
             audioSource.PlayOneShot(voiceLines[0]);
         }
         else
         {
-            if (currentDistance < previousDistance)
+            if (currentDistance < previousDistance && currentDistance > hotDistance)
             {
                 Debug.Log("DistanceCheck WARM " + currentDistance);
                 audioSource.PlayOneShot(voiceLines[2]);
-                if (currentDistance < hotDistance)
-                {
-                    Debug.Log("DistanceCheck HOT " + currentDistance);
-                    audioSource.PlayOneShot(voiceLines[3]);
-                }
+               
+            }
+            else if (currentDistance < hotDistance)
+            {
+                Debug.Log("DistanceCheck HOT " + currentDistance);
+                audioSource.PlayOneShot(voiceLines[3]);
             }
             else if (currentDistance > previousDistance)
             {
