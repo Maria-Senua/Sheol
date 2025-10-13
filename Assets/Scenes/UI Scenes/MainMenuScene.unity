@@ -2210,6 +2210,7 @@ MonoBehaviour:
   jiggleZ: 0.009
   jiggleDuration: 0.05
   toy: {fileID: 0}
+  musicBox: {fileID: 0}
   sounds:
   - {fileID: 8300000, guid: d7489ebf1f8564778b72c9d70339c996, type: 3}
   - {fileID: 8300000, guid: c28732c6c51a74faba219024ab270d39, type: 3}
@@ -18081,7 +18082,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 5894d362824624a1993fcd7782945152, type: 3}
   - {fileID: 8300000, guid: e629358949dc04f9392a9aaa9a9c0ded, type: 3}
   - {fileID: 8300000, guid: 6892123a634864ae0a8233a4eb12c38d, type: 3}
-  distance: 4
+  freezeDistance: 0
   hotDistance: 1
   checkInterval: 3
   commentVoice: {fileID: 0}
@@ -31647,6 +31648,17 @@ PrefabInstance:
       addedObject: {fileID: 1583582357}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 041e6fa849a0540f69ac5bac123362b0, type: 3}
+--- !u!114 &1268488265 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6512046843484691297, guid: 041e6fa849a0540f69ac5bac123362b0, type: 3}
+  m_PrefabInstance: {fileID: 1268488264}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0cb9aa70a22847b5925ee5f067c10a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1291083839
 GameObject:
   m_ObjectHideFlags: 0
@@ -38564,6 +38576,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41c4ee9273b973647b2cbb2b35882a11, type: 3}
+--- !u!1 &1927089011
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1927089012}
+  m_Layer: 0
+  m_Name: SpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1927089012
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1927089011}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 11.61, y: 0.62005, z: -30.92}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &1928090299
 Mesh:
   m_ObjectHideFlags: 0
@@ -38899,6 +38942,7 @@ MonoBehaviour:
   jiggleZ: 0.009
   jiggleDuration: 0.05
   toy: {fileID: 0}
+  musicBox: {fileID: 0}
   sounds: []
   onOpeningDrawer:
     m_PersistentCalls:
@@ -39096,6 +39140,52 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2659823769650972810, guid: 5fbbb350580e54a428cb4ddbc42369ff, type: 3}
   m_PrefabInstance: {fileID: 1480672147}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1975748308
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1975748310}
+  - component: {fileID: 1975748309}
+  m_Layer: 0
+  m_Name: SpawnManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1975748309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1975748308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8ca88699815d4bf1a31e0b2569d1e38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xrOrigin: {fileID: 1268488265}
+  spawnPoint: {fileID: 1927089012}
+--- !u!4 &1975748310
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1975748308}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 24.94416, y: -0.03, z: -4.04992}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1979211271
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41599,3 +41689,5 @@ SceneRoots:
   - {fileID: 820617518}
   - {fileID: 1363937307}
   - {fileID: 2146844342}
+  - {fileID: 1975748310}
+  - {fileID: 1927089012}
