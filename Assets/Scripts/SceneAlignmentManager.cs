@@ -5,12 +5,12 @@ public class SceneAlignmentManager : MonoBehaviour
 {
 
     [Header("References")]
-    public Transform playerRig;       // XR Origin
-    public Transform sceneHolder;     // The root of your scene (or main object group)
-    public Transform centerPoint;     // The reference point in your scene
+    public Transform playerRig;       
+    public Transform sceneHolder;     
+    public Transform centerPoint;     
 
     [Header("Offsets")]
-    public Vector3 desiredOffset = Vector3.zero;   // Optional manual offset
+    public Vector3 desiredOffset = Vector3.zero;   
     public float waitTime = 0.5f;
 
 
@@ -22,17 +22,15 @@ public class SceneAlignmentManager : MonoBehaviour
 
     IEnumerator AlignSceneToPlayer()
     {
-        // Wait for XR rig to initialize properly
         yield return new WaitForSeconds(waitTime);
 
-        // Flatten player forward vector (ignore tilt)
         Vector3 playerForward = new Vector3(playerRig.forward.x, 0, playerRig.forward.z).normalized;
 
-        // Rotate the scene to face same direction as player
         sceneHolder.rotation = Quaternion.Euler(0, playerRig.eulerAngles.y, 0);
 
-        // Move the scene so that centerPoint aligns with player position (plus optional offset)
         Vector3 centerToScene = sceneHolder.position - centerPoint.position;
         sceneHolder.position = playerRig.position + centerToScene + desiredOffset;
+
+        enabled = false;
     }
 }
