@@ -36,7 +36,7 @@ public class TimeManipulationHandler : MonoBehaviour
      private bool isHovered = false;
     
     [Header("References")]
-    private XRGrabInteractable xrGrabInteractable;
+    // private XRGrabInteractable xrGrabInteractable;
     [SerializeField] private GameObject fishBody;
     [SerializeField] private GameObject fishSkeleton;
     [SerializeField] private GameObject memoryOrb;
@@ -63,17 +63,21 @@ public class TimeManipulationHandler : MonoBehaviour
         }
 
         rb = gameObject.GetComponent<Rigidbody>();
+        if(rb == null)
+        {
+            rb = gameObject.GetComponentInParent<Rigidbody>();
+        }
         rb.useGravity = false;
         // rb.isKinematic = true;
 
         previousY = Vector3.Distance(bottomLimit.transform.position, player.transform.position);
-        xrGrabInteractable = GetComponent<XRGrabInteractable>();
+        // xrGrabInteractable = GetComponent<XRGrabInteractable>();
         subtitleTMP = GetComponentInChildren<TextMeshProUGUI>();
         audioSource = GetComponent<AudioSource>();
         canManipulateTime = false;
         
-        xrGrabInteractable.hoverEntered.AddListener(OnHoverEntered);
-        xrGrabInteractable.hoverExited.AddListener(OnHoverExited);
+        // xrGrabInteractable.hoverEntered.AddListener(OnHoverEntered);
+        // xrGrabInteractable.hoverExited.AddListener(OnHoverExited);
 
         rightActivateAction.action.performed += Locking;
         leftActivateAction.action.performed += Locking;
@@ -101,7 +105,7 @@ public class TimeManipulationHandler : MonoBehaviour
     {
         if(isLocked) return;
     
-        if (xrGrabInteractable.isSelected)
+        /*if (xrGrabInteractable.isSelected)
         {
             rb.useGravity = true;
             rb.isKinematic = false;
@@ -112,7 +116,7 @@ public class TimeManipulationHandler : MonoBehaviour
         else
         {
             canManipulateTime = false;
-        }
+        }*/
     
         if (!canManipulateTime) 
         {
@@ -173,15 +177,15 @@ public class TimeManipulationHandler : MonoBehaviour
 
     public void SubtitleCall(InputAction.CallbackContext context)
     {
-        SoundManager.instance.StartCoroutine(SoundManager.instance.TypeString(subtitles, audioClip, subtitleTMP, audioSource, xrGrabInteractable));
+        // SoundManager.instance.StartCoroutine(SoundManager.instance.TypeString(subtitles, audioClip, subtitleTMP, audioSource, xrGrabInteractable));
     }
     
     private void Locking(InputAction.CallbackContext context)
     {
-        if (xrGrabInteractable.isSelected)
-        {
-            isLocked = !isLocked;
-        }
+        // if (xrGrabInteractable.isSelected)
+        // {
+        //     isLocked = !isLocked;
+        // }
     }
 
     public void disableKinematic()

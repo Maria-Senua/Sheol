@@ -25,6 +25,10 @@ public class TalkToyBehaviour : MonoBehaviour
         timer = checkInterval;
         audioSource = gameObject.GetComponent<AudioSource>();
         rb = gameObject.GetComponent<Rigidbody>();
+        if(rb == null)
+        {
+            rb = gameObject.GetComponentInParent<Rigidbody>();
+        }
         rb.useGravity = false;
         rb.isKinematic = true;
     }
