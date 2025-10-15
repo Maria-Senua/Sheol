@@ -10,9 +10,20 @@ public class SceneAlignmentManager : MonoBehaviour
     public Transform centerPoint;     
 
     [Header("Offsets")]
-    public Vector3 desiredOffset = Vector3.zero;   
+    public Vector3 desiredOffset = Vector3.zero;
+    public Vector3 pointOffset = Vector3.zero;
     public float waitTime = 0.5f;
 
+    private Vector3 centerPointRelativePos;
+
+
+    void Awake()
+    {
+        if (playerRig != null && centerPoint != null)
+        {
+            centerPointRelativePos = centerPoint.position - playerRig.position;
+        }
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -24,13 +35,15 @@ public class SceneAlignmentManager : MonoBehaviour
     {
         yield return new WaitForSeconds(waitTime);
 
-        Vector3 playerForward = new Vector3(playerRig.forward.x, 0, playerRig.forward.z).normalized;
-
         sceneHolder.rotation = Quaternion.Euler(0, playerRig.eulerAngles.y, 0);
 
         Vector3 centerToScene = sceneHolder.position - centerPoint.position;
         sceneHolder.position = playerRig.position + centerToScene + desiredOffset;
 
+        centerPoint.position = playerRig.position + centerPointRelativePos + pointOffset;
+
+
         enabled = false;
+        //Destroy(gameObject);
     }
 }
