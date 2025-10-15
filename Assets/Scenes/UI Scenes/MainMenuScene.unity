@@ -31648,17 +31648,6 @@ PrefabInstance:
       addedObject: {fileID: 1583582357}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 041e6fa849a0540f69ac5bac123362b0, type: 3}
---- !u!114 &1268488265 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6512046843484691297, guid: 041e6fa849a0540f69ac5bac123362b0, type: 3}
-  m_PrefabInstance: {fileID: 1268488264}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e0cb9aa70a22847b5925ee5f067c10a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1291083839
 GameObject:
   m_ObjectHideFlags: 0
@@ -33656,6 +33645,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 764785245}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1462929296 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6761026863421168355, guid: 041e6fa849a0540f69ac5bac123362b0, type: 3}
+  m_PrefabInstance: {fileID: 1268488264}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1479897634 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3206461373922100052, guid: 52130bcf6471c334aa7a054712224ecc, type: 3}
@@ -39150,6 +39144,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1975748310}
   - component: {fileID: 1975748309}
+  - component: {fileID: 1975748311}
   m_Layer: 0
   m_Name: SpawnManager
   m_TagString: Untagged
@@ -39164,13 +39159,17 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1975748308}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a8ca88699815d4bf1a31e0b2569d1e38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xrOrigin: {fileID: 1268488265}
-  spawnPoint: {fileID: 1927089012}
+  playerRig: {fileID: 0}
+  boat: {fileID: 0}
+  bubbles: {fileID: 0}
+  distanceInFront: 5
+  boatOffset: {x: 0, y: 0, z: 0}
+  bubblesOffset: {x: 0, y: -0.5, z: 0}
 --- !u!4 &1975748310
 Transform:
   m_ObjectHideFlags: 0
@@ -39186,6 +39185,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1975748311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1975748308}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8471049b1c525431fa291c428d969f2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerRig: {fileID: 1462929296}
+  sceneHolder: {fileID: 97626127}
+  canvas: {fileID: 676441774}
+  waitTime: 0.5
 --- !u!1001 &1979211271
 PrefabInstance:
   m_ObjectHideFlags: 0
