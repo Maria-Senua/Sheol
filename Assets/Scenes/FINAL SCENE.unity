@@ -20519,7 +20519,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1305748872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20565,10 +20565,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff1d07ee98b1948d4a9c49be28c0573e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerRig: {fileID: 0}
+  playerRig: {fileID: 1940876035}
   sceneHolder: {fileID: 281886524}
   centerPoint: {fileID: 516507228}
   desiredOffset: {x: 1.606, y: -2.5, z: 0.17}
+  pointOffset: {x: 1.606, y: 0, z: 0.17}
   waitTime: 0.5
 --- !u!1001 &1306272791
 PrefabInstance:
