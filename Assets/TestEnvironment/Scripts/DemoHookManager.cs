@@ -3,7 +3,7 @@ using System.Collections;
 
 public class DemoHookManager : MonoBehaviour
 {
-    [SerializeField] private GameObject glitchScreen;
+    // [SerializeField] private GameObject glitchScreen;
     [SerializeField] private GameObject bubbles;
     //[SerializeField] private GameObject safeGrid;
     [SerializeField] private GameObject environment;
