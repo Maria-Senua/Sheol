@@ -561,6 +561,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5917153192315939679, guid: c1f27cc78c3bb0f4584ca3be82da6aae, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: 446aeb9a699211d4c8b880123b0df544, type: 3}
+    - target: {fileID: 5917153192315939679, guid: c1f27cc78c3bb0f4584ca3be82da6aae, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 446aeb9a699211d4c8b880123b0df544, type: 3}
     - target: {fileID: 6922415148012229449, guid: c1f27cc78c3bb0f4584ca3be82da6aae, type: 3}
       propertyPath: m_IsKinematic
       value: 1
@@ -675,6 +683,11 @@ CapsuleCollider:
   m_Height: 0.07
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!82 &16596455 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5917153192315939679, guid: c1f27cc78c3bb0f4584ca3be82da6aae, type: 3}
+  m_PrefabInstance: {fileID: 16596450}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &19258846 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2659823769650972810, guid: 5fbbb350580e54a428cb4ddbc42369ff, type: 3}
@@ -1236,6 +1249,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5917153192315939679, guid: c1f27cc78c3bb0f4584ca3be82da6aae, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: 5a0d562d7f2648c4badbb7f5aa7e3e8b, type: 3}
+    - target: {fileID: 5917153192315939679, guid: c1f27cc78c3bb0f4584ca3be82da6aae, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 5a0d562d7f2648c4badbb7f5aa7e3e8b, type: 3}
     - target: {fileID: 6922415148012229449, guid: c1f27cc78c3bb0f4584ca3be82da6aae, type: 3}
       propertyPath: m_IsKinematic
       value: 1
@@ -1338,6 +1359,11 @@ CapsuleCollider:
   m_Height: 0.07951959
   m_Direction: 1
   m_Center: {x: -0.045987397, y: 0.00031530485, z: 0.0062775174}
+--- !u!82 &71020095 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5917153192315939679, guid: c1f27cc78c3bb0f4584ca3be82da6aae, type: 3}
+  m_PrefabInstance: {fileID: 71020091}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &71020099 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7901588144825462555, guid: c1f27cc78c3bb0f4584ca3be82da6aae, type: 3}
@@ -4484,9 +4510,9 @@ MonoBehaviour:
     _unselectMode: 1
   _palmGrabRules:
     _thumbRequirement: 1
-    _indexRequirement: 0
-    _middleRequirement: 2
-    _ringRequirement: 2
+    _indexRequirement: 1
+    _middleRequirement: 1
+    _ringRequirement: 1
     _pinkyRequirement: 1
     _unselectMode: 0
   _movementProvider: {fileID: 0}
@@ -4528,10 +4554,10 @@ MonoBehaviour:
   _whenHover:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1966217727}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 1075215648}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -19220,6 +19246,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5917153192315939679, guid: c1f27cc78c3bb0f4584ca3be82da6aae, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: e6a382a137e0aab4e8c65e946006d2c8, type: 3}
+    - target: {fileID: 5917153192315939679, guid: c1f27cc78c3bb0f4584ca3be82da6aae, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: e6a382a137e0aab4e8c65e946006d2c8, type: 3}
     - target: {fileID: 6898240693759685324, guid: c1f27cc78c3bb0f4584ca3be82da6aae, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -19296,6 +19330,11 @@ PrefabInstance:
 --- !u!4 &1075215647 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4027767496921368746, guid: c1f27cc78c3bb0f4584ca3be82da6aae, type: 3}
+  m_PrefabInstance: {fileID: 1075215646}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1075215648 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5917153192315939679, guid: c1f27cc78c3bb0f4584ca3be82da6aae, type: 3}
   m_PrefabInstance: {fileID: 1075215646}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1081113504
@@ -19622,6 +19661,7 @@ GameObject:
   - component: {fileID: 1124549506}
   - component: {fileID: 1124549505}
   - component: {fileID: 1124549504}
+  - component: {fileID: 1124549507}
   m_Layer: 0
   m_Name: '[BuildingBlock] HandGrabInstallationRoutine'
   m_TagString: Untagged
@@ -19728,6 +19768,55 @@ MonoBehaviour:
     _installationVariants:
     - _memberName: mode
       _value: '{"value__":0}'
+--- !u!114 &1124549507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1124549502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1464721f2283eb14e94a33e812b47be4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactableView: {fileID: 1124549505}
+  _whenHover:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1298089210}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _whenUnhover:
+    m_PersistentCalls:
+      m_Calls: []
+  _whenSelect:
+    m_PersistentCalls:
+      m_Calls: []
+  _whenUnselect:
+    m_PersistentCalls:
+      m_Calls: []
+  _whenInteractorViewAdded:
+    m_PersistentCalls:
+      m_Calls: []
+  _whenInteractorViewRemoved:
+    m_PersistentCalls:
+      m_Calls: []
+  _whenSelectingInteractorViewAdded:
+    m_PersistentCalls:
+      m_Calls: []
+  _whenSelectingInteractorViewRemoved:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!4 &1125443489 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2659823769650972810, guid: 5fbbb350580e54a428cb4ddbc42369ff, type: 3}
@@ -21053,6 +21142,14 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5917153192315939679, guid: c1f27cc78c3bb0f4584ca3be82da6aae, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: cd0cb400f32eb2d4c9ac693c1faab47e, type: 3}
+    - target: {fileID: 5917153192315939679, guid: c1f27cc78c3bb0f4584ca3be82da6aae, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: cd0cb400f32eb2d4c9ac693c1faab47e, type: 3}
     - target: {fileID: 6898240693759685324, guid: c1f27cc78c3bb0f4584ca3be82da6aae, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -21139,6 +21236,11 @@ PrefabInstance:
 --- !u!4 &1298089209 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4027767496921368746, guid: c1f27cc78c3bb0f4584ca3be82da6aae, type: 3}
+  m_PrefabInstance: {fileID: 1298089208}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1298089210 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5917153192315939679, guid: c1f27cc78c3bb0f4584ca3be82da6aae, type: 3}
   m_PrefabInstance: {fileID: 1298089208}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1298089218
@@ -21432,6 +21534,7 @@ GameObject:
   - component: {fileID: 1307984618}
   - component: {fileID: 1307984617}
   - component: {fileID: 1307984616}
+  - component: {fileID: 1307984619}
   m_Layer: 0
   m_Name: '[BuildingBlock] HandGrabInstallationRoutine'
   m_TagString: Untagged
@@ -21538,6 +21641,55 @@ MonoBehaviour:
     _installationVariants:
     - _memberName: mode
       _value: '{"value__":0}'
+--- !u!114 &1307984619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1307984614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1464721f2283eb14e94a33e812b47be4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactableView: {fileID: 1307984617}
+  _whenHover:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 71020095}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _whenUnhover:
+    m_PersistentCalls:
+      m_Calls: []
+  _whenSelect:
+    m_PersistentCalls:
+      m_Calls: []
+  _whenUnselect:
+    m_PersistentCalls:
+      m_Calls: []
+  _whenInteractorViewAdded:
+    m_PersistentCalls:
+      m_Calls: []
+  _whenInteractorViewRemoved:
+    m_PersistentCalls:
+      m_Calls: []
+  _whenSelectingInteractorViewAdded:
+    m_PersistentCalls:
+      m_Calls: []
+  _whenSelectingInteractorViewRemoved:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1309968284
 GameObject:
   m_ObjectHideFlags: 0
@@ -53871,6 +54023,7 @@ GameObject:
   - component: {fileID: 2137421406}
   - component: {fileID: 2137421405}
   - component: {fileID: 2137421404}
+  - component: {fileID: 2137421407}
   m_Layer: 0
   m_Name: '[BuildingBlock] HandGrabInstallationRoutine'
   m_TagString: Untagged
@@ -53977,6 +54130,55 @@ MonoBehaviour:
     _installationVariants:
     - _memberName: mode
       _value: '{"value__":0}'
+--- !u!114 &2137421407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2137421402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1464721f2283eb14e94a33e812b47be4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactableView: {fileID: 2137421405}
+  _whenHover:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 16596455}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _whenUnhover:
+    m_PersistentCalls:
+      m_Calls: []
+  _whenSelect:
+    m_PersistentCalls:
+      m_Calls: []
+  _whenUnselect:
+    m_PersistentCalls:
+      m_Calls: []
+  _whenInteractorViewAdded:
+    m_PersistentCalls:
+      m_Calls: []
+  _whenInteractorViewRemoved:
+    m_PersistentCalls:
+      m_Calls: []
+  _whenSelectingInteractorViewAdded:
+    m_PersistentCalls:
+      m_Calls: []
+  _whenSelectingInteractorViewRemoved:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!65 &248656245528214257
 BoxCollider:
   m_ObjectHideFlags: 0
