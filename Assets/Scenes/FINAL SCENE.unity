@@ -2974,6 +2974,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 7023434824702857815, guid: 4265653dea385c34485a9a5cc196a31b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 906602583}
+    - targetCorrespondingSourceObject: {fileID: 7023434824702857815, guid: 4265653dea385c34485a9a5cc196a31b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 983356673}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4265653dea385c34485a9a5cc196a31b, type: 3}
 --- !u!4 &200805219 stripped
@@ -8019,8 +8022,8 @@ Transform:
   m_GameObject: {fileID: 703794118}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.9997291, z: -0, w: 0.023277603}
-  m_LocalPosition: {x: -0.005000353, y: -0.002, z: 0.0080199335}
-  m_LocalScale: {x: 0.054380644, y: 0.8761171, z: 0.058411296}
+  m_LocalPosition: {x: -0.03, y: -0.002, z: 0.009}
+  m_LocalScale: {x: 0.06753645, y: 0.8761171, z: 0.072768115}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1763252261}
@@ -11646,7 +11649,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &906602583
 Transform:
   m_ObjectHideFlags: 0
@@ -12117,6 +12120,69 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 967396119}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &983356672
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 983356673}
+  - component: {fileID: 983356675}
+  - component: {fileID: 983356674}
+  m_Layer: 3
+  m_Name: CylinderGrid
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &983356673
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 983356672}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.9999386, z: -0, w: 0.0110796355}
+  m_LocalPosition: {x: 0.39, y: -0.1, z: -0.05}
+  m_LocalScale: {x: 4.312592, y: 0.12263811, z: 4.736449}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 41668738}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &983356674
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 983356672}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!33 &983356675
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 983356672}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &985812037
 GameObject:
   m_ObjectHideFlags: 0
