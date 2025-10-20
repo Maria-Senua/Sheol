@@ -1355,10 +1355,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.08507037
-  m_Height: 0.07951959
-  m_Direction: 1
-  m_Center: {x: -0.045987397, y: 0.00031530485, z: 0.0062775174}
+  m_Radius: 0.061610837
+  m_Height: 0.21937564
+  m_Direction: 0
+  m_Center: {x: -0.022336598, y: -0.016758563, z: -0.27291733}
 --- !u!82 &71020095 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 5917153192315939679, guid: c1f27cc78c3bb0f4584ca3be82da6aae, type: 3}
@@ -1610,6 +1610,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 151009047}
     m_Modifications:
     - target: {fileID: 93548844265864642, guid: e2e85e6665a40394792f909534f76fcd, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 93548844265864642, guid: e2e85e6665a40394792f909534f76fcd, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -1678,8 +1682,32 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1869631580132741756, guid: e2e85e6665a40394792f909534f76fcd, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1869631580132741756, guid: e2e85e6665a40394792f909534f76fcd, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3914756023119943230, guid: e2e85e6665a40394792f909534f76fcd, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4774905419687432010, guid: e2e85e6665a40394792f909534f76fcd, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5082689718923570809, guid: e2e85e6665a40394792f909534f76fcd, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7686389055515472226, guid: e2e85e6665a40394792f909534f76fcd, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7715111386045587994, guid: e2e85e6665a40394792f909534f76fcd, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2656,7 +2684,7 @@ GameObject:
   - component: {fileID: 186782854}
   - component: {fileID: 186782856}
   - component: {fileID: 186782855}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WallBlock
   m_TagString: Obstacles
   m_Icon: {fileID: 0}
@@ -2859,6 +2887,10 @@ PrefabInstance:
       value: -1.47
       objectReference: {fileID: 0}
     - target: {fileID: 3347037324782343914, guid: 4265653dea385c34485a9a5cc196a31b, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3347037324782343914, guid: 4265653dea385c34485a9a5cc196a31b, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -2905,6 +2937,10 @@ PrefabInstance:
     - target: {fileID: 7231146808299649725, guid: 4265653dea385c34485a9a5cc196a31b, type: 3}
       propertyPath: m_TagString
       value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 7429140314151649617, guid: 4265653dea385c34485a9a5cc196a31b, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7496343229340704442, guid: 4265653dea385c34485a9a5cc196a31b, type: 3}
       propertyPath: m_LocalScale.x
@@ -2957,6 +2993,10 @@ PrefabInstance:
     - target: {fileID: 7496343229340704442, guid: 4265653dea385c34485a9a5cc196a31b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7542534282140495353, guid: 4265653dea385c34485a9a5cc196a31b, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8873342442918555833, guid: 4265653dea385c34485a9a5cc196a31b, type: 3}
       propertyPath: m_IsActive
@@ -7703,7 +7743,7 @@ GameObject:
   - component: {fileID: 659756510}
   - component: {fileID: 659756512}
   - component: {fileID: 659756511}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WallBlock (1)
   m_TagString: Obstacles
   m_Icon: {fileID: 0}
