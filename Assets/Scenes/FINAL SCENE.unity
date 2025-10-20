@@ -4101,7 +4101,19 @@ MonoBehaviour:
   _interactableView: {fileID: 293278209}
   _whenHover:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1989738441}
+        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _whenUnhover:
     m_PersistentCalls:
       m_Calls: []
@@ -52906,6 +52918,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5917153192315939679, guid: c1f27cc78c3bb0f4584ca3be82da6aae, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: 65615f7351ac11a458a0b1f9690d0e12, type: 3}
+    - target: {fileID: 5917153192315939679, guid: c1f27cc78c3bb0f4584ca3be82da6aae, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 65615f7351ac11a458a0b1f9690d0e12, type: 3}
     - target: {fileID: 6922415148012229449, guid: c1f27cc78c3bb0f4584ca3be82da6aae, type: 3}
       propertyPath: m_IsKinematic
       value: 1
@@ -53034,6 +53054,11 @@ MonoBehaviour:
   checkInterval: 5
   commentVoice: {fileID: 8300000, guid: aa565d3821653a6478823eca877faefc, type: 3}
   commentTimer: 6
+--- !u!82 &1989738441 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5917153192315939679, guid: c1f27cc78c3bb0f4584ca3be82da6aae, type: 3}
+  m_PrefabInstance: {fileID: 1989738419}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2003487773
 PrefabInstance:
   m_ObjectHideFlags: 0
