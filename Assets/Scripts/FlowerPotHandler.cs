@@ -33,7 +33,7 @@ public class FlowerPotHandler : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        BucketHandler bucketHandler = other.gameObject.GetComponent<BucketHandler>();
+        BucketHandler bucketHandler = other.gameObject.GetComponentInChildren<BucketHandler>();
         if (bucketHandler != null && bucketHandler.hasWater)
         {
             debugString = "Watering the flower pot!";

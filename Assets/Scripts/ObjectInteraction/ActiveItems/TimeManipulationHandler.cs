@@ -1,4 +1,5 @@
 using System.Collections;
+using Oculus.Interaction;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -187,7 +188,7 @@ public class TimeManipulationHandler : MonoBehaviour
         //     isLocked = !isLocked;
         // }
     }
-
+    
     public void disableKinematic()
     {
         rb.isKinematic = false;

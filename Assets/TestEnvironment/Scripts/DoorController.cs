@@ -32,7 +32,6 @@ public class DoorController : MonoBehaviour
             audioSource.Play();
             currentState = DoorStates.CLOSED;
             StartCoroutine(RotateDoor(new Vector3(0f, -90f, 0f), 3f));
-            debugString = "Door is now closed and unlocked.";
             StartCoroutine(RemoveKey(collision.gameObject));
         }
     }
