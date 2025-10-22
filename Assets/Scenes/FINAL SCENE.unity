@@ -1283,7 +1283,7 @@ PrefabInstance:
       objectReference: {fileID: 44304031}
     - target: {fileID: 7901588144825462555, guid: c1f27cc78c3bb0f4584ca3be82da6aae, type: 3}
       propertyPath: animationSpeed
-      value: 0.1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7901588144825462555, guid: c1f27cc78c3bb0f4584ca3be82da6aae, type: 3}
       propertyPath: leftActivateAction
@@ -1293,6 +1293,10 @@ PrefabInstance:
       propertyPath: rightActivateAction
       value: 
       objectReference: {fileID: 7904272356298805229, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    - target: {fileID: 7901588144825462555, guid: c1f27cc78c3bb0f4584ca3be82da6aae, type: 3}
+      propertyPath: handGrabInteractable
+      value: 
+      objectReference: {fileID: 1307984617}
     - target: {fileID: 8924757955631479911, guid: c1f27cc78c3bb0f4584ca3be82da6aae, type: 3}
       propertyPath: m_Size.x
       value: 0.9999999
@@ -19795,6 +19799,7 @@ MonoBehaviour:
 '
   subtitleTMP: {fileID: 1309968286}
   audioClip: {fileID: 8300000, guid: fcc8e5f8612c0412eace6b12b5070c0e, type: 3}
+  handGrabInteractable: {fileID: 0}
   fishBody: {fileID: 0}
   fishSkeleton: {fileID: 0}
   memoryOrb: {fileID: 577778564}
@@ -21339,6 +21344,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 71020092}
     m_Modifications:
+    - target: {fileID: 215204211683040959, guid: 938d608085a18fc45ae087158d59f823, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 403695094347283115, guid: 938d608085a18fc45ae087158d59f823, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -21356,8 +21365,24 @@ PrefabInstance:
       value: Key
       objectReference: {fileID: 0}
     - target: {fileID: 5450296350264275277, guid: 938d608085a18fc45ae087158d59f823, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5450296350264275277, guid: 938d608085a18fc45ae087158d59f823, type: 3}
       propertyPath: m_TagString
       value: Key
+      objectReference: {fileID: 0}
+    - target: {fileID: 5889934168930361589, guid: 938d608085a18fc45ae087158d59f823, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5889934168930361589, guid: 938d608085a18fc45ae087158d59f823, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5889934168930361589, guid: 938d608085a18fc45ae087158d59f823, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6372535045793817972, guid: 938d608085a18fc45ae087158d59f823, type: 3}
       propertyPath: m_LocalPosition.x
@@ -21399,6 +21424,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6579744395661628573, guid: 938d608085a18fc45ae087158d59f823, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6613912187403610076, guid: 938d608085a18fc45ae087158d59f823, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6957158125060784220, guid: 938d608085a18fc45ae087158d59f823, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7993226884940512359, guid: 938d608085a18fc45ae087158d59f823, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8107368253256522777, guid: 938d608085a18fc45ae087158d59f823, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -21410,6 +21451,10 @@ PrefabInstance:
     - target: {fileID: 8107368253256522777, guid: 938d608085a18fc45ae087158d59f823, type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.016
+      objectReference: {fileID: 0}
+    - target: {fileID: 8388827073458887561, guid: 938d608085a18fc45ae087158d59f823, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -21992,6 +22037,10 @@ PrefabInstance:
       propertyPath: rightActivateAction
       value: 
       objectReference: {fileID: 7904272356298805229, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    - target: {fileID: 7901588144825462555, guid: c1f27cc78c3bb0f4584ca3be82da6aae, type: 3}
+      propertyPath: handGrabInteractable
+      value: 
+      objectReference: {fileID: 1124549505}
     - target: {fileID: 8924757955631479911, guid: c1f27cc78c3bb0f4584ca3be82da6aae, type: 3}
       propertyPath: m_Size.x
       value: 0.36
