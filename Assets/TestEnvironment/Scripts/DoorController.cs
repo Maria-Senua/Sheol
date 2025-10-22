@@ -16,6 +16,8 @@ public class DoorController : MonoBehaviour
     private bool isPlayingAnimation = false;
     private AudioSource audioSource;
 
+    [SerializeField] public GameObject viewBlocker;
+
     public UnityEvent onPuzzleSolved;
     private bool puzzleSolved = false;
 
@@ -29,6 +31,7 @@ public class DoorController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Key"))
         {
+            viewBlocker.SetActive(false);
             audioSource.Play();
             currentState = DoorStates.CLOSED;
             StartCoroutine(RotateDoor(new Vector3(0f, -90f, 0f), 3f));
