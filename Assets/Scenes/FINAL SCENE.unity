@@ -1949,7 +1949,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &90903741
 Transform:
   m_ObjectHideFlags: 0
@@ -4294,8 +4294,8 @@ MonoBehaviour:
   _maxInteractors: -1
   _maxSelectingInteractors: -1
   _data: {fileID: 0}
-  _pointableElement: {fileID: 200805224}
-  _rigidbody: {fileID: 200805223}
+  _pointableElement: {fileID: 90903744}
+  _rigidbody: {fileID: 90903743}
   _physicsGrabbable: {fileID: 0}
   _resetGrabOnGrabsUpdated: 1
   _scoringModifier:
@@ -53308,6 +53308,10 @@ PrefabInstance:
       propertyPath: rightActivateAction
       value: 
       objectReference: {fileID: 7904272356298805229, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    - target: {fileID: 7901588144825462555, guid: c1f27cc78c3bb0f4584ca3be82da6aae, type: 3}
+      propertyPath: handGrabInteractable
+      value: 
+      objectReference: {fileID: 293278209}
     - target: {fileID: 8924757955631479911, guid: c1f27cc78c3bb0f4584ca3be82da6aae, type: 3}
       propertyPath: m_Size.x
       value: 1.9852687
