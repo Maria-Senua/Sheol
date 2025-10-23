@@ -7,7 +7,7 @@ public class MusicBoxHandler : MonoBehaviour
     [SerializeField] private string danceAnimation;
     [SerializeField] private GameObject picture;
 
-    public UnityEvent onPhotoAppear;
+    //public UnityEvent onPhotoAppear;
 
     void Start()
     {
@@ -28,13 +28,13 @@ public class MusicBoxHandler : MonoBehaviour
                 picture.SetActive(true);
 
                 //unity event for demo
-                Invoke("ReactToPhoto", 3f);
+                //Invoke("ReactToPhoto", 3f);
             }
         }
     }
 
-    void ReactToPhoto()
-    {
-        onPhotoAppear?.Invoke();
-    }
+    //void ReactToPhoto()
+    //{
+    //    onPhotoAppear?.Invoke();
+    //}
 }
