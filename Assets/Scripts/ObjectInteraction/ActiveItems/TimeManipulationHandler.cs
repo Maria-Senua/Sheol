@@ -118,7 +118,6 @@ public class TimeManipulationHandler : MonoBehaviour
     
         if (handGrabInteractable.State == InteractableState.Select)
         {
-
             canManipulateTime = true;
             subtitleTMP.text = "";
             if (fishBody != null) fishBody.SetActive(true);

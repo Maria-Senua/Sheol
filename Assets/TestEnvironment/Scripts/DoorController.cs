@@ -29,8 +29,10 @@ public class DoorController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log(collision.gameObject.name);
         if (collision.gameObject.CompareTag("Key"))
         {
+            Debug.Log("Key collected, unlocking door.");
             viewBlocker.SetActive(false);
             audioSource.Play();
             currentState = DoorStates.CLOSED;
