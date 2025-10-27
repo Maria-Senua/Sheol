@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
@@ -38,6 +39,19 @@ public class DoorController : MonoBehaviour
             currentState = DoorStates.CLOSED;
             StartCoroutine(RotateDoor(new Vector3(0f, -90f, 0f), 3f));
             StartCoroutine(RemoveKey(collision.gameObject));
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Key"))
+        {
+            Debug.Log("Key collected, unlocking door.");
+            viewBlocker.SetActive(false);
+            audioSource.Play();
+            currentState = DoorStates.CLOSED;
+            StartCoroutine(RotateDoor(new Vector3(0f, -90f, 0f), 3f));
+            StartCoroutine(RemoveKey(other.gameObject));
         }
     }
 
