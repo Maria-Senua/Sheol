@@ -2396,7 +2396,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 0.053352356
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -4129,8 +4129,8 @@ Transform:
   m_GameObject: {fileID: 267907806}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.95941615, z: -0, w: -0.28199428}
-  m_LocalPosition: {x: 0.06542016, y: 0.64110184, z: 0.10352554}
-  m_LocalScale: {x: 5.957605, y: 0.7270717, z: 5.957605}
+  m_LocalPosition: {x: -0.4, y: 0.64110184, z: -0.2}
+  m_LocalScale: {x: 4.854733, y: 0.7270717, z: 4.1622806}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2133702621}
@@ -7221,8 +7221,8 @@ Transform:
   m_GameObject: {fileID: 518847273}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.95941615, z: -0, w: -0.28199428}
-  m_LocalPosition: {x: 0.06542016, y: -0.09, z: 0.10352554}
-  m_LocalScale: {x: 5.957605, y: 0.081795566, z: 5.957605}
+  m_LocalPosition: {x: -0.23, y: -0.09, z: -0.09}
+  m_LocalScale: {x: 5.510427, y: 0.081795566, z: 5.1145444}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2133702621}
@@ -12772,8 +12772,8 @@ Transform:
   m_GameObject: {fileID: 867077910}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0.95941615, z: -0, w: -0.28199428}
-  m_LocalPosition: {x: 0.06542016, y: 0.64110184, z: 0.10352554}
-  m_LocalScale: {x: 5.957605, y: 0.7270717, z: 5.957605}
+  m_LocalPosition: {x: -0.19, y: 0.64110184, z: -0.06}
+  m_LocalScale: {x: 5.20087, y: 0.7270717, z: 4.3192635}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2133702621}
@@ -13042,8 +13042,8 @@ Transform:
   m_GameObject: {fileID: 879151539}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0061055236, y: 0.31, z: -0.0061021494}
-  m_LocalScale: {x: 14.68536, y: 0.43468118, z: 14.68536}
+  m_LocalPosition: {x: -0.0061055236, y: 0.31, z: 0.47}
+  m_LocalScale: {x: 14.68536, y: 0.43468118, z: 11.516105}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 307902442}
@@ -13168,8 +13168,8 @@ Transform:
   m_GameObject: {fileID: 897754268}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.0061055236, y: 0.6, z: -0.0061021494}
-  m_LocalScale: {x: 14.68536, y: 0.5521818, z: 14.68536}
+  m_LocalPosition: {x: -0.52, y: 0.07, z: 0.4}
+  m_LocalScale: {x: 14.68536, y: 0.17658222, z: 10.777678}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 307902442}
@@ -33432,8 +33432,8 @@ Transform:
   m_GameObject: {fileID: 1492292951}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.07, y: -0.4034631, z: 0.19}
-  m_LocalScale: {x: 16.187551, y: 0.1946868, z: 13.201007}
+  m_LocalPosition: {x: 0.67, y: -0.4034631, z: 0.35}
+  m_LocalScale: {x: 12.950042, y: 0.1946868, z: 12.375944}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 307902442}
@@ -33970,8 +33970,8 @@ MonoBehaviour:
   - {fileID: 1846555310}
   - {fileID: 1073637826}
   - {fileID: 151009046}
-  speedMultiplierUp: 0.28
-  speedMultiplierDown: 0.22
+  speedMultiplierUp: 0.3
+  speedMultiplierDown: 0.28
   distance: 15
   stepAudioSource: {fileID: 1940876036}
   grassStep:
@@ -52401,7 +52401,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 0.04834366
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -52926,15 +52926,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1940876030}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.164, y: 5.98, z: 25.366}
+  m_LocalRotation: {x: -0, y: -0.9677799, z: -0, w: 0.25179777}
+  m_LocalPosition: {x: -1.552, y: 5.954, z: 25.384}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 611270001}
   - {fileID: 1944686648}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -150.832, z: 0}
 --- !u!82 &1940876036
 AudioSource:
   m_ObjectHideFlags: 0
@@ -57296,7 +57296,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 6.156122, y: 1.2839245, z: 4.9798427}
   m_Center: {x: -0.2011728, y: 0.68570596, z: 0.46117586}
