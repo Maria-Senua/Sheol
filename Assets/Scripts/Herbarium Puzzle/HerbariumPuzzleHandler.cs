@@ -36,12 +36,13 @@ public class HerbariumPuzzleHandler : MonoBehaviour
       buttonFour.onClick.AddListener(() => OnButtonPressed(buttonFour));
    }
 
-   private void OnButtonPressed(Button button)
+   public void OnButtonPressed(Button button)
    {
       if (pressCount < 2)
       {
          pressedButtons[pressCount] = button;
          pressCount++;
+         Debug.Log("VAFFANCULO");
          if (pressCount == 2)
          {
             SwapButtonLocations();
