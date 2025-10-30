@@ -22,6 +22,7 @@ public class HerbariumPuzzleHandler : MonoBehaviour
    private Button[] pressedButtons = new Button[2];
    private int pressCount = 0;
    [SerializeField] private Animator animator;
+   [SerializeField] private GameObject herbariumBook;
    
    [Header("Detection")]
    [SerializeField] private RectTransform uiElement;
@@ -35,12 +36,13 @@ public class HerbariumPuzzleHandler : MonoBehaviour
       buttonFour.onClick.AddListener(() => OnButtonPressed(buttonFour));
    }
 
-   private void OnButtonPressed(Button button)
+   public void OnButtonPressed(Button button)
    {
       if (pressCount < 2)
       {
          pressedButtons[pressCount] = button;
          pressCount++;
+         Debug.Log("VAFFANCULO");
          if (pressCount == 2)
          {
             SwapButtonLocations();
@@ -77,12 +79,19 @@ public class HerbariumPuzzleHandler : MonoBehaviour
 
          if (image1.sprite.name == button1Name && image2.sprite.name == button2Name)
          {
-            animator.Play("Opened");
+            herbariumBook.SetActive((true));
+            Invoke("OpenHeft", 1.5f);
+            
+            
          }
       }
 
    }
-   
+
+   private void OpenHeft()
+   {
+      animator.Play("Opened");
+   }
    void Update()
    {
       // if (IsUIOverlappingCollider(uiElement, capsuleCollider))
