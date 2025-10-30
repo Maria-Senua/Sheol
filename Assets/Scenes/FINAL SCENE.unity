@@ -13107,7 +13107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blockId: 7358e191-33b7-43ca-b066-b2f00531ac66
-  instanceId: 65e46287-d2e2-4ad5-9d12-c0f14cdd3a14
+  instanceId: 6de4e317-47c1-4f98-b336-6a52ad823fef
   version: 1
   installationRoutineCheckpoint:
     _installationRoutineId: 
@@ -51471,11 +51471,15 @@ PrefabInstance:
     - target: {fileID: 1674769001292778299, guid: 52130bcf6471c334aa7a054712224ecc, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 2444d7025beb4234998cb42ed265d28a, type: 2}
+      objectReference: {fileID: 2100000, guid: 185093ee4caef384da277d900781036c, type: 2}
     - target: {fileID: 1674769001292778299, guid: 52130bcf6471c334aa7a054712224ecc, type: 3}
       propertyPath: 'm_Materials.Array.data[1]'
       value: 
       objectReference: {fileID: 2100000, guid: 2444d7025beb4234998cb42ed265d28a, type: 2}
+    - target: {fileID: 2130661734195881115, guid: 52130bcf6471c334aa7a054712224ecc, type: 3}
+      propertyPath: targetMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: 185093ee4caef384da277d900781036c, type: 2}
     - target: {fileID: 3206461373922100052, guid: 52130bcf6471c334aa7a054712224ecc, type: 3}
       propertyPath: m_Name
       value: picture
@@ -51484,6 +51488,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3519860807484882929, guid: 52130bcf6471c334aa7a054712224ecc, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 1050974422812936719, guid: 103842f997bb9bf439fad2701e4d4535, type: 3}
     - target: {fileID: 3537050899888041348, guid: 52130bcf6471c334aa7a054712224ecc, type: 3}
       propertyPath: m_LocalScale.x
       value: 1
@@ -51498,23 +51506,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3537050899888041348, guid: 52130bcf6471c334aa7a054712224ecc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.5641307
+      value: 0.564
       objectReference: {fileID: 0}
     - target: {fileID: 3537050899888041348, guid: 52130bcf6471c334aa7a054712224ecc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0
+      value: 0.159
       objectReference: {fileID: 0}
     - target: {fileID: 3537050899888041348, guid: 52130bcf6471c334aa7a054712224ecc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.00018589199
+      value: -0.016
       objectReference: {fileID: 0}
     - target: {fileID: 3537050899888041348, guid: 52130bcf6471c334aa7a054712224ecc, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.05061387
       objectReference: {fileID: 0}
     - target: {fileID: 3537050899888041348, guid: 52130bcf6471c334aa7a054712224ecc, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0.9987183
       objectReference: {fileID: 0}
     - target: {fileID: 3537050899888041348, guid: 52130bcf6471c334aa7a054712224ecc, type: 3}
       propertyPath: m_LocalRotation.y
@@ -51522,11 +51530,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3537050899888041348, guid: 52130bcf6471c334aa7a054712224ecc, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: -0.000000029802319
       objectReference: {fileID: 0}
     - target: {fileID: 3537050899888041348, guid: 52130bcf6471c334aa7a054712224ecc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: 174.198
       objectReference: {fileID: 0}
     - target: {fileID: 3537050899888041348, guid: 52130bcf6471c334aa7a054712224ecc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -51581,8 +51589,8 @@ MonoBehaviour:
   player: {fileID: 1940876030}
   distanceThreshold: 1.5
   meshRenderer: {fileID: 1808377053}
-  material: {fileID: 2100000, guid: e5b49efd241f7b9488836aa05e70a992, type: 2}
-  currentMaterial: {fileID: 2100000, guid: 2444d7025beb4234998cb42ed265d28a, type: 2}
+  material: {fileID: 2100000, guid: a46df4227a8763341ae10d2941bcffca, type: 2}
+  currentMaterial: {fileID: 2100000, guid: 185093ee4caef384da277d900781036c, type: 2}
   spriteRenderer: {fileID: 0}
   spriteSequence: []
   handGrabInteractable: {fileID: 1942556574}
