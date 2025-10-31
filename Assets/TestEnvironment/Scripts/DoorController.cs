@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
@@ -16,6 +17,8 @@ public class DoorController : MonoBehaviour
     private bool isPlayingAnimation = false;
     private AudioSource audioSource;
 
+    [SerializeField] public GameObject viewBlocker;
+
     public UnityEvent onPuzzleSolved;
     private bool puzzleSolved = false;
 
@@ -27,13 +30,28 @@ public class DoorController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log(collision.gameObject.name);
         if (collision.gameObject.CompareTag("Key"))
         {
+            Debug.Log("Key collected, unlocking door.");
+            viewBlocker.SetActive(false);
             audioSource.Play();
             currentState = DoorStates.CLOSED;
             StartCoroutine(RotateDoor(new Vector3(0f, -90f, 0f), 3f));
-            debugString = "Door is now closed and unlocked.";
             StartCoroutine(RemoveKey(collision.gameObject));
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Key"))
+        {
+            Debug.Log("Key collected, unlocking door.");
+            viewBlocker.SetActive(false);
+            audioSource.Play();
+            currentState = DoorStates.CLOSED;
+            StartCoroutine(RotateDoor(new Vector3(0f, -90f, 0f), 3f));
+            StartCoroutine(RemoveKey(other.gameObject));
         }
     }
 

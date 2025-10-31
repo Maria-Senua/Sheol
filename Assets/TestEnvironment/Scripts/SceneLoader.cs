@@ -7,8 +7,8 @@ public class SceneLoader : MonoBehaviour
 {
     public FadeScreen fadeScreen;
 
-    [SerializeField] GameObject wristUI;
-    public bool activeWristUI = false;
+    // [SerializeField] GameObject wristUI;
+    // public bool activeWristUI = false;
 
     public float startVideoTime = 5f;
     public float finalVideoTime = 10f;
@@ -59,17 +59,17 @@ public class SceneLoader : MonoBehaviour
 
     public void DisplayWristUI()
     {
-        if (activeWristUI)
-        {
-            wristUI.SetActive(false);
-            activeWristUI = false;
-            Time.timeScale = 1;
-        } else
-        {
-            wristUI.SetActive(true);
-            activeWristUI = true;
-            Time.timeScale = 0;
-        }
+        // if (activeWristUI)
+        // {
+        //     // wristUI.SetActive(false);
+        //     activeWristUI = false;
+        //     Time.timeScale = 1;
+        // } else
+        // {
+        //     // wristUI.SetActive(true);
+        //     activeWristUI = true;
+        //     Time.timeScale = 0;
+        // }
     }
 
     public void ResumeGame()

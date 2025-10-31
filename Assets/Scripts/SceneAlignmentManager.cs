@@ -5,9 +5,9 @@ public class SceneAlignmentManager : MonoBehaviour
 {
 
     [Header("References")]
-    public Transform playerRig;       
-    public Transform sceneHolder;     
-    public Transform centerPoint;     
+    public Transform playerRig;
+    public Transform sceneHolder;
+    public Transform centerPoint;
 
     [Header("Offsets")]
     public Vector3 desiredOffset = Vector3.zero;

@@ -2,6 +2,8 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Events;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
+using Oculus.Interaction;
+using Oculus.Interaction.HandGrab;
 
 public class TimeManipulationPrefabHandler : MonoBehaviour
 {
@@ -23,7 +25,8 @@ public class TimeManipulationPrefabHandler : MonoBehaviour
     [Header("Sprite Setup")]
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private Sprite[] spriteSequence;
-    [SerializeField] private XRGrabInteractable xrGrabInteractable;
+    //[SerializeField] private XRGrabInteractable xrGrabInteractable;
+    [SerializeField] private HandGrabInteractable handGrabInteractable;
     private int currentSpriteIndex = 0;
 
     [Header("Input Actions")]
@@ -32,15 +35,16 @@ public class TimeManipulationPrefabHandler : MonoBehaviour
 
     public UnityEvent onPagerFinished;
     public UnityEvent onDiaryRead;
+    public UnityEvent onPhotoRevealed;
 
     private void Awake()
     {
         previousY = Vector3.Distance(bottomLimit.transform.position, player.transform.position);
-        xrGrabInteractable = GetComponent<XRGrabInteractable>();
-        if(xrGrabInteractable == null)
-        {
-            xrGrabInteractable = GetComponentInChildren<XRGrabInteractable>();
-        }
+        //xrGrabInteractable = GetComponent<XRGrabInteractable>();
+        //if(xrGrabInteractable == null)
+        //{
+        //    xrGrabInteractable = GetComponentInChildren<XRGrabInteractable>();
+        //}
         
         leftActivateAction.action.performed += ToggleMaterial;
         rightActivateAction.action.performed += ToggleMaterial;
@@ -55,8 +59,8 @@ public class TimeManipulationPrefabHandler : MonoBehaviour
     {
         distance = Vector3.Distance(bottomLimit.transform.position, player.transform.position);
 
-        if (meshRenderer != null && xrGrabInteractable.isSelected) ChangeMaterialBasedOnDistance();
-        if (spriteRenderer != null && xrGrabInteractable.isSelected) UpdateSpriteBasedOnDistance();
+        if (meshRenderer != null && handGrabInteractable.State == InteractableState.Select) ChangeMaterialBasedOnDistance();
+        if (spriteRenderer != null && handGrabInteractable.State == InteractableState.Select) UpdateSpriteBasedOnDistance();
         
         Vector3 direction = player.transform.position - transform.position;
         Quaternion rotation = Quaternion.LookRotation(direction);
@@ -72,11 +76,17 @@ public class TimeManipulationPrefabHandler : MonoBehaviour
             if (meshRenderer != null && currentMaterial != null)
             {
                 meshRenderer.material = material;
-                onDiaryRead?.Invoke();
+                //onDiaryRead?.Invoke();
+                Invoke("ReactToPhoto", 3f);
             }
 
             previousY = distance;
         }
+    }
+
+    void ReactToPhoto()
+    {
+        onPhotoRevealed?.Invoke();
     }
 
     private void ToggleMaterial(InputAction.CallbackContext context)

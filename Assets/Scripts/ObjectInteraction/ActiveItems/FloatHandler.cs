@@ -20,14 +20,22 @@ public class FloatHandler : MonoBehaviour
 
     [Header("References")]
     private Vector3 initialPosition;
-    private XRGrabInteractable xrGrabInteractable;
+    // private XRGrabInteractable xrGrabInteractable;
     private Vector3 targetPosition;
     private Coroutine floatingCoroutine;
     
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        xrGrabInteractable = GetComponent<XRGrabInteractable>();
+        if(rb == null)
+        {
+            rb = GetComponentInParent<Rigidbody>();
+        }
+        // xrGrabInteractable = GetComponent<XRGrabInteractable>();
+        // if(xrGrabInteractable == null)
+        // {
+        //     xrGrabInteractable = GetComponentInParent<XRGrabInteractable>();
+        // }
         isFloating = true;
         
     }
@@ -41,14 +49,14 @@ public class FloatHandler : MonoBehaviour
     {
         CheckRoomType();
         
-        if (xrGrabInteractable.isSelected) // Object grabbed
-        {
-            StopFloating();
-        }
-        else if (!isInsideRoom) // Object outside the room
-        {
-            StartFloating();
-        }
+        // if (xrGrabInteractable.isSelected) // Object grabbed
+        // {
+        //     StopFloating();
+        // }
+        // else if (!isInsideRoom) // Object outside the room
+        // {
+        //     StartFloating();
+        // }
     }
 
     private IEnumerator FloatingRoutine()
@@ -114,13 +122,6 @@ public class FloatHandler : MonoBehaviour
         {
             rb.linearVelocity = Vector3.Lerp(rb.linearVelocity, Vector3.zero, 0.1f);
         }
-    }
-    
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-    
-        Gizmos.DrawWireSphere(transform.position, distance);
     }
     
     private void OnCollisionEnter(Collision collision)
