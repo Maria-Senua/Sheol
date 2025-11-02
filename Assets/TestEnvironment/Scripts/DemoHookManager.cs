@@ -10,6 +10,7 @@ public class DemoHookManager : MonoBehaviour
     [SerializeField] private GameObject environmentSoundHolder;
     [SerializeField] private Material normalSkyboxMat;
     [SerializeField] private Material weirdSkyboxMat;
+    [SerializeField] private GameObject underwaterVolume;
 
     private IEnumerator HookRoutine()
     {
@@ -18,6 +19,7 @@ public class DemoHookManager : MonoBehaviour
         yield return new WaitForSeconds(0.01f);
         bubbles.SetActive(true);
         
+        underwaterVolume.SetActive(true);
         environmentSoundHolder.SetActive(false);
         RenderSettings.skybox = weirdSkyboxMat;
 
@@ -39,6 +41,7 @@ public class DemoHookManager : MonoBehaviour
       //  Renderer[] rs = environment.GetComponentsInChildren<Renderer>();
       //  foreach (Renderer r in rs)
         //    r.enabled = true;
+        underwaterVolume.SetActive(false);
         environmentSoundHolder.SetActive(true);
         RenderSettings.skybox = normalSkyboxMat;
 
