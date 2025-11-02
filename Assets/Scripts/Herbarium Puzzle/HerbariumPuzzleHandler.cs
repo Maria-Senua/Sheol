@@ -77,12 +77,10 @@ public class HerbariumPuzzleHandler : MonoBehaviour
             pressedButtons[1] == buttonThree ? buttonThreeName :
             pressedButtons[1] == buttonFour ? buttonFourName : null;
 
-         if (image1.sprite.name == button1Name && image2.sprite.name == button2Name)
+         if (image1.sprite.name == button1Name && image2.sprite.name == button2Name && buttonThree.gameObject.activeSelf)
          {
             herbariumBook.SetActive((true));
             Invoke("OpenHeft", 1.5f);
-            
-            
          }
       }
 
@@ -92,15 +90,7 @@ public class HerbariumPuzzleHandler : MonoBehaviour
    {
       animator.Play("Opened");
    }
-   void Update()
-   {
-      // if (IsUIOverlappingCollider(uiElement, capsuleCollider))
-      // {
-      //    Debug.Log("It worked"); 
-      //    buttonThree.gameObject.SetActive(true);
-      // }
-   }
-
+   
    bool IsUIOverlappingCollider(RectTransform uiRect, CapsuleCollider collider)
    {
       Vector3[] corners = new Vector3[4];
