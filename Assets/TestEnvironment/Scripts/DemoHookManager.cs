@@ -21,13 +21,13 @@ public class DemoHookManager : MonoBehaviour
         
         underwaterVolume.SetActive(true);
         environmentSoundHolder.SetActive(false);
-        RenderSettings.skybox = weirdSkyboxMat;
+        //RenderSettings.skybox = weirdSkyboxMat;
 
        
         environment.SetActive(false);
         //Renderer[] rs = environment.GetComponentsInChildren<Renderer>();
         //foreach (Renderer r in rs)
-        //    r.enabled = false;
+          //  r.enabled = false;
 
         //glitchScreen.SetActive(false);
     }
@@ -38,12 +38,14 @@ public class DemoHookManager : MonoBehaviour
         yield return new WaitForSeconds(0.01f);
         bubbles.SetActive(false);
         environment.SetActive(true);
-      //  Renderer[] rs = environment.GetComponentsInChildren<Renderer>();
-      //  foreach (Renderer r in rs)
-        //    r.enabled = true;
+        
+        //Renderer[] rs = environment.GetComponentsInChildren<Renderer>();
+       // foreach (Renderer r in rs)
+       //     r.enabled = true;
+        
         underwaterVolume.SetActive(false);
         environmentSoundHolder.SetActive(true);
-        RenderSettings.skybox = normalSkyboxMat;
+        //RenderSettings.skybox = normalSkyboxMat;
 
        
 

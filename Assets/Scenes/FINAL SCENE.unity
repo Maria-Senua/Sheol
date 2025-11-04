@@ -12496,7 +12496,7 @@ Transform:
   m_GameObject: {fileID: 790053075}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.000000059604638, z: -0, w: 1}
-  m_LocalPosition: {x: 0.526, y: -0.000000039594596, z: -0.11}
+  m_LocalPosition: {x: 0.029, y: -0.000000039594596, z: -0.107}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -55604,6 +55604,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3903482225804038116, guid: 0a7d2469f24041c4284c66706f84c45e, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3903482225804038119, guid: 0a7d2469f24041c4284c66706f84c45e, type: 3}
       propertyPath: m_UseGravity
       value: 0
@@ -58522,7 +58526,7 @@ GameObject:
   - component: {fileID: 2035910924}
   - component: {fileID: 2035910922}
   m_Layer: 0
-  m_Name: Cylinder
+  m_Name: CylinderRoom
   m_TagString: Entrance
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -58537,8 +58541,8 @@ Transform:
   m_GameObject: {fileID: 2035910920}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.9999386, z: -0, w: 0.011079638}
-  m_LocalPosition: {x: 0.36, y: 0.027, z: -0.04}
-  m_LocalScale: {x: 5.5903215, y: 0.21666692, z: 5.0816526}
+  m_LocalPosition: {x: 0.36, y: 0.27, z: -0.04}
+  m_LocalScale: {x: 5.5903215, y: 0.43073386, z: 5.0816526}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 200805222}
@@ -65240,7 +65244,7 @@ Transform:
   m_GameObject: {fileID: 3865531051823651393}
   serializedVersion: 2
   m_LocalRotation: {x: -0.25759217, y: -0.00000014901158, z: -0.000000014901158, w: 0.9662537}
-  m_LocalPosition: {x: 0.526, y: 0.069, z: 0.338}
+  m_LocalPosition: {x: 0.023, y: 0.098, z: 0.467}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

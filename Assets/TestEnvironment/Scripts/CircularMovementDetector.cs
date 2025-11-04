@@ -220,7 +220,7 @@ public class CircularMovementDetector : MonoBehaviour
 
         if (other.CompareTag("Entrance"))
         {
-            Debug.Log("Entered Diorama");
+            Debug.Log("Entered Diorama " + other.name);
            
             isInDiorama = true;
             
@@ -246,7 +246,7 @@ public class CircularMovementDetector : MonoBehaviour
         if (other.CompareTag("Entrance"))
         {
             isInDiorama = true;
-            
+            Debug.Log("Walks in Diorama " + other.name);
         }
     }
 
@@ -255,7 +255,7 @@ public class CircularMovementDetector : MonoBehaviour
     {
         if (other.CompareTag("Entrance"))
         {
-            Debug.Log("Exited Diorama");
+            Debug.Log("Exited Diorama " + other.name);
 
             isInDiorama = false;
 
