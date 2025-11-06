@@ -14,10 +14,10 @@ public class HerbariumPuzzleHandler : MonoBehaviour
 
    [SerializeField] private GameObject puzzlePanel;
    
-   private string buttoneOneName = "tulip";
-   private string buttonTwoName = "rose";
+   private string buttoneOneName = "rose";
+   private string buttonTwoName = "lilie";
    private string buttonThreeName = "Daisy";
-   private string buttonFourName = "lilie";
+   private string buttonFourName = "tulip";
    
    private Button[] pressedButtons = new Button[2];
    private int pressCount = 0;
