@@ -18,8 +18,9 @@ public class HerbariumPuzzleHandler : MonoBehaviour
    private string buttonTwoName = "lilie";
    private string buttonThreeName = "Daisy";
    private string buttonFourName = "tulip";
-   
-   private Button[] pressedButtons = new Button[2];
+   private string[] correctOrder = { "tulip", "lilie", "Daisy", "rose" }; 
+
+   public Button[] pressedButtons = new Button[2];
    private int pressCount = 0;
    [SerializeField] private Animator animator;
    [SerializeField] private GameObject herbariumBook;
@@ -53,6 +54,11 @@ public class HerbariumPuzzleHandler : MonoBehaviour
    
    private void SwapButtonLocations()
    {
+      if (!buttonThree.gameObject.activeSelf)
+      {
+         return;
+      }
+      
       Image image1 = pressedButtons[0].GetComponent<Image>();
       Image image2 = pressedButtons[1].GetComponent<Image>();
 
@@ -61,27 +67,12 @@ public class HerbariumPuzzleHandler : MonoBehaviour
          Sprite tempSprite = image1.sprite;
          image1.sprite = image2.sprite;
          image2.sprite = tempSprite;
-
       }
 
-      if (image1 != null && image1.sprite != null && image2 != null && image2.sprite != null)
+      if (AreButtonsInCorrectOrder())
       {
-
-         string button1Name = pressedButtons[0] == buttonOne ? buttoneOneName :
-            pressedButtons[0] == buttonTwo ? buttonTwoName :
-            pressedButtons[0] == buttonThree ? buttonThreeName :
-            pressedButtons[0] == buttonFour ? buttonFourName : null;
-
-         string button2Name = pressedButtons[1] == buttonOne ? buttoneOneName :
-            pressedButtons[1] == buttonTwo ? buttonTwoName :
-            pressedButtons[1] == buttonThree ? buttonThreeName :
-            pressedButtons[1] == buttonFour ? buttonFourName : null;
-
-         if (image1.sprite.name == button1Name && image2.sprite.name == button2Name && buttonThree.gameObject.activeSelf)
-         {
-            herbariumBook.SetActive((true));
-            Invoke("OpenHeft", 1.5f);
-         }
+         herbariumBook.SetActive(true);
+         Invoke("OpenHeft", 1.5f);
       }
 
    }
@@ -120,6 +111,22 @@ public class HerbariumPuzzleHandler : MonoBehaviour
       puzzlePanel.SetActive(true);
    }
 
+   private bool AreButtonsInCorrectOrder()
+   {
+      Button[] buttons = { buttonOne, buttonTwo, buttonThree, buttonFour };
+
+      for (int i = 0; i < buttons.Length; i++)
+      {
+         Image buttonImage = buttons[i].GetComponent<Image>();
+         if (buttonImage == null || buttonImage.sprite == null || buttonImage.sprite.name != correctOrder[i])
+         {
+            return false;
+         }
+      }
+
+      return true;
+   }
+   
    public class HerbariumPuzzleHandlerBaker : Baker<HerbariumPuzzleHandler>
    {
       public override void Bake(HerbariumPuzzleHandler authoring)
