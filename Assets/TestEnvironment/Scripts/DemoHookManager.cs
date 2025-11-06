@@ -24,7 +24,7 @@ public class DemoHookManager : MonoBehaviour
         //RenderSettings.skybox = weirdSkyboxMat;
 
        
-        environment.SetActive(false);
+        //environment.SetActive(false);
         //Renderer[] rs = environment.GetComponentsInChildren<Renderer>();
         //foreach (Renderer r in rs)
           //  r.enabled = false;
@@ -37,7 +37,7 @@ public class DemoHookManager : MonoBehaviour
         //glitchScreen.SetActive(true);
         yield return new WaitForSeconds(0.01f);
         bubbles.SetActive(false);
-        environment.SetActive(true);
+        //environment.SetActive(true);
         
         //Renderer[] rs = environment.GetComponentsInChildren<Renderer>();
        // foreach (Renderer r in rs)
