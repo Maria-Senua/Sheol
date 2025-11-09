@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 
 public class CircularMovementDetector : MonoBehaviour
 {
-    public Transform centerPoint;   
+    // public Transform centerPoint;   
     public Transform trackedTransform;
     public GameObject subscenes;
     public GameObject[] dioramas;
@@ -58,7 +58,7 @@ public class CircularMovementDetector : MonoBehaviour
     {
         UpdateMovementStatus();
 
-        if (!isInDiorama) MoveSpiral();
+        // if (!isInDiorama) MoveSpiral();
 
         ManageDiorama();
 
@@ -145,6 +145,7 @@ public class CircularMovementDetector : MonoBehaviour
 
 
 
+    /*
     private void MoveSpiral()
     {
         Vector3 currentPosition = trackedTransform.position;
@@ -200,6 +201,7 @@ public class CircularMovementDetector : MonoBehaviour
 
         lastPosition = currentPosition;
     }
+    */
 
     private void ManageDiorama()
     {
