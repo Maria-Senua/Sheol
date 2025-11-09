@@ -43,18 +43,23 @@ public class HerbariumPuzzleHandler : MonoBehaviour
       {
          pressedButtons[pressCount] = button;
          pressCount++;
-         Debug.Log("VAFFANCULO");
+         
          if (pressCount == 2)
          {
             SwapButtonLocations();
             pressCount = 0; 
+            
+            for (int i = 0; i < pressedButtons.Length; i++)
+            {
+               pressedButtons[i] = null;
+            }
          }
       }
    }
    
    private void SwapButtonLocations()
    {
-      if (!buttonThree.gameObject.activeSelf)
+      if (!buttonThree.GetComponent<Image>().enabled)
       {
          return;
       }
@@ -74,7 +79,6 @@ public class HerbariumPuzzleHandler : MonoBehaviour
          herbariumBook.SetActive(true);
          Invoke("OpenHeft", 1.5f);
       }
-
    }
 
    private void OpenHeft()
@@ -102,7 +106,7 @@ public class HerbariumPuzzleHandler : MonoBehaviour
       if(other == capsuleCollider)
       {
          capsuleCollider.gameObject.SetActive(false);
-         buttonThree.gameObject.SetActive(true);
+         buttonThree.GetComponent<Image>().enabled = true;
       }
    }
 
