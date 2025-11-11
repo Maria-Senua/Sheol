@@ -50,8 +50,6 @@ public class MusicController : MonoBehaviour
             kvp.Value.volume = 0f;
             trackTargetVolumes[kvp.Key] = 0f;
         }
-
-
     }
 
     private AudioSource CreateLoopingSource(AudioClip clip)
