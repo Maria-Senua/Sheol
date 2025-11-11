@@ -7609,7 +7609,7 @@ SphereCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -7713,7 +7713,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &518847274
 Transform:
   m_ObjectHideFlags: 0
@@ -60030,6 +60030,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4057087332690845364, guid: e73a2271ef72adf48b35681734aff3bd, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4182847231474578935, guid: e73a2271ef72adf48b35681734aff3bd, type: 3}
       propertyPath: m_LocalScale.x
       value: 4.794446
@@ -60294,7 +60298,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 44.831844, y: 14.3233385, z: 43.48291}
   m_Center: {x: 1.2386347, y: 7.190471, z: 1.9131073}
