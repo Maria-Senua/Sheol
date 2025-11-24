@@ -35,6 +35,7 @@ public class CircularMovementDetector : MonoBehaviour
     [SerializeField] private AudioClip[] boatStep;
 
     public UnityEvent onMemoryFull;
+    public UnityEvent onFallenDown;
 
     //private bool isNearDiorama = false;
 
@@ -220,6 +221,13 @@ public class CircularMovementDetector : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
+        if (other.CompareTag("Fallen"))
+        {
+            Debug.Log("Has fallen");
+            onFallenDown?.Invoke();
+        }
+            
+            
         if (other.CompareTag("Entrance"))
         {
             Debug.Log("Entered Diorama " + other.name);
