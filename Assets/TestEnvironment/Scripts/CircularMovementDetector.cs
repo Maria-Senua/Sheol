@@ -34,6 +34,12 @@ public class CircularMovementDetector : MonoBehaviour
     [SerializeField] private AudioClip[] stoneStep;
     [SerializeField] private AudioClip[] boatStep;
 
+    private float inactivityTimer = 0f;
+    private float inactivityThreshold = 120f; 
+    private bool inactivityEventTriggered = false;
+
+    public UnityEvent onPlayerInactive;
+
     public UnityEvent onMemoryFull;
     public UnityEvent onFallenDown;
 
@@ -135,6 +141,22 @@ public class CircularMovementDetector : MonoBehaviour
             else
             {
                 isMoving = false;
+            }
+            
+            if (isMoving)
+            {
+                inactivityTimer = 0f;
+                inactivityEventTriggered = false;
+            }
+            else
+            {
+                inactivityTimer += movementCheckInterval;
+
+                if (!inactivityEventTriggered && inactivityTimer >= inactivityThreshold)
+                {
+                    inactivityEventTriggered = true;
+                    onPlayerInactive?.Invoke();
+                }
             }
 
             previousTrackedPosition = trackedTransform.position;
