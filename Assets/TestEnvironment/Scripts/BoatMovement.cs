@@ -12,9 +12,6 @@ public class BoatMovement : MonoBehaviour
     void Start()
     {
         StartCoroutine(MoveToPosition(newBoatPos.position, drawningTime));
-
-
-
     }
 
     private IEnumerator MoveToPosition(Vector3 target, float duration)

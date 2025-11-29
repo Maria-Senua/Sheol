@@ -93,14 +93,14 @@ public class MusicController : MonoBehaviour
         {
             float t = Mathf.InverseLerp(1f / 6f, 0f, ratio);  
             trackTargetVolumes[0] = t;
-            Debug.Log("TargetVolume 1/6 " + trackTargetVolumes[0]);
+            // Debug.Log("TargetVolume 1/6 " + trackTargetVolumes[0]);
         }
 
         if (ratio >= 0f && ratio <= 2f / 6f)
         {
             float t = Mathf.InverseLerp(2f / 6f, 0f, ratio); 
             trackTargetVolumes[1] = t;
-            Debug.Log("TargetVolume 2/6 " + trackTargetVolumes[1]);
+            // Debug.Log("TargetVolume 2/6 " + trackTargetVolumes[1]);
         }
 
         if (ratio >= 4f / 6f && ratio <= 1f)
