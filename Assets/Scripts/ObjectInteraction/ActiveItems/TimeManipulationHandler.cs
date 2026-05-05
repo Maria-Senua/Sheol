@@ -31,14 +31,10 @@ public class TimeManipulationHandler : MonoBehaviour
     private Rigidbody rb;
 
     [Header("Subtitles & Audio")]
-     [SerializeField, TextArea] private string subtitles;
-     [SerializeField] private TextMeshProUGUI subtitleTMP;
      [SerializeField] private AudioClip audioClip;
      private AudioSource audioSource;
-     private bool isHovered = false;
     
     [Header("References")]
-    // private XRGrabInteractable xrGrabInteractable;
     [SerializeField] private HandGrabInteractable handGrabInteractable;
     [SerializeField] private GameObject fishBody;
     [SerializeField] private GameObject fishSkeleton;
@@ -74,21 +70,8 @@ public class TimeManipulationHandler : MonoBehaviour
         rb.isKinematic = true;
 
         previousY = Vector3.Distance(bottomLimit.transform.position, player.transform.position);
-        // xrGrabInteractable = GetComponent<XRGrabInteractable>();
-        subtitleTMP = GetComponentInChildren<TextMeshProUGUI>();
         audioSource = GetComponent<AudioSource>();
         canManipulateTime = false;
-
-        // handGrabInteractable = GetComponent<HandGrabInteractable>();
-        // if(handGrabInteractable == null)
-        // {
-        //     handGrabInteractable = GetComponentInParent<HandGrabInteractable>();
-        // }
-        //
-        // if(handGrabInteractable == null)
-        // {
-        //     handGrabInteractable = GetComponentInChildren<HandGrabInteractable>();
-        // }
 
         rightActivateAction.action.performed += Locking;
         leftActivateAction.action.performed += Locking;
@@ -119,7 +102,6 @@ public class TimeManipulationHandler : MonoBehaviour
         if (handGrabInteractable.State == InteractableState.Select)
         {
             canManipulateTime = true;
-            subtitleTMP.text = "";
             if (fishBody != null) fishBody.SetActive(true);
         }
         else
