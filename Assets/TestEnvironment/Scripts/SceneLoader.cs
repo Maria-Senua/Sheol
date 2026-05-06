@@ -38,11 +38,11 @@ public class SceneLoader : MonoBehaviour
 
     private void Update()
     {
-        if (sceneName == "StartCutScene")
+        if (sceneName == "GameTreffStartCutScene")
         {
             startVideoTime -= Time.deltaTime;
 
-            if (startVideoTime <= 0) GoToScene("FINAL SCENE");
+            if (startVideoTime <= 0) GoToScene("GameTriffScene");
         }
         if (sceneName == "FinalDemoScene")
         {
