@@ -354,7 +354,6 @@ Transform:
   - {fileID: 622464280}
   - {fileID: 247907616}
   - {fileID: 994825079}
-  - {fileID: 679634020}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &501336777 stripped
@@ -724,11 +723,11 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 367193402}
+    m_TransformParent: {fileID: 994825079}
     m_Modifications:
     - target: {fileID: 4690250868749483055, guid: 2839a58b9e990441ea12595e01798608, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.8000001
+      value: 0.80000013
       objectReference: {fileID: 0}
     - target: {fileID: 4690250868749483055, guid: 2839a58b9e990441ea12595e01798608, type: 3}
       propertyPath: m_LocalScale.y
@@ -736,7 +735,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4690250868749483055, guid: 2839a58b9e990441ea12595e01798608, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.8000001
+      value: 0.80000013
       objectReference: {fileID: 0}
     - target: {fileID: 4690250868749483055, guid: 2839a58b9e990441ea12595e01798608, type: 3}
       propertyPath: m_LocalPosition.x
@@ -744,7 +743,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4690250868749483055, guid: 2839a58b9e990441ea12595e01798608, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4690250868749483055, guid: 2839a58b9e990441ea12595e01798608, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1305,6 +1304,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 679634020}
   - {fileID: 1163320440}
   m_Father: {fileID: 367193402}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1496,7 +1496,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1365417013}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1

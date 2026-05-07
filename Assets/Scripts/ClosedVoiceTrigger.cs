@@ -13,7 +13,11 @@ public class ClosedVoiceTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player")) audioSource.Play();
+        if (other.CompareTag("Player"))
+        {
+            audioSource.Play();
+        }
+            
         
     }
 
