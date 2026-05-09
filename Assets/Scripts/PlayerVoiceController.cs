@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerVoiceController : MonoBehaviour
@@ -9,6 +10,11 @@ public class PlayerVoiceController : MonoBehaviour
     void Start()
     {
         
+    }
+
+    private void Awake()
+    {
+        CommentOnStart();
     }
 
     // Update is called once per frame
@@ -41,4 +47,9 @@ public class PlayerVoiceController : MonoBehaviour
     {
         PlayVoice(voiceList[3]);
     }
+     
+     public void CommentOnStart() 
+     {
+         PlayVoice(voiceList[4]);
+     } 
 }
