@@ -6,10 +6,10 @@ public class DemoHookManager : MonoBehaviour
     // [SerializeField] private GameObject glitchScreen;
     [SerializeField] private GameObject bubbles;
     //[SerializeField] private GameObject safeGrid;
-    [SerializeField] private GameObject environment;
+    // [SerializeField] private GameObject environment;
     [SerializeField] private GameObject environmentSoundHolder;
-    [SerializeField] private Material normalSkyboxMat;
-    [SerializeField] private Material weirdSkyboxMat;
+    // [SerializeField] private Material normalSkyboxMat;
+    // [SerializeField] private Material weirdSkyboxMat;
     [SerializeField] private GameObject underwaterVolume;
 
     private IEnumerator HookRoutine()
