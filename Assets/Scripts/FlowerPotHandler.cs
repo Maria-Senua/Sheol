@@ -8,7 +8,6 @@ public class FlowerPotHandler : MonoBehaviour
     [SerializeField] private string debugString;
     
     public GameObject daisyFlower;
-    public GameObject planedFlower;
     [SerializeField] private Animator animator;
 
     public UnityEvent onPuzzleSolved;
@@ -19,21 +18,32 @@ public class FlowerPotHandler : MonoBehaviour
         if (animationCompleted) return;
 
         AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
-        if (stateInfo.normalizedTime >= 1.0f)
+        if (stateInfo.normalizedTime >= 1.0f || animator.enabled == true)
         {
             animationCompleted = true;
 
             debugString = "Flower pot animation completed.";
             daisyFlower.SetActive(true);
-            planedFlower.SetActive(false);
 
             onPuzzleSolved?.Invoke();
         }
     }
 
-    private void OnCollisionEnter(Collision other)
+    // private void OnCollisionEnter(Collision other)
+    // {
+    //     BucketHandler bucketHandler = other.gameObject.GetComponentInChildren<BucketHandler>();
+    //     if (bucketHandler != null && bucketHandler.hasWater)
+    //     {
+    //         debugString = "Watering the flower pot!";
+    //         animator.enabled = true;
+    //         bucketHandler.water.SetActive(false);
+    //         StartCoroutine(RemoveBucket(other.gameObject));
+    //     }
+    // }
+    
+    private void OnTriggerEnter(Collider other)
     {
-        BucketHandler bucketHandler = other.gameObject.GetComponentInChildren<BucketHandler>();
+        BucketHandler bucketHandler = other.gameObject.GetComponent<BucketHandler>();   
         if (bucketHandler != null && bucketHandler.hasWater)
         {
             debugString = "Watering the flower pot!";

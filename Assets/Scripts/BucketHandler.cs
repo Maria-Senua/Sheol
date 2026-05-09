@@ -15,16 +15,19 @@ public class BucketHandler : MonoBehaviour
 
         foreach (var hitCollider in hitColliders)
         {
-            if (hitCollider.CompareTag("Water"))
+            if (hitCollider.CompareTag("Sand")) //Should be water but changed to sand because the plane is tagged as Sand because of Audio
             {
                 water.SetActive(true);
                 hasWater = true;
             }
         }
     }
-
-    private void OnCollisionEnter(Collision other)
+    
+    private void OnDrawGizmosSelected()
     {
-        
+        Gizmos.DrawWireSphere(transform.position, sphereRadius);
+
+        Gizmos.color = new Color(Gizmos.color.r, Gizmos.color.g, Gizmos.color.b, 0.1f);
+        Gizmos.DrawSphere(transform.position, sphereRadius);
     }
 }
