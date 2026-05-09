@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class PlayerVoiceController : MonoBehaviour
 {
+    [SerializeField] private AudioClip[] voiceList;
+    [SerializeField] private AudioSource playerVoice;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -12,5 +15,20 @@ public class PlayerVoiceController : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private void PlayVoice(AudioClip clip)
+    {
+        playerVoice.PlayOneShot(clip);
+    }
+
+    public void CommentOnLockedDoor()
+    {
+        PlayVoice(voiceList[0]);
+    }
+
+    public void CommmentOnOpenedDoor()
+    {
+        PlayVoice(voiceList[1]);
     }
 }

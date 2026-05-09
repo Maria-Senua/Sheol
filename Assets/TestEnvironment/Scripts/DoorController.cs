@@ -18,8 +18,11 @@ public class DoorController : MonoBehaviour
     private AudioSource audioSource;
 
     [SerializeField] public GameObject viewBlocker;
+    [SerializeField] private AudioClip[] doorSounds;
 
     public UnityEvent onPuzzleSolved;
+    public UnityEvent onDoorTouched;
+    public UnityEvent onDoorUnlocked;
     private bool puzzleSolved = false;
 
     void Start()
@@ -28,7 +31,7 @@ public class DoorController : MonoBehaviour
         audioSource = gameObject.GetComponent<AudioSource>();
     }
 
-    private void OnCollisionEnter(Collision collision)
+    /*private void OnCollisionEnter(Collision collision)
     {
         Debug.Log(collision.gameObject.name);
         if (collision.gameObject.CompareTag("Key"))
@@ -40,7 +43,7 @@ public class DoorController : MonoBehaviour
             StartCoroutine(RotateDoor(new Vector3(0f, -90f, 0f), 3f));
             StartCoroutine(RemoveKey(collision.gameObject));
         }
-    }
+    }*/
 
     private void OnTriggerEnter(Collider other)
     {
@@ -48,10 +51,17 @@ public class DoorController : MonoBehaviour
         {
             Debug.Log("Key collected, unlocking door.");
             viewBlocker.SetActive(false);
-            audioSource.Play();
+            audioSource.PlayOneShot(doorSounds[1]);
+            onDoorUnlocked?.Invoke();
             currentState = DoorStates.CLOSED;
             StartCoroutine(RotateDoor(new Vector3(0f, -90f, 0f), 3f));
             StartCoroutine(RemoveKey(other.gameObject));
+        }
+
+        if (other.gameObject.CompareTag("Player") && currentState == DoorStates.LOCKED)
+        {
+            audioSource.PlayOneShot(doorSounds[0]);
+            onDoorTouched?.Invoke();
         }
     }
 
@@ -66,6 +76,7 @@ public class DoorController : MonoBehaviour
         switch (currentState)
         {
             case DoorStates.LOCKED:
+                audioSource.PlayOneShot(doorSounds[0]);
                 debugString = "Door is locked. Find the key to unlock it.";
                 break;
             case DoorStates.CLOSED:
