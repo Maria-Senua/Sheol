@@ -91,18 +91,18 @@ public class DoorController : MonoBehaviour
     private IEnumerator RotateDoor(Vector3 targetEulerAngles, float duration)
     {
         isPlayingAnimation = true;
-        Quaternion startRotation = transform.rotation;
+        Quaternion startRotation = transform.localRotation;
         Quaternion targetRotation = Quaternion.Euler(targetEulerAngles);
         float elapsedTime = 0f;
 
         while (elapsedTime < duration)
         {
-            transform.rotation = Quaternion.Lerp(startRotation, targetRotation, elapsedTime / duration);
+            transform.localRotation = Quaternion.Lerp(startRotation, targetRotation, elapsedTime / duration);
             elapsedTime += Time.deltaTime;
             yield return null;
         }
 
-        transform.rotation = targetRotation;
+        transform.localRotation = targetRotation;
         isPlayingAnimation = false;
 
         if (!puzzleSolved)

@@ -30,8 +30,7 @@ public class TimeManipulationHandler : MonoBehaviour
     private float distance;
     private Rigidbody rb;
 
-    [Header("Subtitles & Audio")]
-     [SerializeField] private AudioClip audioClip;
+    [Header("Audio")]
      private AudioSource audioSource;
     
     [Header("References")]
