@@ -996,7 +996,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.005, y: 0.785, z: -1.332}
-  m_LocalScale: {x: 2.6193564, y: 1.2005297, z: 2.6193564}
+  m_LocalScale: {x: 2.6193564, y: 1.5716134, z: 2.6193564}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 679634020}
@@ -1089,6 +1089,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc1f746be319f4394958528f58ea16e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fadeScreen: {fileID: 3477379255832787874}
 --- !u!82 &1365417019
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1789,6 +1790,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c446ca9e01715647a7101c7b3c6212b, type: 3}
+--- !u!114 &3477379255832787874 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8342128905392951776, guid: 5c446ca9e01715647a7101c7b3c6212b, type: 3}
+  m_PrefabInstance: {fileID: 3477379255832787873}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9242b1707c2bf4b4aa09f8212534de9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
