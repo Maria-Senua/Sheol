@@ -31,4 +31,14 @@ public class PlayerVoiceController : MonoBehaviour
     {
         PlayVoice(voiceList[1]);
     }
+    
+    public void CommentOnBucket()
+    {
+        PlayVoice(voiceList[2]);
+    }
+    
+     public void CommentOnFlowerPot()
+    {
+        PlayVoice(voiceList[3]);
+    }
 }

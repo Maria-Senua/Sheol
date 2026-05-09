@@ -197,6 +197,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6118587741438266249, guid: 6748dda0ef7e31a42a0d668f88c47903, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1591069123}
+    - targetCorrespondingSourceObject: {fileID: 6118587741438266249, guid: 6748dda0ef7e31a42a0d668f88c47903, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1073513222}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5983582069657888216, guid: 6748dda0ef7e31a42a0d668f88c47903, type: 3}
       insertIndex: -1
@@ -204,6 +207,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5983582069657888216, guid: 6748dda0ef7e31a42a0d668f88c47903, type: 3}
       insertIndex: -1
       addedObject: {fileID: 126054021}
+    - targetCorrespondingSourceObject: {fileID: 5983582069657888216, guid: 6748dda0ef7e31a42a0d668f88c47903, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 126054022}
+    - targetCorrespondingSourceObject: {fileID: 5983582069657888216, guid: 6748dda0ef7e31a42a0d668f88c47903, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 126054023}
+    - targetCorrespondingSourceObject: {fileID: 5983582069657888216, guid: 6748dda0ef7e31a42a0d668f88c47903, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 126054024}
   m_SourcePrefab: {fileID: 100100000, guid: 6748dda0ef7e31a42a0d668f88c47903, type: 3}
 --- !u!4 &126054017 stripped
 Transform:
@@ -271,6 +283,116 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 2.35, z: 1}
   m_Center: {x: 0, y: 1.22, z: 0}
+--- !u!54 &126054022
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 126054019}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &126054023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 126054019}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43f86b14a27b52f4f9298c33015b5c26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _transferOnSecondSelection: 0
+  _addNewPointsToFront: 0
+  _forwardElement: {fileID: 0}
+  _oneGrabTransformer: {fileID: 0}
+  _twoGrabTransformer: {fileID: 0}
+  _targetTransform: {fileID: 126054017}
+  _maxGrabPoints: -1
+  _rigidbody: {fileID: 126054022}
+  _kinematicWhileSelected: 1
+  _throwWhenUnselected: 1
+--- !u!114 &126054024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 126054019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1464721f2283eb14e94a33e812b47be4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactableView: {fileID: 1073513224}
+  _whenHover:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3477379255832787876}
+        m_TargetAssemblyTypeName: PlayerVoiceController, Assembly-CSharp
+        m_MethodName: CommentOnFlowerPot
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _whenUnhover:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 126054024}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _whenSelect:
+    m_PersistentCalls:
+      m_Calls: []
+  _whenUnselect:
+    m_PersistentCalls:
+      m_Calls: []
+  _whenInteractorViewAdded:
+    m_PersistentCalls:
+      m_Calls: []
+  _whenInteractorViewRemoved:
+    m_PersistentCalls:
+      m_Calls: []
+  _whenSelectingInteractorViewAdded:
+    m_PersistentCalls:
+      m_Calls: []
+  _whenSelectingInteractorViewRemoved:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!43 &241944383
 Mesh:
   m_ObjectHideFlags: 0
@@ -773,6 +895,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 387691024916224834, guid: d135d0408162ade47a21a6842431b1ec, type: 3}
       insertIndex: -1
       addedObject: {fileID: 505487976}
+    - targetCorrespondingSourceObject: {fileID: 387691024916224834, guid: d135d0408162ade47a21a6842431b1ec, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 505487978}
     - targetCorrespondingSourceObject: {fileID: 2899033870690136227, guid: d135d0408162ade47a21a6842431b1ec, type: 3}
       insertIndex: -1
       addedObject: {fileID: 505487971}
@@ -1071,6 +1196,55 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &505487978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 505487967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1464721f2283eb14e94a33e812b47be4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactableView: {fileID: 1666764276}
+  _whenHover:
+    m_PersistentCalls:
+      m_Calls: []
+  _whenUnhover:
+    m_PersistentCalls:
+      m_Calls: []
+  _whenSelect:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3477379255832787876}
+        m_TargetAssemblyTypeName: PlayerVoiceController, Assembly-CSharp
+        m_MethodName: CommentOnBucket
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _whenUnselect:
+    m_PersistentCalls:
+      m_Calls: []
+  _whenInteractorViewAdded:
+    m_PersistentCalls:
+      m_Calls: []
+  _whenInteractorViewRemoved:
+    m_PersistentCalls:
+      m_Calls: []
+  _whenSelectingInteractorViewAdded:
+    m_PersistentCalls:
+      m_Calls: []
+  _whenSelectingInteractorViewRemoved:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &679634019
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2266,6 +2440,103 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 976055344171916101, guid: cdeb9894843325c4498a67860700579e, type: 3}
   m_PrefabInstance: {fileID: 1036751110}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1073513221
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1073513222}
+  - component: {fileID: 1073513224}
+  - component: {fileID: 1073513223}
+  m_Layer: 0
+  m_Name: ISDK_HandGrabInteraction
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1073513222
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1073513221}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 126054017}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1073513223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1073513221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a1bc992571301d4a9602ac95ef4c71a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactorFilters: []
+  _maxInteractors: -1
+  _maxSelectingInteractors: -1
+  _data: {fileID: 0}
+  _pointableElement: {fileID: 126054023}
+  _rigidbody: {fileID: 126054022}
+  _grabSource: {fileID: 0}
+  _useClosestPointAsGrabSource: 0
+  _releaseDistance: 0
+  _resetGrabOnGrabsUpdated: 1
+  _physicsGrabbable: {fileID: 0}
+--- !u!114 &1073513224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1073513221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9a7676b01585ce43908639a27765dfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactorFilters: []
+  _maxInteractors: -1
+  _maxSelectingInteractors: -1
+  _data: {fileID: 0}
+  _pointableElement: {fileID: 126054023}
+  _rigidbody: {fileID: 126054022}
+  _physicsGrabbable: {fileID: 0}
+  _resetGrabOnGrabsUpdated: 1
+  _scoringModifier:
+    _positionRotationWeight: 0.5
+  _slippiness: 0
+  _supportedGrabTypes: 3
+  _pinchGrabRules:
+    _thumbRequirement: 0
+    _indexRequirement: 1
+    _middleRequirement: 1
+    _ringRequirement: 0
+    _pinkyRequirement: 0
+    _unselectMode: 1
+  _palmGrabRules:
+    _thumbRequirement: 1
+    _indexRequirement: 0
+    _middleRequirement: 2
+    _ringRequirement: 2
+    _pinkyRequirement: 1
+    _unselectMode: 0
+  _movementProvider: {fileID: 0}
+  _handAligment: 0
+  _handGrabPoses: []
 --- !u!1 &1365417013
 GameObject:
   m_ObjectHideFlags: 0
@@ -2497,6 +2768,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1229263894441692576, guid: 0790556c6f5cfe24abc484e5611b0a2c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1591069127}
+    - targetCorrespondingSourceObject: {fileID: 1229263894441692576, guid: 0790556c6f5cfe24abc484e5611b0a2c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1591069128}
   m_SourcePrefab: {fileID: 100100000, guid: 0790556c6f5cfe24abc484e5611b0a2c, type: 3}
 --- !u!4 &1591069123 stripped
 Transform:
@@ -2578,6 +2852,103 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.3, y: 0.15, z: 0.3}
   m_Center: {x: 0.016498566, y: 0.0441494, z: 0.015426189}
+--- !u!82 &1591069128
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1591069124}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 446aeb9a699211d4c8b880123b0df544, type: 3}
+  m_Resource: {fileID: 8300000, guid: 446aeb9a699211d4c8b880123b0df544, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1666764273
 GameObject:
   m_ObjectHideFlags: 0
@@ -3417,6 +3788,8 @@ MonoBehaviour:
   voiceList:
   - {fileID: 8300000, guid: 1fa2de1a54a1689489dff85c4160dc22, type: 3}
   - {fileID: 8300000, guid: c5b34a63497a7d448aad9f57a342c0da, type: 3}
+  - {fileID: 8300000, guid: e6a382a137e0aab4e8c65e946006d2c8, type: 3}
+  - {fileID: 8300000, guid: dfc0c084ac5a0a94594d468dd9fc6cb6, type: 3}
   playerVoice: {fileID: 3477379255832787878}
 --- !u!1 &3477379255832787877 stripped
 GameObject:
