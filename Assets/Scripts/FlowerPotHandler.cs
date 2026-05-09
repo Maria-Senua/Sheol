@@ -47,6 +47,7 @@ public class FlowerPotHandler : MonoBehaviour
         if (bucketHandler != null && bucketHandler.hasWater)
         {
             debugString = "Watering the flower pot!";
+            other.gameObject.GetComponent<AudioSource>().Play();
             animator.enabled = true;
             bucketHandler.water.SetActive(false);
             StartCoroutine(RemoveBucket(other.gameObject));
