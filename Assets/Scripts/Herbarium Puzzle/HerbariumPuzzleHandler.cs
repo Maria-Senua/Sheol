@@ -27,7 +27,6 @@ public class HerbariumPuzzleHandler : MonoBehaviour
    
    [Header("Detection")]
    [SerializeField] private RectTransform uiElement;
-   [SerializeField] private CapsuleCollider capsuleCollider;
 
    private void Start()
    {
@@ -43,7 +42,6 @@ public class HerbariumPuzzleHandler : MonoBehaviour
       {
          pressedButtons[pressCount] = button;
          pressCount++;
-         Debug.Log("VAFFANCULO");
          if (pressCount == 2)
          {
             SwapButtonLocations();
@@ -99,9 +97,9 @@ public class HerbariumPuzzleHandler : MonoBehaviour
 
    private void OnTriggerEnter(Collider other)
    {
-      if(other == capsuleCollider)
+      if(other.gameObject.CompareTag("Daisy"))
       {
-         capsuleCollider.gameObject.SetActive(false);
+         other.gameObject.SetActive(false);
          buttonThree.gameObject.SetActive(true);
       }
    }
