@@ -52,6 +52,7 @@ public class StepsManager : MonoBehaviour
         if (isMoving)
         {
             string currentSurface = GetCurrentSurface();
+            Debug.Log("Current surface: " + currentSurface);
 
             if (lastSurface != currentSurface)
             {
@@ -171,7 +172,19 @@ public class StepsManager : MonoBehaviour
             
             PlayDioramaFromTag(other.gameObject.tag);
             
-            Debug.Log("SOUND DIORAMA");
+            Debug.Log("SOUND DIORAMA " + other.gameObject.tag + " " + other.gameObject.name);
+        }
+    }
+
+    private void OnCollisionStay(Collision other)
+    {
+        if (other.gameObject.CompareTag("Grass") || other.gameObject.CompareTag("Sand") || other.gameObject.CompareTag("Floor"))
+        {
+            if (!currentSurfaces.Contains(other.gameObject.tag)) currentSurfaces.Add(other.gameObject.tag);
+            
+            PlayDioramaFromTag(other.gameObject.tag);
+            
+            Debug.Log("SOUND DIORAMA " + other.gameObject.tag + " " + other.gameObject.name);
         }
     }
 
