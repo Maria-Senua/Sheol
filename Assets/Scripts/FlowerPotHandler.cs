@@ -9,7 +9,8 @@ public class FlowerPotHandler : MonoBehaviour
     
     public GameObject daisyFlower;
     [SerializeField] private Animator animator;
-
+    [SerializeField] private BoxCollider flowerBoxCollider;
+    [SerializeField] private GameObject flowerHolder;
     public UnityEvent onPuzzleSolved;
     private bool animationCompleted = false;
 
@@ -24,7 +25,8 @@ public class FlowerPotHandler : MonoBehaviour
 
             debugString = "Flower pot animation completed.";
             daisyFlower.SetActive(true);
-
+            flowerBoxCollider.enabled = false;
+            flowerHolder.SetActive(false);
             onPuzzleSolved?.Invoke();
         }
     }

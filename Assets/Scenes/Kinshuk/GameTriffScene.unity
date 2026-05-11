@@ -205,6 +205,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4533560923117716811, guid: 6748dda0ef7e31a42a0d668f88c47903, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5983582069657888216, guid: 6748dda0ef7e31a42a0d668f88c47903, type: 3}
       propertyPath: m_Name
       value: flowerpotfinal
@@ -321,6 +325,8 @@ MonoBehaviour:
   debugString: 
   daisyFlower: {fileID: 1591069124}
   animator: {fileID: 126054018}
+  flowerBoxCollider: {fileID: 126054021}
+  flowerHolder: {fileID: 1596894787}
   onPuzzleSolved:
     m_PersistentCalls:
       m_Calls:
@@ -1231,6 +1237,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.x
       value: -134.834
       objectReference: {fileID: 0}
+    - target: {fileID: 2115644501894806244, guid: d135d0408162ade47a21a6842431b1ec, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2899033870690136227, guid: d135d0408162ade47a21a6842431b1ec, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1291,7 +1301,8 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2115644501894806244, guid: d135d0408162ade47a21a6842431b1ec, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 4252502096226859299, guid: d135d0408162ade47a21a6842431b1ec, type: 3}
@@ -4318,13 +4329,17 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Daisy
       objectReference: {fileID: 0}
+    - target: {fileID: 2266467751633728384, guid: 0790556c6f5cfe24abc484e5611b0a2c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8112821072616286724, guid: 0790556c6f5cfe24abc484e5611b0a2c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8112821072616286724, guid: 0790556c6f5cfe24abc484e5611b0a2c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.252
+      value: 1.261
       objectReference: {fileID: 0}
     - target: {fileID: 8112821072616286724, guid: 0790556c6f5cfe24abc484e5611b0a2c, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4456,7 +4471,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.3, y: 0.15, z: 0.3}
+  m_Size: {x: 0.46, y: 0.13, z: 0.38}
   m_Center: {x: 0.016498566, y: 0.0441494, z: 0.015426189}
 --- !u!82 &1591069128
 AudioSource:
@@ -4555,6 +4570,11 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!1 &1596894787 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4533560923117716811, guid: 6748dda0ef7e31a42a0d668f88c47903, type: 3}
+  m_PrefabInstance: {fileID: 126054016}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1666764273
 GameObject:
   m_ObjectHideFlags: 0
@@ -5882,6 +5902,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5699054216393670128}
   - component: {fileID: 5699054216393670129}
+  - component: {fileID: 5699054216393670130}
   m_Layer: 0
   m_Name: herbarium
   m_TagString: Untagged
@@ -5948,11 +5969,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4850366749850974631, guid: 5c446ca9e01715647a7101c7b3c6212b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.727
+      value: 0.171
       objectReference: {fileID: 0}
     - target: {fileID: 4850366749850974631, guid: 5c446ca9e01715647a7101c7b3c6212b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.168
+      value: -0.676
       objectReference: {fileID: 0}
     - target: {fileID: 4850366749850974631, guid: 5c446ca9e01715647a7101c7b3c6212b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6362,6 +6383,27 @@ MonoBehaviour:
   animator: {fileID: 3407009432866176671}
   herbariumBook: {fileID: 5352186473531072435}
   uiElement: {fileID: 7272294310946980825}
+--- !u!65 &5699054216393670130
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3147083757176650770}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 0.14, z: 1}
+  m_Center: {x: -0.98, y: 0, z: 0.36}
 --- !u!114 &5753589984018448679
 MonoBehaviour:
   m_ObjectHideFlags: 0
