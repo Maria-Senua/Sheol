@@ -29,17 +29,21 @@ public class StepsManager : MonoBehaviour
     public UnityEvent onPlayerInactive;
     public UnityEvent onFallenDown;
     
-    private List<string> currentSurfaces = new List<string>();
+    private string currentSurfaceTag = "Stone"; // Default
     private string lastSurface = "";
+    
+    // RAYCAST SETTINGS
+    [Header("Raycast Settings")]
+    [Tooltip("How far down to check for the floor. Increase if your player floats.")]
+    public float raycastDistance = 2.0f; 
+    // It's highly recommended to assign a LayerMask so the raycast ignores the player's own collider
+    public LayerMask groundLayerMask = ~0;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        if (trackedTransform == null) trackedTransform = Camera.main.transform; ;
-        lastPosition = trackedTransform.position;
+        if (trackedTransform == null) trackedTransform = Camera.main.transform;
         previousTrackedPosition = trackedTransform.position;
-
-        currentSurfaces.Clear();
         isMoving = false;
         movementCheckTimer = 0f;
     }
@@ -51,13 +55,12 @@ public class StepsManager : MonoBehaviour
         
         if (isMoving)
         {
-            string currentSurface = GetCurrentSurface();
-            Debug.Log("Current surface: " + currentSurface);
-
-            if (lastSurface != currentSurface)
+            CheckSurfaceBelow();
+            
+            if (lastSurface != currentSurfaceTag)
             {
-                stepAudioSource.clip = GetClipBySurface(currentSurface);
-                lastSurface = currentSurface;
+                stepAudioSource.clip = GetClipBySurface(currentSurfaceTag);
+                lastSurface = currentSurfaceTag;
                 stepAudioSource.Play();
             }
             else if (!stepAudioSource.isPlaying)
@@ -80,16 +83,7 @@ public class StepsManager : MonoBehaviour
         if (movementCheckTimer <= 0f)
         {
             float distanceMoved = Vector3.Distance(trackedTransform.position, previousTrackedPosition);
-
-            if (distanceMoved > movementThreshold)
-            {
-                
-                isMoving = true;
-            }
-            else
-            {
-                isMoving = false;
-            }
+            isMoving = distanceMoved > movementThreshold;
             
             if (isMoving)
             {
@@ -99,7 +93,6 @@ public class StepsManager : MonoBehaviour
             else
             {
                 inactivityTimer += movementCheckInterval;
-
                 if (!inactivityEventTriggered && inactivityTimer >= inactivityThreshold)
                 {
                     inactivityEventTriggered = true;
@@ -109,6 +102,58 @@ public class StepsManager : MonoBehaviour
 
             previousTrackedPosition = trackedTransform.position;
             movementCheckTimer = movementCheckInterval;
+        }
+    }
+
+    // --- NEW RAYCAST LOGIC ---
+    private void CheckSurfaceBelow()
+    {
+        // Start the ray slightly above the tracked transform
+        Vector3 rayStart = trackedTransform.position + (Vector3.up * 0.5f);
+        
+        Debug.DrawRay(rayStart, Vector3.down * raycastDistance, Color.red);
+
+        // RaycastAll shoots THROUGH everything and returns an array of all colliders it touched
+        RaycastHit[] hits = Physics.RaycastAll(rayStart, Vector3.down, raycastDistance);
+
+        bool foundGround = false;
+
+        // Check every single thing the laser passed through
+        foreach (RaycastHit hit in hits)
+        {
+            string hitTag = hit.collider.tag;
+
+            // Optional: Print what we are hitting in the console to help you debug
+            // Debug.Log("Laser passed through: " + hit.collider.gameObject.name);
+
+            if (hitTag == "Fallen")
+            {
+                onFallenDown?.Invoke();
+                return; // Stop immediately if we hit the death zone
+            }
+
+            // If we find our ground tags, update the audio and stop looking
+            if (hitTag == "Grass" || hitTag == "Sand" || hitTag == "Floor")
+            {
+                if (currentSurfaceTag != hitTag)
+                {
+                    currentSurfaceTag = hitTag;
+                    PlayDioramaFromTag(hitTag);
+                    Debug.Log("Raycast successfully pierced through and found surface: " + hitTag + " on object: " + hit.collider.gameObject.name);
+                }
+                foundGround = true;
+                break; // Ground found, break out of the loop
+            }
+        }
+
+        // If the laser went through everything and never found a valid ground tag
+        if (!foundGround)
+        {
+            if (currentSurfaceTag != "Stone")
+            {
+                currentSurfaceTag = "Stone";
+                MusicController.instance.StopDioramaMusic();
+            }
         }
     }
     
@@ -131,69 +176,13 @@ public class StepsManager : MonoBehaviour
         return clips[Random.Range(0, clips.Length)];
     }
 
-    string GetCurrentSurface()
-    {
-        if (currentSurfaces.Contains("Grass"))
-            return "Grass";
-        if (currentSurfaces.Contains("Sand"))
-            return "Sand";
-        if (currentSurfaces.Contains("Floor"))
-            return "Floor";
-
-        return "Stone";
-    }
-    
     private void PlayDioramaFromTag(string tag)
     {
         switch (tag)
         {
-            case "Floor":
-                MusicController.instance.PlayDioramaMusic(0);
-                break;
-            case "Sand":
-                MusicController.instance.PlayDioramaMusic(1);
-                break;
-            case "Grass":
-                MusicController.instance.PlayDioramaMusic(2);
-                break;
-        }
-    }
-
-    private void OnCollisionEnter(Collision other)
-    {
-        if (other.gameObject.CompareTag("Fallen"))
-        {
-            Debug.Log("Has fallen");
-            onFallenDown?.Invoke();
-        }
-        if (other.gameObject.CompareTag("Grass") || other.gameObject.CompareTag("Sand") || other.gameObject.CompareTag("Floor"))
-        {
-            if (!currentSurfaces.Contains(other.gameObject.tag)) currentSurfaces.Add(other.gameObject.tag);
-            
-            PlayDioramaFromTag(other.gameObject.tag);
-            
-            Debug.Log("SOUND DIORAMA " + other.gameObject.tag + " " + other.gameObject.name);
-        }
-    }
-
-    private void OnCollisionStay(Collision other)
-    {
-        if (other.gameObject.CompareTag("Grass") || other.gameObject.CompareTag("Sand") || other.gameObject.CompareTag("Floor"))
-        {
-            if (!currentSurfaces.Contains(other.gameObject.tag)) currentSurfaces.Add(other.gameObject.tag);
-            
-            PlayDioramaFromTag(other.gameObject.tag);
-            
-            Debug.Log("SOUND DIORAMA " + other.gameObject.tag + " " + other.gameObject.name);
-        }
-    }
-
-    private void OnCollisionExit(Collision other)
-    {
-        if (currentSurfaces.Contains(other.gameObject.tag))
-        {
-            currentSurfaces.Remove(other.gameObject.tag);
-            MusicController.instance.StopDioramaMusic();
+            case "Floor": MusicController.instance.PlayDioramaMusic(0); break;
+            case "Sand": MusicController.instance.PlayDioramaMusic(1); break;
+            case "Grass": MusicController.instance.PlayDioramaMusic(2); break;
         }
     }
 }
