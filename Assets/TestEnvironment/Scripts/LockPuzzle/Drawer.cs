@@ -3,22 +3,20 @@ using UnityEngine.Events;
 
 public class Drawer : MonoBehaviour
 {
-    private enum DrawerStates
+    public enum DrawerStates
     {
         LOCKED,
         CLOSED,
         OPEN
     }
 
-    private DrawerStates currentState = DrawerStates.LOCKED;
+    public DrawerStates currentState = DrawerStates.LOCKED;
 
     [Header("Movement Settings")]
     [SerializeField] private float openZ = 0.3f;
     [SerializeField] private float moveDuration = 0.5f;
     [SerializeField] private float jiggleZ = 0.009f;
     [SerializeField] private float jiggleDuration = 0.05f;
-    [SerializeField] private GameObject toy;
-    [SerializeField] private GameObject musicBox;
 
     [Header("Sounds")]
     public AudioClip[] sounds;
@@ -37,7 +35,7 @@ public class Drawer : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        currentState = DrawerStates.LOCKED;
+        //currentState = DrawerStates.LOCKED;
         closedPos = transform.localPosition;
         openPos = closedPos + new Vector3(0, 0, openZ);
         audioSource = gameObject.GetComponent<AudioSource>();
@@ -73,7 +71,7 @@ public class Drawer : MonoBehaviour
             .setEase(LeanTweenType.easeOutCubic);
        
         onOpeningDrawer?.Invoke();
-        gameObject.GetComponent<BoxCollider>().enabled = false;
+       // gameObject.GetComponent<BoxCollider>().enabled = false;
 
         
     }
@@ -104,8 +102,8 @@ public class Drawer : MonoBehaviour
             case DrawerStates.OPEN:
                 Debug.Log("Drawer is open");
                 //animator.SetTrigger("Close");
-                //CloseDrawer();
-                //currentState = DrawerStates.CLOSED;
+                CloseDrawer();
+                currentState = DrawerStates.CLOSED;
                 break;
         }
     }
