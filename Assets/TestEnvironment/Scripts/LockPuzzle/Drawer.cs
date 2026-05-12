@@ -46,6 +46,7 @@ public class Drawer : MonoBehaviour
     public void UnlockDrawer()
     {
         currentState = DrawerStates.CLOSED;
+        Invoke(nameof(OpenDrawer), 0.1f);
     }
 
     private void TryToOpenDrawer()
@@ -67,6 +68,7 @@ public class Drawer : MonoBehaviour
         //toy.SetActive(true);
         //musicBox.SetActive(true);
         audioSource.PlayOneShot(sounds[1]);
+        currentState = DrawerStates.OPEN;
         LeanTween.moveLocal(gameObject, openPos, moveDuration)
             .setEase(LeanTweenType.easeOutCubic);
        
