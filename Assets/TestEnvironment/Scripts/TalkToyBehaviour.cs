@@ -93,15 +93,15 @@ public class TalkToyBehaviour : MonoBehaviour
     public void DetectCarry()
     {
         isCarried = true;
-        rb.useGravity = true;
-        rb.isKinematic = false;
+        //rb.useGravity = true;
+        //rb.isKinematic = false;
     }
     
     public void StopCarry()
     {
         isCarried = false;
-        rb.useGravity = true;
-        rb.isKinematic = false;
+       // rb.useGravity = true;
+       // rb.isKinematic = false;
     }
     private void OnCollisionEnter(Collision collision)
     {
