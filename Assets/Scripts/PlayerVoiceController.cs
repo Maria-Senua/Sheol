@@ -14,6 +14,7 @@ public class PlayerVoiceController : MonoBehaviour
 
     private void PlayVoice(AudioClip clip)
     {
+        if (playerVoice.isPlaying) playerVoice.Stop();
         playerVoice.PlayOneShot(clip);
     }
 
@@ -47,14 +48,29 @@ public class PlayerVoiceController : MonoBehaviour
          StartCoroutine(PlayVoiceSequence(5, 6, true));
      }
 
+     public void SecondHerbariumComment()
+     {
+         StartCoroutine(PlayVoiceSequence(9, 8, true)); //check
+     }
+
+     public void DaisyComment()
+     {
+         PlayVoice(voiceList[9]);
+     }
+
      public void LockedDrawerComment()
      {
-         PlayVoice(voiceList[14]);
+         PlayVoice(voiceList[11]);
      }
 
      public void UnlockedDrawerComment()
      {
-         PlayVoice(voiceList[15]);
+         PlayVoice(voiceList[12]);
+     }
+
+     public void ReadPoem()
+     {
+         PlayVoice(voiceList[10]);
      }
 
      private IEnumerator PlayVoiceSequence(int firstClip, int secondClip, bool saySecond)

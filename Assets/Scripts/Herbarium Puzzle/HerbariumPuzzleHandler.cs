@@ -2,6 +2,7 @@ using System;
 using Unity.Entities;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 public class HerbariumPuzzleHandler : MonoBehaviour
 {
    [SerializeField, TextArea] private string debugString;
@@ -24,6 +25,10 @@ public class HerbariumPuzzleHandler : MonoBehaviour
    private int pressCount = 0;
    [SerializeField] private Animator animator;
    [SerializeField] private GameObject herbariumBook;
+
+   public UnityEvent onHerbariumSolved;
+   public UnityEvent onDaisyAttached;
+   public UnityEvent onIncompletedPuzzle;
    
    [Header("Detection")]
    [SerializeField] private RectTransform uiElement;
@@ -78,6 +83,7 @@ public class HerbariumPuzzleHandler : MonoBehaviour
    private void OpenHeft()
    {
       animator.Play("Opened");
+      onHerbariumSolved?.Invoke();
    }
    
    bool IsUIOverlappingCollider(RectTransform uiRect, CapsuleCollider collider)
@@ -101,6 +107,15 @@ public class HerbariumPuzzleHandler : MonoBehaviour
       {
          other.gameObject.SetActive(false);
          buttonThree.gameObject.SetActive(true);
+         if (AreButtonsInCorrectOrder())
+         {
+            onDaisyAttached?.Invoke();
+         }
+         else
+         {
+            onIncompletedPuzzle?.Invoke();
+         }
+         
       }
    }
 

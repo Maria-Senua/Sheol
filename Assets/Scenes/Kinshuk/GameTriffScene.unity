@@ -12106,6 +12106,51 @@ MonoBehaviour:
   - {fileID: 0}
   animator: {fileID: 3407009432866176671}
   herbariumBook: {fileID: 5352186473531072435}
+  onHerbariumSolved:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3477379255832787876}
+        m_TargetAssemblyTypeName: PlayerVoiceController, Assembly-CSharp
+        m_MethodName: ReadPoem
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onDaisyAttached:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3477379255832787876}
+        m_TargetAssemblyTypeName: PlayerVoiceController, Assembly-CSharp
+        m_MethodName: DaisyComment
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onIncompletedPuzzle:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3477379255832787876}
+        m_TargetAssemblyTypeName: PlayerVoiceController, Assembly-CSharp
+        m_MethodName: SecondHerbariumComment
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   uiElement: {fileID: 7272294310946980825}
 --- !u!65 &5699054216393670130
 BoxCollider:
