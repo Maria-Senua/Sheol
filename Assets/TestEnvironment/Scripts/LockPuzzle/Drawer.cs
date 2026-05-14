@@ -27,6 +27,7 @@ public class Drawer : MonoBehaviour
 
     // [Header("Events")]
    public UnityEvent onOpeningDrawer;
+   public UnityEvent onPullingLockedDrawer;
     // public UnityEvent onClosingDrawer;
 
 
@@ -53,7 +54,7 @@ public class Drawer : MonoBehaviour
     {
         Vector3 jigglePos = closedPos + new Vector3(0, 0, jiggleZ);
         audioSource.PlayOneShot(sounds[0]);
-
+        onPullingLockedDrawer?.Invoke();
         LeanTween.moveLocal(gameObject, jigglePos, jiggleDuration)
             .setEase(LeanTweenType.easeOutQuad)
             .setOnComplete(() =>

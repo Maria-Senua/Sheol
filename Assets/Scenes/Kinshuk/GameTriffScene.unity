@@ -7972,6 +7972,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+  onPullingLockedDrawer:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3477379255832787876}
+        m_TargetAssemblyTypeName: PlayerVoiceController, Assembly-CSharp
+        m_MethodName: LockedDrawerComment
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!82 &1303733701
 AudioSource:
   m_ObjectHideFlags: 0
@@ -10092,6 +10107,9 @@ MonoBehaviour:
   onOpeningDrawer:
     m_PersistentCalls:
       m_Calls: []
+  onPullingLockedDrawer:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!82 &1975996122
 AudioSource:
   m_ObjectHideFlags: 0
@@ -10456,6 +10474,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: c28732c6c51a74faba219024ab270d39, type: 3}
   - {fileID: 8300000, guid: 12a28f84094ec4bab96e0a475f26caa6, type: 3}
   onOpeningDrawer:
+    m_PersistentCalls:
+      m_Calls: []
+  onPullingLockedDrawer:
     m_PersistentCalls:
       m_Calls: []
 --- !u!82 &2040154207
@@ -11059,6 +11080,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1303733700}
         m_TargetAssemblyTypeName: Drawer, Assembly-CSharp
         m_MethodName: UnlockDrawer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3477379255832787876}
+        m_TargetAssemblyTypeName: PlayerVoiceController, Assembly-CSharp
+        m_MethodName: UnlockedDrawerComment
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

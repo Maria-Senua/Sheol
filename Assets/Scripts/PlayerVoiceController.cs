@@ -29,7 +29,7 @@ public class PlayerVoiceController : MonoBehaviour
     
     public void CommentOnBucket()
     {
-        PlayVoice(voiceList[2]);
+        StartCoroutine(PlayVoiceSequence(2, 7, true));
     }
     
      public void CommentOnFlowerPot()
@@ -47,11 +47,20 @@ public class PlayerVoiceController : MonoBehaviour
          StartCoroutine(PlayVoiceSequence(5, 6, true));
      }
 
+     public void LockedDrawerComment()
+     {
+         PlayVoice(voiceList[14]);
+     }
+
+     public void UnlockedDrawerComment()
+     {
+         PlayVoice(voiceList[15]);
+     }
+
      private IEnumerator PlayVoiceSequence(int firstClip, int secondClip, bool saySecond)
      {
          PlayVoice(voiceList[firstClip]);
 
-         // Wait until the first clip finishes
          yield return new WaitForSeconds(voiceList[firstClip].length);
 
          if (saySecond) PlayVoice(voiceList[secondClip]);
