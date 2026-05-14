@@ -1,26 +1,15 @@
 using System;
+using System.Collections;
 using UnityEngine;
 
 public class PlayerVoiceController : MonoBehaviour
 {
     [SerializeField] private AudioClip[] voiceList;
     [SerializeField] private AudioSource playerVoice;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
+    
     private void Awake()
     {
         CommentOnStart();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     private void PlayVoice(AudioClip clip)
@@ -51,5 +40,21 @@ public class PlayerVoiceController : MonoBehaviour
      public void CommentOnStart() 
      {
          PlayVoice(voiceList[4]);
-     } 
+     }
+
+     public void FirstHerbariumComment()
+     {
+         StartCoroutine(PlayVoiceSequence(5, 6, true));
+     }
+
+     private IEnumerator PlayVoiceSequence(int firstClip, int secondClip, bool saySecond)
+     {
+         PlayVoice(voiceList[firstClip]);
+
+         // Wait until the first clip finishes
+         yield return new WaitForSeconds(voiceList[firstClip].length);
+
+         if (saySecond) PlayVoice(voiceList[secondClip]);
+     }
+    
 }
