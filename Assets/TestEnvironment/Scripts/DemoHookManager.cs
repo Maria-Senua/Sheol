@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using System.Collections;
 
@@ -12,13 +13,20 @@ public class DemoHookManager : MonoBehaviour
     // [SerializeField] private Material weirdSkyboxMat;
     [SerializeField] private GameObject underwaterVolume;
 
-    private IEnumerator HookRoutine()
+    private AudioSource audioSource;
+
+    private void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
+    private IEnumerator HookRoutine(AudioClip clip)
     {
         //glitchScreen.SetActive(true);
         //safeGrid.SetActive(true);
         yield return new WaitForSeconds(0.01f);
         bubbles.SetActive(true);
-        
+        audioSource.PlayOneShot(clip);
         underwaterVolume.SetActive(true);
         environmentSoundHolder.SetActive(false);
         //RenderSettings.skybox = weirdSkyboxMat;
@@ -53,9 +61,9 @@ public class DemoHookManager : MonoBehaviour
         //glitchScreen.SetActive(false);
     }
 
-    public void HookPlayer()
+    public void HookPlayer(AudioClip clip)
     {
-        StartCoroutine(HookRoutine());
+        StartCoroutine(HookRoutine(clip));
     }
 
     public void UnhookPlayer()
@@ -63,15 +71,15 @@ public class DemoHookManager : MonoBehaviour
         StartCoroutine(UnhookRoutine());
     }
 
-    public void HookThenUnhook()
+    public void HookThenUnhook(AudioClip clip)
     {
-        StartCoroutine(HookThenUnhookRoutine());
+        StartCoroutine(HookThenUnhookRoutine(clip));
     }
 
-    private IEnumerator HookThenUnhookRoutine()
+    private IEnumerator HookThenUnhookRoutine(AudioClip clip)
     {
         yield return new WaitForSeconds(2f);
-        HookPlayer();
+        HookPlayer(clip);
         yield return new WaitForSeconds(5f);
         UnhookPlayer();
     }
