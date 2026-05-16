@@ -23,7 +23,7 @@ public class TimeManipulationHandler : MonoBehaviour
     [SerializeField] private GameObject bottomLimit;
     [SerializeField] private GameObject player;
     [SerializeField] private float animationSpeed = 1f;
-    private bool canManipulateTime = false; 
+    public bool canManipulateTime = false; 
     private bool isLocked = false;
     public Animator animation;
     private float previousY;
@@ -34,7 +34,7 @@ public class TimeManipulationHandler : MonoBehaviour
      private AudioSource audioSource;
     
     [Header("References")]
-    [SerializeField] private HandGrabInteractable handGrabInteractable;
+    [SerializeField] private InteractableGroupView handGrabGroup;
     [SerializeField] private GameObject fishBody;
     [SerializeField] private GameObject fishSkeleton;
     [SerializeField] private GameObject memoryOrb;
@@ -98,7 +98,7 @@ public class TimeManipulationHandler : MonoBehaviour
     {
         if(isLocked) return;
     
-        if (handGrabInteractable.State == InteractableState.Select)
+        if (handGrabGroup.State == InteractableState.Select)
         {
             canManipulateTime = true;
             if (fishBody != null) fishBody.SetActive(true);

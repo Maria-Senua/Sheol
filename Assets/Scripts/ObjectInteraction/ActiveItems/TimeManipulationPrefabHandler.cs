@@ -26,7 +26,7 @@ public class TimeManipulationPrefabHandler : MonoBehaviour
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private Sprite[] spriteSequence;
     //[SerializeField] private XRGrabInteractable xrGrabInteractable;
-    [SerializeField] private HandGrabInteractable handGrabInteractable;
+    [SerializeField] private InteractableGroupView handGrabGroup;
     private int currentSpriteIndex = 0;
 
     [Header("Input Actions")]
@@ -59,8 +59,8 @@ public class TimeManipulationPrefabHandler : MonoBehaviour
     {
         distance = Vector3.Distance(bottomLimit.transform.position, player.transform.position);
 
-        if (meshRenderer != null && handGrabInteractable.State == InteractableState.Select) ChangeMaterialBasedOnDistance();
-        if (spriteRenderer != null && handGrabInteractable.State == InteractableState.Select) UpdateSpriteBasedOnDistance();
+        if (meshRenderer != null && handGrabGroup.State == InteractableState.Select) ChangeMaterialBasedOnDistance();
+        if (spriteRenderer != null && handGrabGroup.State == InteractableState.Select) UpdateSpriteBasedOnDistance();
         
         Vector3 direction = player.transform.position - transform.position;
         Quaternion rotation = Quaternion.LookRotation(direction);
