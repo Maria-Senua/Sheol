@@ -1,13 +1,11 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Events;
-using UnityEngine.XR.Interaction.Toolkit.Interactables;
 using Oculus.Interaction;
-using Oculus.Interaction.HandGrab;
 
 public class TimeManipulationPrefabHandler : MonoBehaviour
 {
-[Header("Setup")]
+    [Header("Setup")]
     [SerializeField] private GameObject bottomLimit;
     [SerializeField] private GameObject player;
     [SerializeField] private float distanceThreshold = 1f;
@@ -20,12 +18,9 @@ public class TimeManipulationPrefabHandler : MonoBehaviour
     [SerializeField] private Material material;
     [SerializeField] private Material currentMaterial;
 
-    private bool isMaterial1Active = true;
-
     [Header("Sprite Setup")]
     [SerializeField] private SpriteRenderer spriteRenderer;
     [SerializeField] private Sprite[] spriteSequence;
-    //[SerializeField] private XRGrabInteractable xrGrabInteractable;
     [SerializeField] private InteractableGroupView handGrabGroup;
     private int currentSpriteIndex = 0;
 
@@ -37,14 +32,15 @@ public class TimeManipulationPrefabHandler : MonoBehaviour
     public UnityEvent onDiaryRead;
     public UnityEvent onPhotoRevealed;
 
+    // MISSING PIECE FIX: Flag to prevent duplicate scene-load invokes
+    private bool hasTriggered = false; 
+
     private void Awake()
     {
-        previousY = Vector3.Distance(bottomLimit.transform.position, player.transform.position);
-        //xrGrabInteractable = GetComponent<XRGrabInteractable>();
-        //if(xrGrabInteractable == null)
-        //{
-        //    xrGrabInteractable = GetComponentInChildren<XRGrabInteractable>();
-        //}
+        if (bottomLimit != null && player != null)
+        {
+            previousY = Vector3.Distance(bottomLimit.transform.position, player.transform.position);
+        }
         
         leftActivateAction.action.performed += ToggleMaterial;
         rightActivateAction.action.performed += ToggleMaterial;
@@ -57,34 +53,47 @@ public class TimeManipulationPrefabHandler : MonoBehaviour
 
     private void Update()
     {
-        distance = Vector3.Distance(bottomLimit.transform.position, player.transform.position);
+        if (bottomLimit == null || player == null || handGrabGroup == null) return;
 
-        if (meshRenderer != null && handGrabGroup.State == InteractableState.Select) ChangeMaterialBasedOnDistance();
-        if (spriteRenderer != null && handGrabGroup.State == InteractableState.Select) UpdateSpriteBasedOnDistance();
-        
         Vector3 direction = player.transform.position - transform.position;
         Quaternion rotation = Quaternion.LookRotation(direction);
         transform.rotation = rotation;
+
+        distance = Vector3.Distance(bottomLimit.transform.position, player.transform.position);
+
+        if (meshRenderer != null && handGrabGroup.State == InteractableState.Select) 
+        {
+            if (!hasTriggered) 
+            {
+                ChangeMaterialBasedOnDistance();
+            }
+        }
+        else
+        {
+            previousY = distance;
+        }
     }
 
     private void ChangeMaterialBasedOnDistance()
     {
         xy = Mathf.Abs(distance - previousY);
+        Debug.Log("Distance: " + distance + ", PreviousY: " + previousY + ", XY: " + xy);
         
         if (xy >= distanceThreshold)
         {
             if (meshRenderer != null && currentMaterial != null)
             {
                 meshRenderer.material = material;
-                //onDiaryRead?.Invoke();
-                Invoke("ReactToPhoto", 3f);
+                hasTriggered = true;
+                
+                Invoke(nameof(ReactToPhoto), 3f); 
             }
 
             previousY = distance;
         }
     }
 
-    void ReactToPhoto()
+    private void ReactToPhoto()
     {
         onPhotoRevealed?.Invoke();
     }
@@ -98,31 +107,6 @@ public class TimeManipulationPrefabHandler : MonoBehaviour
         }
     }
 
-    private void UpdateSpriteBasedOnDistance()
-    {
-        xy = Mathf.Abs(distance - previousY);
-
-        if (xy >= distanceThreshold && currentSpriteIndex < spriteSequence.Length - 1)
-        {
-            currentSpriteIndex++;
-            spriteRenderer.sprite = spriteSequence[currentSpriteIndex];
-
-            Debug.Log("Sprite changed to index: " + currentSpriteIndex);
-            if (currentSpriteIndex == spriteSequence.Length - 1) onPagerFinished?.Invoke();
-            previousY = distance;
-        }
-    }
-
-    private void ResetSpriteSequence(InputAction.CallbackContext context)
-    {
-        currentSpriteIndex = 0;
-        if (spriteRenderer != null && spriteSequence.Length > 0)
-        {
-            spriteRenderer.sprite = spriteSequence[0];
-            Debug.Log("Sprite sequence reset.");
-        }
-    }
-
     private void OnEnable()
     {
         leftActivateAction.action.Enable();
@@ -133,5 +117,8 @@ public class TimeManipulationPrefabHandler : MonoBehaviour
     {
         leftActivateAction.action.Disable();
         rightActivateAction.action.Disable();
+
+        leftActivateAction.action.performed -= ToggleMaterial;
+        rightActivateAction.action.performed -= ToggleMaterial;
     }
 }
