@@ -145,7 +145,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 61587401}
   m_LocalRotation: {x: 0.46252248, y: 0, z: 0, w: 0.8866076}
-  m_LocalPosition: {x: 0, y: 0, z: 42.1}
+  m_LocalPosition: {x: 0, y: 0, z: 92.9}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -154,8 +154,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 55.1, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 71.4, y: 19.2}
-  m_SizeDelta: {x: 277.49, y: 247.8}
+  m_AnchoredPosition: {x: 73.9, y: 19.2}
+  m_SizeDelta: {x: 484.2, y: 371.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &61587403
 MonoBehaviour:
@@ -1224,7 +1224,15 @@ MonoBehaviour:
     Do NOT jump from the
     stairs.
 
-    Press New Game button to start.'
+    Some objects need to be moved along the staircase to proceed.
+
+
+    WARNING:
+    if you have fear of heights, press the Exit button.
+
+
+    Press the New Game
+    button to start.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5d3ff184bf500f74e860582dd3d51a64, type: 2}
   m_sharedMaterial: {fileID: -6853828732353271078, guid: 5d3ff184bf500f74e860582dd3d51a64, type: 2}
@@ -1289,7 +1297,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -124.616844, w: -130.30814}
+  m_margin: {x: 14.093155, y: 0, z: -208.71138, w: -193.07697}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
