@@ -2272,23 +2272,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7148326777061179503, guid: 3c796a3c245b6cb41a04ec359e4bd0eb, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.85858
+      value: 1.5765674
       objectReference: {fileID: 0}
     - target: {fileID: 7148326777061179503, guid: 3c796a3c245b6cb41a04ec359e4bd0eb, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.85858
+      value: 1.5765674
       objectReference: {fileID: 0}
     - target: {fileID: 7148326777061179503, guid: 3c796a3c245b6cb41a04ec359e4bd0eb, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.85858
+      value: 1.5765674
       objectReference: {fileID: 0}
     - target: {fileID: 7148326777061179503, guid: 3c796a3c245b6cb41a04ec359e4bd0eb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.6596
+      value: -0.695
       objectReference: {fileID: 0}
     - target: {fileID: 7148326777061179503, guid: 3c796a3c245b6cb41a04ec359e4bd0eb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.0869
+      value: 1.097
       objectReference: {fileID: 0}
     - target: {fileID: 7148326777061179503, guid: 3c796a3c245b6cb41a04ec359e4bd0eb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2538,7 +2538,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1464721f2283eb14e94a33e812b47be4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _interactableView: {fileID: 0}
+  _interactableView: {fileID: 1392957484}
   _whenHover:
     m_PersistentCalls:
       m_Calls: []
@@ -39546,6 +39546,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Books (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 3432383986391814704, guid: 5fbbb350580e54a428cb4ddbc42369ff, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5552732815711203040, guid: 5fbbb350580e54a428cb4ddbc42369ff, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -43580,7 +43584,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!23 &3117351913985015552
 MeshRenderer:
   m_ObjectHideFlags: 0
